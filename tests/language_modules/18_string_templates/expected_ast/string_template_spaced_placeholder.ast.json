@@ -1,0 +1,67 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "node": "StringExpr",
+            "value": "Ada"
+          },
+          "name": "name",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "String",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "StringExpr",
+                "value": "hello ${ }"
+              },
+              {
+                "name": "name",
+                "node": "VarExpr"
+              }
+            ],
+            "name": "String.template",
+            "node": "CallExpr"
+          },
+          "name": "message",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "String",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "message",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "StringExpr",
+              "value": "hello Ada"
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "StringTemplateSpacedPlaceholder",
+  "node": "Program"
+}

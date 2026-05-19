@@ -333,6 +333,32 @@ STRING_ARGUMENT_TYPE_HINT = """String built-in arguments must match the expected
 Check the String function signature and pass String or Integer values as required.
 """
 
+TEMPLATE_ARGUMENT_COUNT_HINT = """A string template must provide exactly one value for each `${}` placeholder.
+
+Examples:
+    String.template("id=${}", id)
+    Std.IO.logf("id=${}, active=${}", id, active)
+"""
+
+TEMPLATE_PLACEHOLDER_HINT = """VeraFlow string templates use `${}` placeholders.
+
+Use `${}` or `${ }` for positional values. The older `{}` form is intentionally not accepted.
+"""
+
+TEMPLATE_NAMED_TODO_HINT = """Named templates are planned but not implemented yet.
+
+TODO: support `${name}` and bind it to in-scope values in a later String Templates module expansion.
+
+For now, pass positional values:
+    String.template("name=${}", name)
+"""
+
+TEMPLATE_VALUE_TYPE_HINT = """String template values must be scalar display values.
+
+Supported value types:
+    String, Integer, Boolean, Double
+"""
+
 MATH_ARGUMENT_COUNT_HINT = """A Math built-in call must pass exactly the arguments required by that function.
 
 Examples:
@@ -812,6 +838,31 @@ def diagnose_exception(source: str, exc: Exception) -> Diagnostic:
         line, column = _source_position_from_message(message)
         function_name, argument_index, expected_type, found_type = string_arg_type_match.groups()
         return Diagnostic("VF-S002", "String argument type mismatch", line, column, found_type, f"argument {argument_index} as {expected_type} for {function_name}", STRING_ARGUMENT_TYPE_HINT, phase="semantic")
+    template_count_match = re.search(r"(String\.template|Std\.IO\.logf) placeholder count mismatch: expected (\d+), got (\d+)", message)
+    if template_count_match:
+        line, column = _source_position_from_message(message)
+        function_name, expected_count, found_count = template_count_match.groups()
+        return Diagnostic("VF-TPL001", "string template placeholder count mismatch", line, column, found_count, f"{expected_count} template value(s) for {function_name}", TEMPLATE_ARGUMENT_COUNT_HINT, phase="semantic")
+    template_old_placeholder_match = re.search(r"(String\.template|Std\.IO\.logf) template placeholder must use \$\{\} instead of \{\}", message)
+    if template_old_placeholder_match:
+        line, column = _source_position_from_message(message)
+        function_name = template_old_placeholder_match.group(1)
+        return Diagnostic("VF-TPL002", "old template placeholder rejected", line, column, "{}", f"${{}} placeholder for {function_name}", TEMPLATE_PLACEHOLDER_HINT, phase="semantic")
+    template_named_match = re.search(r"(String\.template|Std\.IO\.logf) named templates are TODO: (\$\{[^}]+\})", message)
+    if template_named_match:
+        line, column = _source_position_from_message(message)
+        function_name, placeholder = template_named_match.groups()
+        return Diagnostic("VF-TPL003", "named string templates are TODO", line, column, placeholder, f"positional ${{}} placeholder for {function_name}", TEMPLATE_NAMED_TODO_HINT, phase="semantic")
+    template_brace_match = re.search(r"(String\.template|Std\.IO\.logf) invalid template brace: ([{}])", message)
+    if template_brace_match:
+        line, column = _source_position_from_message(message)
+        function_name, brace = template_brace_match.groups()
+        return Diagnostic("VF-TPL004", "invalid string template brace", line, column, brace, f"${{}} placeholder for {function_name}", TEMPLATE_PLACEHOLDER_HINT, phase="semantic")
+    template_value_type_match = re.search(r"(String\.template|Std\.IO\.logf) template value (\d+) expected String, Integer, Boolean, or Double, got (.+)", message)
+    if template_value_type_match:
+        line, column = _source_position_from_message(message)
+        function_name, argument_index, found_type = template_value_type_match.groups()
+        return Diagnostic("VF-TPL005", "string template value type mismatch", line, column, found_type, f"scalar template value {argument_index} for {function_name}", TEMPLATE_VALUE_TYPE_HINT, phase="semantic")
     math_arg_count_match = re.search(r"(Math\.[A-Za-z_][A-Za-z0-9_]*) expects (\d+) arguments", message)
     if math_arg_count_match:
         line, column = _source_position_from_message(message)

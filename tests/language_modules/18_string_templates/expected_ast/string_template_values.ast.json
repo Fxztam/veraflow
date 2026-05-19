@@ -1,0 +1,63 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "StringExpr",
+                "value": "id=${}, active=${}, rate=${}"
+              },
+              {
+                "node": "NumberExpr",
+                "value": 7
+              },
+              {
+                "node": "BoolExpr",
+                "value": true
+              },
+              {
+                "node": "DoubleExpr",
+                "value": 2.5
+              }
+            ],
+            "name": "String.template",
+            "node": "CallExpr"
+          },
+          "name": "message",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "String",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "message",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "StringExpr",
+              "value": "id=7, active=true, rate=2.5"
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "StringTemplateValues",
+  "node": "Program"
+}

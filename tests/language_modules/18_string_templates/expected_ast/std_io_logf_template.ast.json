@@ -1,0 +1,40 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "args": [
+            {
+              "node": "StringExpr",
+              "value": "value=${}"
+            },
+            {
+              "node": "NumberExpr",
+              "value": 3
+            }
+          ],
+          "name": "Std.IO.logf",
+          "node": "CallStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [
+    {
+      "exposing": [
+        "logf"
+      ],
+      "module_name": "Std.IO",
+      "node": "ImportDecl"
+    }
+  ],
+  "module_name": "StdIoLogfTemplate",
+  "node": "Program"
+}

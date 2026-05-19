@@ -1,6 +1,7 @@
 from __future__ import annotations
 import math
 from veraflow.core.ast import *
+from veraflow.core.string_templates import render_template
 from veraflow.core.verifier import VerifiedProgram
 from veraflow.runtime import std_io
 
@@ -144,6 +145,8 @@ class Interpreter:
             if e.name == "String.instr":
                 s, needle = args
                 return s.find(needle)
+            if e.name == "String.template":
+                return render_template(args[0], args[1:])
             if e.name == "Math.sin":
                 return math.sin(args[0])
             if e.name == "Math.cos":

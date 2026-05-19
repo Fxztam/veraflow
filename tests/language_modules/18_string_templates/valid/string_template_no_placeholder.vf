@@ -1,0 +1,9 @@
+module StringTemplateNoPlaceholder
+
+procedure main()
+is
+    let message: String = String.template("ready")
+    check message = "ready"
+end main
+
+end StringTemplateNoPlaceholder

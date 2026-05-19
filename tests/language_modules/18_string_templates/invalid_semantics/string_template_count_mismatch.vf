@@ -1,0 +1,9 @@
+module StringTemplateCountMismatch
+
+procedure main()
+is
+    let message: String = String.template("id=${}, active=${}", 7)
+    check message = "id=7, active=true"
+end main
+
+end StringTemplateCountMismatch

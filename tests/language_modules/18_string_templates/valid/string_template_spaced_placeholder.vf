@@ -1,0 +1,10 @@
+module StringTemplateSpacedPlaceholder
+
+procedure main()
+is
+    let name: String = "Ada"
+    let message: String = String.template("hello ${ }", name)
+    check message = "hello Ada"
+end main
+
+end StringTemplateSpacedPlaceholder

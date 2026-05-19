@@ -14,7 +14,7 @@ is
 
     epsilon := epsilon * 2.0
 
-    call Std.IO.logf("epsilon = {}", epsilon)
+    call Std.IO.logf("epsilon = ${}", epsilon)
 end main
 
 end EpsilonDemo

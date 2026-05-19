@@ -22,8 +22,8 @@ is
 
     call Std.IO.log("=== VeraFlow Std.IO Demo ===")
     call Std.IO.log(message)
-    call Std.IO.logf("customer id = {}", c.id)
-    call Std.IO.logf("value = {}", total)
+    call Std.IO.logf("customer id = ${}", c.id)
+    call Std.IO.logf("value = ${}", total)
 
     let epsilon: Double = 1.0
 
@@ -35,7 +35,7 @@ is
 
     epsilon := epsilon * 2.0
 
-    call Std.IO.logf("epsilon = {}", epsilon)
+    call Std.IO.logf("epsilon = ${}", epsilon)
 
 end main
 

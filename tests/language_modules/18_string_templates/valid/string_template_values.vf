@@ -1,0 +1,9 @@
+module StringTemplateValues
+
+procedure main()
+is
+    let message: String = String.template("id=${}, active=${}, rate=${}", 7, true, 2.5)
+    check message = "id=7, active=true, rate=2.5"
+end main
+
+end StringTemplateValues

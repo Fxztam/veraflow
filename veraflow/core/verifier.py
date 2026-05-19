@@ -2,6 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import json
 from veraflow.core.ast import *
+from veraflow.core.string_templates import validate_template
 
 RESERVED_NAMES = {
     "Array", "Boolean", "Double", "Integer", "Result", "String",
@@ -118,6 +119,11 @@ class Verifier:
             t = infer_arg(i)
             if self.base(t, ctx) != base:
                 raise TypeCheckError(f"{args[i].pos.text()}: {name} argument {i+1} expected {base}, got {type_to_string(t)}")
+        def expect_template_values(start):
+            for index in range(start, len(args)):
+                t = infer_arg(index)
+                if self.base(t, ctx) not in ("String", "Integer", "Boolean", "Double"):
+                    raise TypeCheckError(f"{args[index].pos.text()}: {name} template value {index} expected String, Integer, Boolean, or Double, got {type_to_string(t)}")
         if name == "Std.IO.log":
             expect_count(1)
             t = infer_arg(0)
@@ -125,11 +131,15 @@ class Verifier:
                 raise TypeCheckError(f"{args[0].pos.text()}: Std.IO.log supports String, Integer, Boolean, Double")
             return True
         if name == "Std.IO.logf":
-            expect_count(2)
+            if len(args) < 1:
+                raise TypeCheckError(f"{pos.text()}: Std.IO.logf expects at least 1 argument")
             expect_base(0, "String")
-            t = infer_arg(1)
-            if self.base(t, ctx) not in ("String", "Integer", "Boolean", "Double"):
-                raise TypeCheckError(f"{args[1].pos.text()}: Std.IO.logf value supports String, Integer, Boolean, Double")
+            expect_template_values(1)
+            if isinstance(args[0], StringExpr):
+                try:
+                    validate_template(args[0].value, len(args) - 1)
+                except ValueError as exc:
+                    raise TypeCheckError(f"{args[0].pos.text()}: Std.IO.logf {exc}") from exc
             return True
         if name == "Std.IO.log_int":
             expect_count(1); expect_base(0, "Integer"); return True
@@ -306,6 +316,20 @@ class Verifier:
                 raise TypeCheckError(f"{e.pos.text()}: String.instr expects 2 arguments")
             expect_arg(0, "String"); expect_arg(1, "String")
             return TypeName("Integer")
+        if e.name == "String.template":
+            if len(e.args) < 1:
+                raise TypeCheckError(f"{e.pos.text()}: String.template expects at least 1 argument")
+            expect_arg(0, "String")
+            for index in range(1, len(e.args)):
+                t = infer_arg(index)
+                if self.base(t, ctx) not in ("String", "Integer", "Boolean", "Double"):
+                    raise TypeCheckError(f"{e.args[index].pos.text()}: String.template template value {index} expected String, Integer, Boolean, or Double, got {type_to_string(t)}")
+            if isinstance(e.args[0], StringExpr):
+                try:
+                    validate_template(e.args[0].value, len(e.args) - 1)
+                except ValueError as exc:
+                    raise TypeCheckError(f"{e.args[0].pos.text()}: String.template {exc}") from exc
+            return TypeName("String")
         if e.name in {"Math.sin", "Math.cos", "Math.tan", "Math.sqrt"}:
             if len(e.args) != 1:
                 raise TypeCheckError(f"{e.pos.text()}: {e.name} expects 1 arguments")

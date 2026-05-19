@@ -1,0 +1,10 @@
+module StdIoLogfTemplate
+
+import Std.IO exposing logf
+
+procedure main()
+is
+    call Std.IO.logf("value=${}", 3)
+end main
+
+end StdIoLogfTemplate

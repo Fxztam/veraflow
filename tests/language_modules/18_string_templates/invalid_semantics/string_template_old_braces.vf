@@ -1,0 +1,9 @@
+module StringTemplateOldBraces
+
+procedure main()
+is
+    let message: String = String.template("id={}", 7)
+    check message = "id=7"
+end main
+
+end StringTemplateOldBraces

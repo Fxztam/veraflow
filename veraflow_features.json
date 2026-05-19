@@ -31,9 +31,13 @@
       "String.concat",
       "String.substr",
       "String.replace",
-      "String.instr"
+      "String.instr",
+      "String.template"
     ],
     "string_indices_are_zero_based": true,
+    "string_templates": true,
+    "string_template_placeholder": "${}",
+    "string_template_named_todo": "${name}",
     "standard_library_foundation": true,
     "std_io_bindings": [
       "Std.IO.log",
@@ -62,6 +66,7 @@
     "case_stmt",
     "comments",
     "strings",
+    "string_templates",
     "std_io",
     "math"
   ]

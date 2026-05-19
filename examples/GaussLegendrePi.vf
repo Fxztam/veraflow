@@ -1,0 +1,48 @@
+module examples.GaussLegendrePi
+
+import Std.IO exposing logf
+import Math exposing sqrt, pow, abs
+
+function compute_pi(max_iter: Integer, eps: Double) returns Double
+is
+    let a: Double = 1.0
+    let b: Double = 1.0 / Math.sqrt(2.0)
+    let t: Double = 0.25
+    let p: Double = 1.0
+    let pi: Double = 0.0
+    let i: Integer = 0
+
+    while i < max_iter
+        invariant i >= 0
+        invariant i <= max_iter
+        invariant eps > 0.0
+        variant max_iter - i
+    do
+        let a_next: Double = (a + b) / 2.0
+        let b_next: Double = Math.sqrt(a * b)
+        let t_next: Double = t - p * Math.pow(a - a_next, 2.0)
+        let p_next: Double = 2.0 * p
+        let pi_new: Double = Math.pow(a_next + b_next, 2.0) / (4.0 * t_next)
+
+        if Math.abs(pi_new - pi) < eps then
+            return pi_new
+        end if
+
+        a := a_next
+        b := b_next
+        t := t_next
+        p := p_next
+        pi := pi_new
+        i := i + 1
+    end while
+
+    return pi
+end compute_pi
+
+procedure main()
+is
+    let pi: Double = compute_pi(20, 0.000000000000001)
+    call Std.IO.logf("Pi ~ ${}", pi)
+end main
+
+end examples.GaussLegendrePi
