@@ -1,4 +1,4 @@
-module StdIoConsoleDemo
+module examples.std_io_console_demo
 
 import Std.IO exposing log, logf
 
@@ -39,4 +39,4 @@ is
 
 end main
 
-end StdIoConsoleDemo
+end examples.std_io_console_demo

@@ -1,4 +1,4 @@
-module HelloCli
+module examples.hello_cli
 
 procedure main()
 is
@@ -6,4 +6,4 @@ is
     check s = "Hello VeraFlow CLI"
 end main
 
-end HelloCli
+end examples.hello_cli

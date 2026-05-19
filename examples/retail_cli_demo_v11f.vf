@@ -1,6 +1,4 @@
-module Retail.CliDemo
-
-import Retail.Proofs exposing total_non_negative
+module examples.retail_cli_demo_v11f
 
 type Money is Integer range 0 .. 1000000
 
@@ -36,4 +34,4 @@ is
     check fee = 7
 end main
 
-end Retail.CliDemo
+end examples.retail_cli_demo_v11f

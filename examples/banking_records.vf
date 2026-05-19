@@ -1,4 +1,4 @@
-module Banking.Demo
+module examples.banking_records
 
 type Address is record
     city_id: Integer
@@ -24,4 +24,4 @@ is
     check c.id = 1001
     check c.address.city_id = 42
 end main
-end Banking.Demo
+end examples.banking_records

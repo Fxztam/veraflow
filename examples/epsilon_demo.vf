@@ -1,4 +1,4 @@
-module EpsilonDemo
+module examples.epsilon_demo
 
 import Std.IO exposing logf
 
@@ -17,4 +17,4 @@ is
     call Std.IO.logf("epsilon = ${}", epsilon)
 end main
 
-end EpsilonDemo
+end examples.epsilon_demo
