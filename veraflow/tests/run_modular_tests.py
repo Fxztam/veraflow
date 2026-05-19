@@ -5,6 +5,8 @@ from veraflow.core.log import configure_logger, logf
 from veraflow.core.parser import parse_source
 from veraflow.core.verifier import verify_program
 from veraflow.core.interpreter import Interpreter
+from veraflow.core.ast import SourcePos
+from veraflow.runtime import big as std_big
 from veraflow.tests.regression_cases import REGRESSION_TESTS
 from veraflow.tests.v11a_assignment_tests import V11A_ASSIGNMENT_TESTS
 from veraflow.tests.v11b_import_tests import V11B_IMPORT_TESTS
@@ -207,6 +209,15 @@ end RuntimeVerifierNegative
     if not failed:
         raise AssertionError("runtime should have rejected violated ensures")
 
+def run_bigfloat_precision_smoke() -> None:
+    one = std_big.float_from_string("1", 256)
+    seven = std_big.float_from_string("7", 256)
+    quotient = std_big.div_float(one, seven, SourcePos())
+    text = std_big.format_float(quotient, 60)
+    expected = "0.142857142857142857142857142857142857142857142857142857142857"
+    if text != expected:
+        raise AssertionError(f"BigFloat precision regression: {text}")
+
 def property_addition_cases() -> list[tuple[str, str]]:
     cases = []
     for a, b in [(0,0), (1,2), (5,7), (10,-3), (-4,9), (100,23), (-8,-9), (42,58), (999,1), (17,25)]:
@@ -259,6 +270,7 @@ def meta_tests():
         ("recovery", "bad program followed by good program", run_recovery_smoke),
         ("runtime_vs_verifier", "positive consistency", run_runtime_vs_verifier_positive),
         ("runtime_vs_verifier", "negative ensures consistency", run_runtime_vs_verifier_negative),
+        ("big", "BigFloat precision context", run_bigfloat_precision_smoke),
     ]
     for name, src in property_addition_cases():
         items.append(("property", name, lambda s=src: run_source(s)))

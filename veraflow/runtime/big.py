@@ -86,24 +86,36 @@ def with_float(value: Decimal, precision_bits: int) -> BigFloatValue:
 
 def add_float(left: BigFloatValue, right: BigFloatValue) -> BigFloatValue:
     precision_bits = result_precision(left, right)
-    return with_float(left.value + right.value, precision_bits)
+    precision = decimal_precision(precision_bits)
+    with localcontext() as ctx:
+        ctx.prec = precision
+        return BigFloatValue(left.value + right.value, precision_bits)
 
 
 def sub_float(left: BigFloatValue, right: BigFloatValue) -> BigFloatValue:
     precision_bits = result_precision(left, right)
-    return with_float(left.value - right.value, precision_bits)
+    precision = decimal_precision(precision_bits)
+    with localcontext() as ctx:
+        ctx.prec = precision
+        return BigFloatValue(left.value - right.value, precision_bits)
 
 
 def mul_float(left: BigFloatValue, right: BigFloatValue) -> BigFloatValue:
     precision_bits = result_precision(left, right)
-    return with_float(left.value * right.value, precision_bits)
+    precision = decimal_precision(precision_bits)
+    with localcontext() as ctx:
+        ctx.prec = precision
+        return BigFloatValue(left.value * right.value, precision_bits)
 
 
 def div_float(left: BigFloatValue, right: BigFloatValue, pos: SourcePos) -> BigFloatValue:
     if right.value == 0:
         raise VerificationError(f"{pos.text()}: Big.divFloat division by zero")
     precision_bits = result_precision(left, right)
-    return with_float(left.value / right.value, precision_bits)
+    precision = decimal_precision(precision_bits)
+    with localcontext() as ctx:
+        ctx.prec = precision
+        return BigFloatValue(left.value / right.value, precision_bits)
 
 
 def sqrt(value: BigFloatValue, pos: SourcePos) -> BigFloatValue:
