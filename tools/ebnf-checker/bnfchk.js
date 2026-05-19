@@ -1,4 +1,4 @@
-﻿function htmlescape(s) {
+function htmlescape(s) {
 	return s.replaceAll("&", "&amp;")
 		.replaceAll("<", "&lt;")
 		.replaceAll(">", "&gt;");
@@ -9,7 +9,7 @@
  * Base class for a single BNF element.
  */
 class Node {
-	
+
 	/**
 	 * Returns this node formatted according to the parameters.
 	 * @param {bool} html  HTML if true, text if false.
@@ -25,18 +25,18 @@ class Node {
  * Rule name and its definition.
  */
 class RuleNode extends Node {
-	
+
 	name = ""; // name of the rule
 	expr = null; // its definition, Node
 	defined_in_line = -1;
 	used_in_line = [];
 	idx = -1; // number assigned, depending on the chosen ordering of the rules
-	
+
 	constructor(name) {
 		super();
 		this.name = name;
 	}
-	
+
 	format(html, with_idx) {
 		if( html ){
 			if( with_idx ){
@@ -58,14 +58,14 @@ class RuleNode extends Node {
  * String literal "abc".
  */
 class LiteralNode extends Node {
-	
+
 	s = null; // raw content of the literal without double-quotes and escaping
-	
+
 	constructor(s) {
 		super();
 		this.s = s;
 	}
-	
+
 	format(html, with_idx) {
 		var s = "\"";
 		for(var i = 0; i < this.s.length; i++){
@@ -110,14 +110,14 @@ class LiteralNode extends Node {
  * Optional node [EXPR].
  */
 class OptionalNode extends Node {
-	
+
 	expr = null; // Node
-	
+
 	constructor(expr) {
 		super();
 		this.expr = expr;
 	}
-	
+
 	format(html, with_idx) {
 		return "[ " + this.expr.format(html, with_idx) + " ]";
 	}
@@ -127,14 +127,14 @@ class OptionalNode extends Node {
  * Repetiton node {EXPR}.
  */
 class MultipleNode extends Node {
-	
+
 	expr = null; // Node
-	
+
 	constructor(expr) {
 		super();
 		this.expr = expr;
 	}
-	
+
 	format(html, with_idx) {
 		return "{ " + this.expr.format(html, with_idx) + " }";
 	}
@@ -144,16 +144,16 @@ class MultipleNode extends Node {
  * Characters range node "a".."z".
  */
 class RangeNode extends Node {
-	
+
 	a = null; // LiteralNode
 	b = null; // LiteralNode
-	
+
 	constructor(literal_a, literal_b) {
 		super();
 		this.a = literal_a;
 		this.b = literal_b;
 	}
-	
+
 	format(html, with_idx) {
 		return this.a.format(html, with_idx) + ".." + this.b.format(html, with_idx);
 	}
@@ -163,18 +163,18 @@ class RangeNode extends Node {
  * Sequence of 2+ nodes A B C.
  */
 class AndNode extends Node {
-	
+
 	nodes = [];  // Node[]
-	
+
 	constructor(first_node) {
 		super();
 		this.nodes[0] = first_node;
 	}
-	
+
 	add(node) {
 		this.nodes.push(node);
 	}
-	
+
 	format(html, with_idx) {
 		var s = "";
 		for(var i = 0; i < this.nodes.length; i++){
@@ -194,18 +194,18 @@ class AndNode extends Node {
  * Alternative 2+ nodes A|B|C.
  */
 class OrNode extends Node {
-	
+
 	nodes = [];  // Node[]
-	
+
 	constructor(first_node) {
 		super();
 		this.nodes[0] = first_node;
 	}
-	
+
 	add(node) {
 		this.nodes.push(node);
 	}
-	
+
 	format(html, with_idx) {
 		var s = this.nodes[0].format(html, with_idx);
 		for(var i = 1; i < this.nodes.length; i++){
@@ -219,7 +219,7 @@ class OrNode extends Node {
  * Source scanner that returns symbols.
  */
 class Scanner {
-	
+
 	// Symbols:
 	END() { return "end of the text"; }
 	NAME() { return "identifier"; }
@@ -234,14 +234,14 @@ class Scanner {
 	EQUAL() { return "="; }
 	ELLIPSIS() { return ".."; }
 	SEMICOLON() { return ";"; }
-	
+
 	report = ""; // collects error and diagnostic messages
 	src = ""; // source to scan
 	line_no = -1; // current line no., first line is 1
 	idx = 0;  // index to next char
 	c = "?";  // current char
 	sym = null; // current symbol
-	
+
 	constructor(src) {
 		this.src = src;
 		this.line_no = 1;
@@ -251,32 +251,32 @@ class Scanner {
 		this.nextChar();
 		this.nextSym();
 	}
-	
-	
+
+
 	in_line(n) {
 		if( this.line_no > 0 )
 			return " <a href='#' onclick='go_to_line(" + n + ");'>in line " + n + "</a>";
 		else
 			return "";
 	}
-	
-	
+
+
 	fatal(msg) {
 		this.report += "FATAL" + this.in_line(this.line_no) + ": " + htmlescape(msg) + "\n";
 		throw new Error("Parsing incomplete due to fatal error.");
 	}
-	
-	
+
+
 	error(msg) {
 		this.report += "ERROR" + this.in_line(this.line_no) + ": " + htmlescape(msg) + "\n";
 	}
-	
-	
+
+
 	warning(msg) {
 		this.report += "Warning" + this.in_line(this.line_no) + ": " + htmlescape(msg) + "\n";
 	}
-	
-	
+
+
 	nextChar() {
 		if( this.c === "\n" )
 			this.line_no++;
@@ -286,19 +286,19 @@ class Scanner {
 			this.c = this.src[this.idx++];
 		}
 	}
-	
+
 	isSpace(c) {
 		return c === " " || c === "\t" || c === "\r" || c === "\n";
 	}
-	
+
 	isLetter(c) {
 		return "a" <= c && c <= "z" || "A" <= c && c <= "Z";
 	}
-	
+
 	isDigit(c) {
 		return "0" <= c && c <= "9";
 	}
-	
+
 	decodeHex(c) {
 		if( this.c.length !== 1 )
 			return -1;
@@ -311,7 +311,7 @@ class Scanner {
 		else
 			return -1;
 	}
-	
+
 	nextSym() {
 		// Skip spaces and comments:
 		do {
@@ -337,7 +337,7 @@ class Scanner {
 			else
 				break;
 		} while(true);
-		
+
 		if( this.isLetter(this.c) || this.c === "_" ){
 			this.sym = this.NAME();
 			this.s = this.c;
@@ -352,7 +352,7 @@ class Scanner {
 			}
 			return;
 		}
-		
+
 		if( this.c === "\"" ){
 			this.sym = this.LITERAL();
 			this.s = "";
@@ -419,7 +419,7 @@ class Scanner {
 				this.error("empty literal string");
 			return;
 		}
-		
+
 		if( this.c === "." ){
 			this.sym = this.ELLIPSIS();
 			this.nextChar();
@@ -428,61 +428,61 @@ class Scanner {
 			this.nextChar();
 			return;
 		}
-		
+
 		if( this.c === "[" ){
 			this.sym = this.SQUARE_OPEN();
 			this.nextChar();
 			return;
 		}
-		
+
 		if( this.c === "]" ){
 			this.sym = this.SQUARE_CLOSE();
 			this.nextChar();
 			return;
 		}
-		
+
 		if( this.c === "{" ){
 			this.sym = this.CURLY_OPEN();
 			this.nextChar();
 			return;
 		}
-		
+
 		if( this.c === "}" ){
 			this.sym = this.CURLY_CLOSE();
 			this.nextChar();
 			return;
 		}
-		
+
 		if( this.c === "(" ){
 			this.sym = this.PAREN_OPEN();
 			this.nextChar();
 			return;
 		}
-		
+
 		if( this.c === ")" ){
 			this.sym = this.PAREN_CLOSE();
 			this.nextChar();
 			return;
 		}
-		
+
 		if( this.c === "=" ){
 			this.sym = this.EQUAL();
 			this.nextChar();
 			return;
 		}
-		
+
 		if( this.c === "|" ){
 			this.sym = this.PIPE();
 			this.nextChar();
 			return;
 		}
-		
+
 		if( this.c === ";" ){
 			this.sym = this.SEMICOLON();
 			this.nextChar();
 			return;
 		}
-		
+
 		// gracefully handle "<ID>":
 		if( this.c === "<" ){
 			this.error("angular brackets for identifiers '<' not required");
@@ -490,7 +490,7 @@ class Scanner {
 			this.nextSym();
 			return;
 		}
-		
+
 		// gracefully handle "<ID>":
 		if( this.c === ">" ){
 			this.error("angular brackets for identifiers '>' not required");
@@ -498,7 +498,7 @@ class Scanner {
 			this.nextSym();
 			return;
 		}
-		
+
 		// gracefully handle single-quoted strings:
 		if( this.c === "'" ){
 			this.error("literal strings require double-quotes '\"'");
@@ -512,12 +512,12 @@ class Scanner {
 			this.nextChar();
 			return;
 		}
-		
+
 		this.error("ignoring unexpected character '" + this.c + "'");
 		this.nextChar();
 		this.nextSym();
 	}
-	
+
 }
 
 /**
@@ -526,9 +526,9 @@ class Scanner {
  * Finally, the format() method returns the BNF formatted according to the arguments.
  */
 class Parser extends Scanner {
-	
+
 	rules = []; // parsed rules RuleNode[]
-	
+
 	/**
 	 * Parses the rules defined in the source text.
 	 * @param {string} src  BNF source to parse.
@@ -545,7 +545,7 @@ class Parser extends Scanner {
 			this.report+= error.message;
 			return;
 		}
-		
+
 		for(var i = 0; i < this.rules.length; i++){
 			var rule = this.rules[i];
 			if( rule.defined_in_line < 0 )
@@ -554,14 +554,14 @@ class Parser extends Scanner {
 				this.warning("rule '" + rule.name + "' defined in line " + rule.defined_in_line + ", NEVER USED");
 		}
 	}
-	
+
 	findRule(name) {
 		for(var i = 0; i < this.rules.length; i++)
 			if( this.rules[i].name === name )
 				return this.rules[i];
 		return null;
 	}
-	
+
 	parseRule() {
 		if( this.sym !== this.NAME() )
 			this.fatal("expected rule name but found: " + this.sym);
@@ -576,18 +576,18 @@ class Parser extends Scanner {
 			rule.defined_in_line = this.line_no;
 		}
 		this.nextSym();
-		
+
 		if( this.sym !== this.EQUAL() )
 			this.fatal("expected '=' but found: " + this.sym);
 		this.nextSym();
-		
+
 		rule.expr = this.parseExpr();
-		
+
 		if( this.sym !== this.SEMICOLON() )
 			this.fatal("expected ';' but found: " + this.sym);
 		this.nextSym();
 	}
-	
+
 	parseExpr() {
 		var expr = this.parseTerm();
 		if( this.sym === this.PIPE() ){
@@ -599,7 +599,7 @@ class Parser extends Scanner {
 		}
 		return expr;
 	}
-	
+
 	/**
 	 * Returns the length of the string as number of Unicode Codepoints.
 	 * Note that strings in JavaScript are encoded as UTF-16 units, so some
@@ -614,7 +614,7 @@ class Parser extends Scanner {
 		// not mere code units
 		return [...s].length;
 	}
-	
+
 	parseTerm() {
 		var f = this.parseFactor();
 		if( f === null )
@@ -629,7 +629,7 @@ class Parser extends Scanner {
 		}
 		return f;
 	}
-	
+
 	parseFactor() {
 		if( this.sym === this.NAME() ){
 			var rule = this.findRule(this.s);
@@ -641,7 +641,7 @@ class Parser extends Scanner {
 			this.nextSym();
 			return rule;
 		}
-		
+
 		if( this.sym === this.LITERAL() ){
 			var expr = new LiteralNode(this.s);
 			this.nextSym();
@@ -659,7 +659,7 @@ class Parser extends Scanner {
 			}
 			return expr;
 		}
-		
+
 		if( this.sym === this.PAREN_OPEN() ){
 			this.nextSym();
 			var expr = this.parseExpr();
@@ -668,7 +668,7 @@ class Parser extends Scanner {
 			this.nextSym();
 			return expr;
 		}
-		
+
 		if( this.sym === this.SQUARE_OPEN() ){
 			this.nextSym();
 			var expr = this.parseExpr();
@@ -677,7 +677,7 @@ class Parser extends Scanner {
 			this.nextSym();
 			return new OptionalNode(expr);
 		}
-		
+
 		if( this.sym === this.CURLY_OPEN() ){
 			this.nextSym();
 			var expr = this.parseExpr();
@@ -686,10 +686,10 @@ class Parser extends Scanner {
 			this.nextSym();
 			return new MultipleNode(expr);
 		}
-		
+
 		return null;
 	}
-	
+
 	/**
 	 * Returns the parsed BNF formatted according to the arguments.
 	 * @param {bool} sort  If true rules are sorted by their name, otherwise keeps ordering.
@@ -714,7 +714,7 @@ class Parser extends Scanner {
 				return a.defined_in_line - b.defined_in_line;
 			});
 		}
-		
+
 		// Enumerating the rules, but skip the undefined ones:
 		if( with_idx ){
 			var n = 1;
@@ -723,7 +723,7 @@ class Parser extends Scanner {
 					this.rules[i].idx = n++;
 			}
 		}
-		
+
 		// Generate list of defined rules:
 		var s = "";
 		for(var i = 0; i < this.rules.length; i++){
@@ -739,9 +739,8 @@ class Parser extends Scanner {
 			else
 				s += " ;\r\n";
 		}
-		
+
 		return s;
 	}
-	
-}
 
+}
