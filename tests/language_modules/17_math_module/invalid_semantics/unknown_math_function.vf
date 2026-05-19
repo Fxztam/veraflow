@@ -1,0 +1,9 @@
+module UnknownMathFunction
+
+procedure main()
+is
+    let result_value: Double = Math.log(10.0)
+    check result_value = 1.0
+end main
+
+end UnknownMathFunction

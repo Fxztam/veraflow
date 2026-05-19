@@ -1,0 +1,9 @@
+module MathArgumentCount
+
+procedure main()
+is
+    let result_value: Double = Math.pow(2.0)
+    check result_value = 2.0
+end main
+
+end MathArgumentCount

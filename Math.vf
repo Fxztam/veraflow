@@ -1,0 +1,58 @@
+module Math
+
+/**
+@std
+Runtime math module. Trusted runtime binding; not syntax.
+*/
+
+function sin(x: Double) returns Double
+is
+    return 0.0
+end sin
+
+function cos(x: Double) returns Double
+is
+    return 0.0
+end cos
+
+function tan(x: Double) returns Double
+is
+    return 0.0
+end tan
+
+function sqrt(x: Double) returns Double
+is
+    return 0.0
+end sqrt
+
+function pow(base: Double, exponent: Double) returns Double
+is
+    return 0.0
+end pow
+
+function abs(x: Double) returns Double
+is
+    return x
+end abs
+
+function min(left: Double, right: Double) returns Double
+is
+    return left
+end min
+
+function max(left: Double, right: Double) returns Double
+is
+    return left
+end max
+
+function floor(x: Double) returns Integer
+is
+    return 0
+end floor
+
+function ceil(x: Double) returns Integer
+is
+    return 0
+end ceil
+
+end Math

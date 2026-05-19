@@ -333,6 +333,20 @@ STRING_ARGUMENT_TYPE_HINT = """String built-in arguments must match the expected
 Check the String function signature and pass String or Integer values as required.
 """
 
+MATH_ARGUMENT_COUNT_HINT = """A Math built-in call must pass exactly the arguments required by that function.
+
+Examples:
+    Math.sin(value)
+    Math.sqrt(value)
+    Math.pow(base, exponent)
+    Math.min(left, right)
+"""
+
+MATH_ARGUMENT_TYPE_HINT = """Math built-in arguments must be numeric expressions.
+
+Pass Integer or Double values to Math functions.
+"""
+
 STATEMENT_UNKNOWN_ASSIGNMENT_HINT = """Assignment requires an existing local variable.
 
 Declare the variable with `let` before assigning to it.
@@ -798,6 +812,16 @@ def diagnose_exception(source: str, exc: Exception) -> Diagnostic:
         line, column = _source_position_from_message(message)
         function_name, argument_index, expected_type, found_type = string_arg_type_match.groups()
         return Diagnostic("VF-S002", "String argument type mismatch", line, column, found_type, f"argument {argument_index} as {expected_type} for {function_name}", STRING_ARGUMENT_TYPE_HINT, phase="semantic")
+    math_arg_count_match = re.search(r"(Math\.[A-Za-z_][A-Za-z0-9_]*) expects (\d+) arguments", message)
+    if math_arg_count_match:
+        line, column = _source_position_from_message(message)
+        function_name, expected_count = math_arg_count_match.groups()
+        return Diagnostic("VF-MA001", "wrong Math argument count", line, column, "argument list", f"{expected_count} argument(s) for {function_name}", MATH_ARGUMENT_COUNT_HINT, phase="semantic")
+    math_arg_type_match = re.search(r"(Math\.[A-Za-z_][A-Za-z0-9_]*) argument (\d+) expected numeric, got (.+)", message)
+    if math_arg_type_match:
+        line, column = _source_position_from_message(message)
+        function_name, argument_index, found_type = math_arg_type_match.groups()
+        return Diagnostic("VF-MA002", "Math argument type mismatch", line, column, found_type, f"numeric argument {argument_index} for {function_name}", MATH_ARGUMENT_TYPE_HINT, phase="semantic")
     unknown_assignment_match = re.search(r"unknown assignment target: ([A-Za-z_][A-Za-z0-9_]*)", message)
     if unknown_assignment_match:
         line, column = _source_position_from_message(message)

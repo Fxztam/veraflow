@@ -1,0 +1,13 @@
+module MathTrigFunctions
+
+procedure main()
+is
+    let sine: Double = Math.sin(0.0)
+    let cosine: Double = Math.cos(0.0)
+    let tangent: Double = Math.tan(0.0)
+    check sine = 0.0
+    check cosine = 1.0
+    check tangent = 0.0
+end main
+
+end MathTrigFunctions

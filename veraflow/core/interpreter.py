@@ -1,4 +1,5 @@
 from __future__ import annotations
+import math
 from veraflow.core.ast import *
 from veraflow.core.verifier import VerifiedProgram
 from veraflow.runtime import std_io
@@ -143,6 +144,28 @@ class Interpreter:
             if e.name == "String.instr":
                 s, needle = args
                 return s.find(needle)
+            if e.name == "Math.sin":
+                return math.sin(args[0])
+            if e.name == "Math.cos":
+                return math.cos(args[0])
+            if e.name == "Math.tan":
+                return math.tan(args[0])
+            if e.name == "Math.sqrt":
+                if args[0] < 0:
+                    raise VerificationError(f"{e.pos.text()}: Math.sqrt domain error")
+                return math.sqrt(args[0])
+            if e.name == "Math.pow":
+                return math.pow(args[0], args[1])
+            if e.name == "Math.abs":
+                return abs(args[0])
+            if e.name == "Math.min":
+                return min(args[0], args[1])
+            if e.name == "Math.max":
+                return max(args[0], args[1])
+            if e.name == "Math.floor":
+                return math.floor(args[0])
+            if e.name == "Math.ceil":
+                return math.ceil(args[0])
             return self.call(e.name,args)
         if isinstance(e, BinaryExpr):
             a,b=self.eval(e.left,env),self.eval(e.right,env)

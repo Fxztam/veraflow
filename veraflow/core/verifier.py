@@ -276,6 +276,16 @@ class Verifier:
             t = self.infer(e.args[i], env, ctx, allow_result, result_type)
             if self.base(t, ctx) != base:
                 raise TypeCheckError(f"{e.args[i].pos.text()}: {e.name} argument {i+1} expected {base}, got {type_to_string(t)}")
+        def infer_arg(i):
+            if i >= len(e.args):
+                raise TypeCheckError(f"{e.pos.text()}: {e.name} expects more arguments")
+            return self.infer(e.args[i], env, ctx, allow_result, result_type)
+        def expect_numeric(i):
+            t = infer_arg(i)
+            base = self.base(t, ctx)
+            if base not in ("Integer", "Double"):
+                raise TypeCheckError(f"{e.args[i].pos.text()}: {e.name} argument {i+1} expected numeric, got {type_to_string(t)}")
+            return base
         if e.name == "String.concat":
             if len(e.args) != 2:
                 raise TypeCheckError(f"{e.pos.text()}: String.concat expects 2 arguments")
@@ -295,6 +305,30 @@ class Verifier:
             if len(e.args) != 2:
                 raise TypeCheckError(f"{e.pos.text()}: String.instr expects 2 arguments")
             expect_arg(0, "String"); expect_arg(1, "String")
+            return TypeName("Integer")
+        if e.name in {"Math.sin", "Math.cos", "Math.tan", "Math.sqrt"}:
+            if len(e.args) != 1:
+                raise TypeCheckError(f"{e.pos.text()}: {e.name} expects 1 arguments")
+            expect_numeric(0)
+            return TypeName("Double")
+        if e.name == "Math.pow":
+            if len(e.args) != 2:
+                raise TypeCheckError(f"{e.pos.text()}: Math.pow expects 2 arguments")
+            expect_numeric(0); expect_numeric(1)
+            return TypeName("Double")
+        if e.name == "Math.abs":
+            if len(e.args) != 1:
+                raise TypeCheckError(f"{e.pos.text()}: Math.abs expects 1 arguments")
+            return TypeName(expect_numeric(0))
+        if e.name in {"Math.min", "Math.max"}:
+            if len(e.args) != 2:
+                raise TypeCheckError(f"{e.pos.text()}: {e.name} expects 2 arguments")
+            left = expect_numeric(0); right = expect_numeric(1)
+            return TypeName("Double" if "Double" in (left, right) else "Integer")
+        if e.name in {"Math.floor", "Math.ceil"}:
+            if len(e.args) != 1:
+                raise TypeCheckError(f"{e.pos.text()}: {e.name} expects 1 arguments")
+            expect_numeric(0)
             return TypeName("Integer")
         return None
 

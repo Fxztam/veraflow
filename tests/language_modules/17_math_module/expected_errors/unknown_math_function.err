@@ -1,0 +1,9 @@
+VF-U005: unknown routine
+Phase: semantic
+Location: line 5, column 32
+Found: Math.log
+Expected: declared routine
+Hint:
+A call must name a declared routine.
+
+Declare the function or procedure before calling it.

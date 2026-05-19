@@ -1,0 +1,117 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "DoubleExpr",
+                "value": 0.0
+              }
+            ],
+            "name": "Math.sin",
+            "node": "CallExpr"
+          },
+          "name": "sine",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Double",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "DoubleExpr",
+                "value": 0.0
+              }
+            ],
+            "name": "Math.cos",
+            "node": "CallExpr"
+          },
+          "name": "cosine",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Double",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "DoubleExpr",
+                "value": 0.0
+              }
+            ],
+            "name": "Math.tan",
+            "node": "CallExpr"
+          },
+          "name": "tangent",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Double",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "sine",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "DoubleExpr",
+              "value": 0.0
+            }
+          },
+          "node": "CheckStmt"
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "cosine",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "DoubleExpr",
+              "value": 1.0
+            }
+          },
+          "node": "CheckStmt"
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "tangent",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "DoubleExpr",
+              "value": 0.0
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "MathTrigFunctions",
+  "node": "Program"
+}

@@ -1,0 +1,11 @@
+module MathImportDeclaration
+
+import Math exposing sin, sqrt
+
+procedure main()
+is
+    let root: Double = Math.sqrt(4.0)
+    check root = 2.0
+end main
+
+end MathImportDeclaration

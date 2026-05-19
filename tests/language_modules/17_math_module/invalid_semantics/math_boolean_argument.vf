@@ -1,0 +1,9 @@
+module MathBooleanArgument
+
+procedure main()
+is
+    let result_value: Double = Math.sqrt(true)
+    check result_value = 1.0
+end main
+
+end MathBooleanArgument

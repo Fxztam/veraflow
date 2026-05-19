@@ -1,0 +1,11 @@
+module MathAbs
+
+procedure main()
+is
+    let whole: Integer = Math.abs(-3)
+    let decimal: Double = Math.abs(-2.5)
+    check whole = 3
+    check decimal = 2.5
+end main
+
+end MathAbs

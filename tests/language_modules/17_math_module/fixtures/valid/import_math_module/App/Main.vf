@@ -1,0 +1,11 @@
+module App.Main
+
+import Math exposing sqrt
+
+procedure main()
+is
+    let root: Double = Math.sqrt(9.0)
+    check root = 3.0
+end main
+
+end App.Main

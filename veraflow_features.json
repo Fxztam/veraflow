@@ -39,7 +39,20 @@
       "Std.IO.log",
       "Std.IO.logf"
     ],
-    "std_io_is_syntax": false
+    "std_io_is_syntax": false,
+    "math_module": true,
+    "math_operations": [
+      "Math.sin",
+      "Math.cos",
+      "Math.tan",
+      "Math.sqrt",
+      "Math.pow",
+      "Math.abs",
+      "Math.min",
+      "Math.max",
+      "Math.floor",
+      "Math.ceil"
+    ]
   },
   "version": "v11h_std_io",
   "implemented_migrations": [
@@ -49,6 +62,7 @@
     "case_stmt",
     "comments",
     "strings",
-    "std_io"
+    "std_io",
+    "math"
   ]
 }

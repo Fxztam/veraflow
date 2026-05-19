@@ -1,0 +1,9 @@
+module MathCallsInsideExpressions
+
+procedure main()
+is
+    let total: Double = Math.sqrt(9.0) + Math.pow(2.0, 2.0)
+    check total = 7.0
+end main
+
+end MathCallsInsideExpressions

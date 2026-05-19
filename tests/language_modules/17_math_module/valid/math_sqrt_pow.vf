@@ -1,0 +1,11 @@
+module MathSqrtPow
+
+procedure main()
+is
+    let root: Double = Math.sqrt(9.0)
+    let power: Double = Math.pow(2.0, 3.0)
+    check root = 3.0
+    check power = 8.0
+end main
+
+end MathSqrtPow

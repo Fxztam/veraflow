@@ -1,0 +1,84 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "DoubleExpr",
+                "value": 2.8
+              }
+            ],
+            "name": "Math.floor",
+            "node": "CallExpr"
+          },
+          "name": "low",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Integer",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "DoubleExpr",
+                "value": 2.2
+              }
+            ],
+            "name": "Math.ceil",
+            "node": "CallExpr"
+          },
+          "name": "high",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Integer",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "low",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 2
+            }
+          },
+          "node": "CheckStmt"
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "high",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 3
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "MathFloorCeil",
+  "node": "Program"
+}

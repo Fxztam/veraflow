@@ -1,0 +1,13 @@
+VF-MA001: wrong Math argument count
+Phase: semantic
+Location: line 5, column 32
+Found: argument list
+Expected: 2 argument(s) for Math.pow
+Hint:
+A Math built-in call must pass exactly the arguments required by that function.
+
+Examples:
+    Math.sin(value)
+    Math.sqrt(value)
+    Math.pow(base, exponent)
+    Math.min(left, right)

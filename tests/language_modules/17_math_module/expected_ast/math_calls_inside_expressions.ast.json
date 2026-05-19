@@ -1,0 +1,69 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "left": {
+              "args": [
+                {
+                  "node": "DoubleExpr",
+                  "value": 9.0
+                }
+              ],
+              "name": "Math.sqrt",
+              "node": "CallExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "+",
+            "right": {
+              "args": [
+                {
+                  "node": "DoubleExpr",
+                  "value": 2.0
+                },
+                {
+                  "node": "DoubleExpr",
+                  "value": 2.0
+                }
+              ],
+              "name": "Math.pow",
+              "node": "CallExpr"
+            }
+          },
+          "name": "total",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Double",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "total",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "DoubleExpr",
+              "value": 7.0
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "MathCallsInsideExpressions",
+  "node": "Program"
+}

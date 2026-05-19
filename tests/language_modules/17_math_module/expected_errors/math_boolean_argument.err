@@ -1,0 +1,9 @@
+VF-MA002: Math argument type mismatch
+Phase: semantic
+Location: line 5, column 42
+Found: Boolean
+Expected: numeric argument 1 for Math.sqrt
+Hint:
+Math built-in arguments must be numeric expressions.
+
+Pass Integer or Double values to Math functions.

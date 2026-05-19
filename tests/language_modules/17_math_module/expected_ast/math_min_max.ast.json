@@ -1,0 +1,129 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "NumberExpr",
+                "value": 2
+              },
+              {
+                "node": "NumberExpr",
+                "value": 5
+              }
+            ],
+            "name": "Math.min",
+            "node": "CallExpr"
+          },
+          "name": "smaller",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Integer",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "NumberExpr",
+                "value": 2
+              },
+              {
+                "node": "NumberExpr",
+                "value": 5
+              }
+            ],
+            "name": "Math.max",
+            "node": "CallExpr"
+          },
+          "name": "larger",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Integer",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "NumberExpr",
+                "value": 2
+              },
+              {
+                "node": "DoubleExpr",
+                "value": 5.5
+              }
+            ],
+            "name": "Math.max",
+            "node": "CallExpr"
+          },
+          "name": "decimal",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Double",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "smaller",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 2
+            }
+          },
+          "node": "CheckStmt"
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "larger",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 5
+            }
+          },
+          "node": "CheckStmt"
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "decimal",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "DoubleExpr",
+              "value": 5.5
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "MathMinMax",
+  "node": "Program"
+}

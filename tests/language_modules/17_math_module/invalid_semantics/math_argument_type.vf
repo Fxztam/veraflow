@@ -1,0 +1,9 @@
+module MathArgumentType
+
+procedure main()
+is
+    let result_value: Double = Math.sin("zero")
+    check result_value = 0.0
+end main
+
+end MathArgumentType

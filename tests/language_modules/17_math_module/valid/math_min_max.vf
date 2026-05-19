@@ -1,0 +1,13 @@
+module MathMinMax
+
+procedure main()
+is
+    let smaller: Integer = Math.min(2, 5)
+    let larger: Integer = Math.max(2, 5)
+    let decimal: Double = Math.max(2, 5.5)
+    check smaller = 2
+    check larger = 5
+    check decimal = 5.5
+end main
+
+end MathMinMax

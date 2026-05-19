@@ -1,0 +1,13 @@
+module Math
+
+function sqrt(x: Double) returns Double
+is
+    return 0.0
+end sqrt
+
+function sin(x: Double) returns Double
+is
+    return 0.0
+end sin
+
+end Math

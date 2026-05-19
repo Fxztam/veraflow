@@ -1,0 +1,9 @@
+module MathResultAssignmentMismatch
+
+procedure main()
+is
+    let result_value: Integer = Math.sin(0.0)
+    check result_value = 0
+end main
+
+end MathResultAssignmentMismatch

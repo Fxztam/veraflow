@@ -1,0 +1,11 @@
+module MathFloorCeil
+
+procedure main()
+is
+    let low: Integer = Math.floor(2.8)
+    let high: Integer = Math.ceil(2.2)
+    check low = 2
+    check high = 3
+end main
+
+end MathFloorCeil
