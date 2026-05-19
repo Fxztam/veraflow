@@ -1,0 +1,17 @@
+# VeraFlow EBNF Checker
+
+Local browser checker for VeraFlow EBNF files.
+
+Run it from the repository root through a local HTTP server so the page can load the grammar with `fetch`:
+
+```powershell
+c:/python314/python.exe -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000/tools/ebnf-checker/chk_ebnf.htm
+```
+
+Use **Load repo veraflow.ebnf** to load `veraflow/grammar/veraflow.ebnf`, then **Parse**.

@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VeraFlow EBNF Check</title>
+	<script src="bnfchk.js"></script>
+	<style>
+		:root {
+			color-scheme: light dark;
+			font-family: Arial, sans-serif;
+			line-height: 1.5;
+		}
+
+		body {
+			margin: 0;
+			padding: 24px;
+			background: Canvas;
+			color: CanvasText;
+		}
+
+		main {
+			max-width: 1100px;
+			margin: 0 auto;
+		}
+
+		h1 {
+			margin: 0 0 16px;
+			font-size: 1.6rem;
+		}
+
+		textarea {
+			box-sizing: border-box;
+			width: 100%;
+			min-height: 360px;
+			padding: 12px;
+			font: 14px/1.45 Consolas, "Courier New", monospace;
+			tab-size: 4;
+		}
+
+		.toolbar {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 12px;
+			align-items: center;
+			margin: 12px 0 20px;
+			padding: 12px;
+			border: 1px solid color-mix(in srgb, CanvasText 20%, transparent);
+			border-radius: 6px;
+		}
+
+		button {
+			padding: 7px 12px;
+			font: inherit;
+			cursor: pointer;
+		}
+
+		label {
+			display: inline-flex;
+			gap: 6px;
+			align-items: center;
+			white-space: nowrap;
+		}
+
+		pre {
+			overflow: auto;
+			white-space: pre-wrap;
+			padding: 12px;
+			border: 1px solid color-mix(in srgb, CanvasText 20%, transparent);
+			border-radius: 6px;
+		}
+	</style>
+	<script>
+		async function loadLocalGrammar() {
+			const src = document.getElementById("src");
+			const report = document.getElementById("report_div");
+
+			try {
+				const response = await fetch("../../veraflow/grammar/veraflow.ebnf", { cache: "no-store" });
+				if (!response.ok) {
+					throw new Error(`${response.status} ${response.statusText}`);
+				}
+
+				src.value = await response.text();
+				report.innerHTML = "<p><b>Loaded:</b> ../../veraflow/grammar/veraflow.ebnf</p>";
+			} catch (error) {
+				report.innerHTML = "<p><b>Load failed:</b> Open this page through the local server URL, then try again.</p><pre>" + htmlescape(String(error)) + "</pre>";
+			}
+		}
+
+		function parse_button_click() {
+			const src = document.getElementById("src").value;
+			const sort = document.getElementById("sort_checkbox").checked;
+			const html = document.getElementById("html_checkbox").checked;
+			const idx = document.getElementById("idx_checkbox").checked;
+
+			const parser = new Parser(src);
+			const report_div = document.getElementById("report_div");
+			const formatted_div = document.getElementById("formatted_div");
+
+			report_div.innerHTML = "<p><b>Report:</b></p><pre>" + parser.report + "</pre>";
+
+			const formatted = parser.format(sort, html, idx);
+			if (html) {
+				formatted_div.innerHTML = "<p><b>Parsed BNF:</b></p><p>" + formatted
+					+ "</p><p><b>Raw HTML code:</b></p><pre>" + htmlescape(formatted) + "</pre>";
+			} else {
+				formatted_div.innerHTML = "<p><b>Parsed BNF:</b></p><pre>" + htmlescape(formatted) + "</pre>";
+			}
+		}
+
+		function go_to_line(n) {
+			const src_element = document.getElementById("src");
+			const src = src_element.value;
+			let line_start = 0;
+			let line_end = 0;
+
+			do {
+				while (line_end < src.length) {
+					if (src[line_end] === "\n") {
+						line_end++;
+						break;
+					}
+					line_end++;
+				}
+
+				n--;
+				if (n <= 0 || line_end >= src.length) {
+					break;
+				}
+				line_start = line_end;
+			} while (true);
+
+			src_element.focus();
+			src_element.scrollTop = 0;
+			src_element.setSelectionRange(line_start, line_end);
+		}
+	</script>
+</head>
+<body>
+	<main>
+		<h1>VeraFlow EBNF Check</h1>
+		<textarea id="src" rows="18" cols="100" spellcheck="false"></textarea>
+		<div class="toolbar">
+			<button type="button" onclick="loadLocalGrammar();">Load repo veraflow.ebnf</button>
+			<button type="button" onclick="parse_button_click();">Parse</button>
+			<label><input id="sort_checkbox" type="checkbox" value="1">sort rules alphabetically</label>
+			<label><input id="html_checkbox" type="checkbox" value="1">HTML</label>
+			<label><input id="idx_checkbox" type="checkbox" value="1">show rule index</label>
+		</div>
+		<div id="report_div"></div>
+		<div id="formatted_div"></div>
+	</main>
+</body>
+</html>
