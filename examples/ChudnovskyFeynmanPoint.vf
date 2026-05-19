@@ -1,0 +1,64 @@
+module examples.ChudnovskyFeynmanPoint
+
+import Big
+import Std.IO
+
+function compute_pi(terms: Integer, digits: Integer, precision: Integer) returns BigFloat
+is
+    let m: BigInteger = Big.fromInteger(1)
+    let l: BigInteger = Big.fromInteger(13591409)
+    let x: BigInteger = Big.fromInteger(1)
+    let k_factor: Integer = 6
+    let sum: BigFloat = Big.float("0", precision)
+    let i: Integer = 0
+
+    while i < terms
+        invariant i >= 0
+        invariant i <= terms
+        invariant terms >= 1
+        invariant digits >= 1
+        invariant precision >= 1
+        variant terms - i
+    do
+        let numerator_int: BigInteger = Big.mulInt(m, l)
+        let numerator: BigFloat = Big.floatFromInteger(numerator_int, precision)
+        let denominator: BigFloat = Big.floatFromInteger(x, precision)
+        let term: BigFloat = Big.divFloat(numerator, denominator)
+        sum := Big.addFloat(sum, term)
+
+        let next_i: Integer = i + 1
+        if next_i < terms then
+            let next_big: BigInteger = Big.fromInteger(next_i)
+            let next_square: BigInteger = Big.mulInt(next_big, next_big)
+            let next_cube: BigInteger = Big.mulInt(next_square, next_big)
+            let k_big: BigInteger = Big.fromInteger(k_factor)
+            let k_square: BigInteger = Big.mulInt(k_big, k_big)
+            let k_cube: BigInteger = Big.mulInt(k_square, k_big)
+            let sixteen_k: BigInteger = Big.mulInt(Big.fromInteger(16), k_big)
+            let multiplier: BigInteger = Big.subInt(k_cube, sixteen_k)
+
+            m := Big.divInt(Big.mulInt(m, multiplier), next_cube)
+            l := Big.addInt(l, Big.fromInteger(545140134))
+            x := Big.mulInt(x, Big.int("-262537412640768000"))
+            k_factor := k_factor + 12
+        end if
+
+        i := next_i
+    end while
+
+    let sqrt_10005: BigFloat = Big.sqrt(Big.float("10005", precision))
+    let factor: BigFloat = Big.mulFloat(Big.float("426880", precision), sqrt_10005)
+    return Big.divFloat(factor, sum)
+end compute_pi
+
+procedure main()
+is
+    let digits: Integer = 770
+    let pi: BigFloat = compute_pi(56, digits, 2700)
+    let text: String = Big.format(pi, digits)
+    let feynman: String = String.substr(text, 763, 6)
+    check feynman = "999999"
+    call Std.IO.logf("Feynman point at decimal digits 762..767 = ${}", feynman)
+end main
+
+end examples.ChudnovskyFeynmanPoint

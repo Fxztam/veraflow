@@ -67,6 +67,7 @@ def main(argv: list[str] | None = None) -> int:
                 "examples/epsilon_demo.vf",
                 "examples/std_io_console_demo.vf",
                 "examples/ChudnovskyPi.vf",
+                "examples/ChudnovskyFeynmanPoint.vf",
             ]
             for demo_file in demo_files:
                 run_step(step, f"Demo verify: {Path(demo_file).name}", [py, "-m", "veraflow", "verify", demo_file])
