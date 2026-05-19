@@ -103,6 +103,12 @@ Use `veraflow.generated.vscode.ebnf` for the VS Code EBNF plugin. The RR file is
 Use `veraflow.generated.parseebnf.ebnf` for the `parse-ebnf` PyPI parser, which requires alphanumeric rule identifiers.
 Use `veraflow.generated.forge.ebnf` for the EBNF Forge `ebnff` validator. Use `veraflow.generated.pyebnf.ebnf` for the Python `pyebnf` checker.
 
+TODO:
+
+```text
+veraflow.generated.forge.ir.json is derived from the Forge EBNF, but `python -m veraflow ebnf --dialects` does not regenerate it yet.
+When BASE_TYPE or other grammar metadata changes, update the Forge IR JSON manually until the generator owns that artifact.
+```
 
 ## v11a assignment rule
 
