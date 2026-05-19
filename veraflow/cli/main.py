@@ -56,6 +56,15 @@ def cmd_ebnf(args):
         for dialect, output in outputs.items():
             subprocess.run([sys.executable, str(dialect_script), source, "--dialect", dialect, "-o", output], check=True)
             print(f"[OK] {dialect} EBNF generated: {output}")
+        ebnff = Path("tools/ebnff.exe")
+        if ebnff.exists():
+            subprocess.run([
+                str(ebnff),
+                "--out",
+                "veraflow/grammar/veraflow.generated.forge.ir.json",
+                "veraflow/grammar/veraflow.generated.forge.ebnf",
+            ], check=True)
+            print("[OK] Forge IR generated: veraflow/grammar/veraflow.generated.forge.ir.json")
     return 0
 
 

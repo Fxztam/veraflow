@@ -80,6 +80,7 @@ With `--dialects`, it also writes:
 
 ```text
 veraflow/grammar/veraflow.generated.forge.ebnf
+veraflow/grammar/veraflow.generated.forge.ir.json
 veraflow/grammar/veraflow.generated.rr.ebnf
 veraflow/grammar/veraflow.generated.vscode.ebnf
 veraflow/grammar/veraflow.generated.pyebnf.ebnf
@@ -92,6 +93,7 @@ Recommended policy:
 veraflow.lark            executable parser grammar / source of truth
 veraflow.generated.ebnf  generated review/documentation grammar
 veraflow.generated.forge.ebnf  generated EBNF Forge validator dialect
+veraflow.generated.forge.ir.json generated EBNF Forge JSON IR
 veraflow.generated.rr.ebnf     generated railroad/W3C-style dialect
 veraflow.generated.vscode.ebnf generated VS Code EBNF plugin dialect
 veraflow.generated.pyebnf.ebnf generated pyebnf Python checker dialect
@@ -101,13 +103,12 @@ veraflow.ebnf            curated human language specification
 
 Use `veraflow.generated.vscode.ebnf` for the VS Code EBNF plugin. The RR file is intended for railroad/W3C-style tools and may use syntax the VS Code plugin does not accept.
 Use `veraflow.generated.parseebnf.ebnf` for the `parse-ebnf` PyPI parser, which requires alphanumeric rule identifiers.
-Use `veraflow.generated.forge.ebnf` for the EBNF Forge `ebnff` validator. Use `veraflow.generated.pyebnf.ebnf` for the Python `pyebnf` checker.
+Use `veraflow.generated.forge.ebnf` for the EBNF Forge `ebnff` validator. Use `tools/ebnff.exe` to regenerate `veraflow.generated.forge.ir.json`. Use `veraflow.generated.pyebnf.ebnf` for the Python `pyebnf` checker.
 
 TODO:
 
 ```text
-veraflow.generated.forge.ir.json is derived from the Forge EBNF, but `python -m veraflow ebnf --dialects` does not regenerate it yet.
-When BASE_TYPE or other grammar metadata changes, update the Forge IR JSON manually until the generator owns that artifact.
+Keep tools/ebnff.exe in sync with _tools/EBNF-Forge/ebnff.exe when the Forge validator changes.
 ```
 
 ## v11a assignment rule
