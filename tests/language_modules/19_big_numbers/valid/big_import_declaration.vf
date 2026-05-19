@@ -1,0 +1,12 @@
+module BigImportDeclaration
+
+import Big
+
+procedure main()
+is
+    let item: BigInteger = Big.integer("42")
+    let text: String = Big.toString(item)
+    check text = "42"
+end main
+
+end BigImportDeclaration

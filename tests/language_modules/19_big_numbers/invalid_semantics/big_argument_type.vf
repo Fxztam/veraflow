@@ -1,0 +1,9 @@
+module BigArgumentType
+
+procedure main()
+is
+    let left: BigInteger = Big.int("1")
+    let sum: BigInteger = Big.addInt(left, 2)
+end main
+
+end BigArgumentType

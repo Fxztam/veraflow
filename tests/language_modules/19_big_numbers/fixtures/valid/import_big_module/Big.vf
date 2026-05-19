@@ -1,0 +1,13 @@
+module Big
+
+function int(text: String) returns BigInteger
+is
+    return Big.int(text)
+end int
+
+function toString(item: BigInteger) returns String
+is
+    return Big.toString(item)
+end toString
+
+end Big

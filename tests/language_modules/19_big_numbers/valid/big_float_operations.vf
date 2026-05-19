@@ -1,0 +1,14 @@
+module BigFloatOperations
+
+import Big
+
+procedure main()
+is
+    let x: BigFloat = Big.float("10005", 256)
+    let root: BigFloat = Big.sqrt(x)
+    let scaled: BigFloat = Big.mulFloat(Big.float("426880", 256), root)
+    let text: String = Big.format(scaled, 5)
+    check String.instr(text, ".") > 0
+end main
+
+end BigFloatOperations

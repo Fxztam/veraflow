@@ -207,6 +207,7 @@ no automatic semantic change from comments
 Double is VeraFlow's IEEE-754 64-bit floating point type.
 Its intended role is equivalent to Go float64.
 No separate Float64 alias is currently defined.
+BigInteger and BigFloat are arbitrary-precision types exposed by module Big.
 ```
 
 ## v11f native strings

@@ -1,0 +1,10 @@
+VF-BI002: Big argument type mismatch
+Phase: semantic
+Location: line 6, column 44
+Found: Integer
+Expected: argument 2 as BigInteger for Big.addInt
+Hint:
+Big built-in arguments must match the exact arbitrary-precision type expected by the operation.
+
+Use BigInteger values for Big.*Int operations and BigFloat values for Big.*Float operations.
+Convert explicitly with Big.fromInteger or Big.floatFromInteger.

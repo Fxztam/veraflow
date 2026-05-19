@@ -1,5 +1,6 @@
 from __future__ import annotations
 from dataclasses import dataclass
+from decimal import Decimal
 from typing import Any, Union
 
 @dataclass(frozen=True)
@@ -58,6 +59,15 @@ class ResultValue:
     ok: bool
     value: Any | None = None
     error: str | None = None
+
+@dataclass(frozen=True)
+class BigIntegerValue:
+    value: int
+
+@dataclass(frozen=True)
+class BigFloatValue:
+    value: Decimal
+    precision_bits: int
 
 @dataclass(frozen=True)
 class TypeDecl:

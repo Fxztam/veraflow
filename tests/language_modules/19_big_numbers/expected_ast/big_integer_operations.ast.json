@@ -1,0 +1,154 @@
+{
+  "declarations": [
+    {
+      "base": "BigInteger",
+      "max_value": null,
+      "min_value": null,
+      "name": "Huge",
+      "node": "TypeDecl"
+    },
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "StringExpr",
+                "value": "640320"
+              }
+            ],
+            "name": "Big.int",
+            "node": "CallExpr"
+          },
+          "name": "a",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "BigInteger",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "NumberExpr",
+                "value": 24
+              }
+            ],
+            "name": "Big.fromInteger",
+            "node": "CallExpr"
+          },
+          "name": "b",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "BigInteger",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "name": "a",
+                "node": "VarExpr"
+              },
+              {
+                "name": "a",
+                "node": "VarExpr"
+              }
+            ],
+            "name": "Big.mulInt",
+            "node": "CallExpr"
+          },
+          "name": "squared",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "BigInteger",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "name": "squared",
+                "node": "VarExpr"
+              },
+              {
+                "name": "b",
+                "node": "VarExpr"
+              }
+            ],
+            "name": "Big.divInt",
+            "node": "CallExpr"
+          },
+          "name": "quotient",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Huge",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "name": "quotient",
+                "node": "VarExpr"
+              }
+            ],
+            "name": "Big.toString",
+            "node": "CallExpr"
+          },
+          "name": "text",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "String",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "args": [
+                {
+                  "name": "text",
+                  "node": "VarExpr"
+                },
+                {
+                  "node": "StringExpr",
+                  "value": "170"
+                }
+              ],
+              "name": "String.instr",
+              "node": "CallExpr"
+            },
+            "node": "BinaryExpr",
+            "op": ">=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 0
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [
+    {
+      "exposing": [],
+      "module_name": "Big",
+      "node": "ImportDecl"
+    }
+  ],
+  "module_name": "BigIntegerOperations",
+  "node": "Program"
+}

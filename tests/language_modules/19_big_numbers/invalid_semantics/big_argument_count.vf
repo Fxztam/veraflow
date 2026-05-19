@@ -1,0 +1,8 @@
+module BigArgumentCount
+
+procedure main()
+is
+    let item: BigInteger = Big.float("1.0")
+end main
+
+end BigArgumentCount

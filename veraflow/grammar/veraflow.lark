@@ -85,7 +85,7 @@ named_arg: NAME ":" expr
 field_path: NAME ("." NAME)+
 array_literal: "[" arg_list? "]"
 
-BASE_TYPE: "Integer" | "Boolean" | "Double" | "String"
+BASE_TYPE: "Integer" | "Boolean" | "Double" | "String" | "BigInteger" | "BigFloat"
 SIGNED_FLOAT: /-?\d+\.\d+/
 SIGNED_NUMBER: /-?\d+(\.\d+)?/
 INT_NUMBER: /\d+/

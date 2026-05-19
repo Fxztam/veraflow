@@ -1827,6 +1827,14 @@
           {
             "type": "terminal",
             "value": "String"
+          },
+          {
+            "type": "terminal",
+            "value": "BigInteger"
+          },
+          {
+            "type": "terminal",
+            "value": "BigFloat"
           }
         ]
       }
@@ -4604,7 +4612,7 @@
         "section": "(default)",
         "docs": [],
         "tags": {},
-        "syntax": "BASE_TYPE ::= \"Integer\" | \"Boolean\" | \"Double\" | \"String\" ;",
+        "syntax": "BASE_TYPE ::= \"Integer\" | \"Boolean\" | \"Double\" | \"String\" | \"BigInteger\" | \"BigFloat\" ;",
         "refs": [],
         "referencedBy": [
           "base_type"

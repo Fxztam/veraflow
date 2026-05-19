@@ -373,6 +373,21 @@ MATH_ARGUMENT_TYPE_HINT = """Math built-in arguments must be numeric expressions
 Pass Integer or Double values to Math functions.
 """
 
+BIG_ARGUMENT_COUNT_HINT = """A Big built-in call must pass exactly the arguments required by that function.
+
+Examples:
+    Big.int(text)
+    Big.addInt(left, right)
+    Big.float(text, precisionBits)
+    Big.format(value, digits)
+"""
+
+BIG_ARGUMENT_TYPE_HINT = """Big built-in arguments must match the exact arbitrary-precision type expected by the operation.
+
+Use BigInteger values for Big.*Int operations and BigFloat values for Big.*Float operations.
+Convert explicitly with Big.fromInteger or Big.floatFromInteger.
+"""
+
 STATEMENT_UNKNOWN_ASSIGNMENT_HINT = """Assignment requires an existing local variable.
 
 Declare the variable with `let` before assigning to it.
@@ -873,6 +888,16 @@ def diagnose_exception(source: str, exc: Exception) -> Diagnostic:
         line, column = _source_position_from_message(message)
         function_name, argument_index, found_type = math_arg_type_match.groups()
         return Diagnostic("VF-MA002", "Math argument type mismatch", line, column, found_type, f"numeric argument {argument_index} for {function_name}", MATH_ARGUMENT_TYPE_HINT, phase="semantic")
+    big_arg_count_match = re.search(r"(Big\.[A-Za-z_][A-Za-z0-9_]*) expects (\d+) arguments", message)
+    if big_arg_count_match:
+        line, column = _source_position_from_message(message)
+        function_name, expected_count = big_arg_count_match.groups()
+        return Diagnostic("VF-BI001", "wrong Big argument count", line, column, "argument list", f"{expected_count} argument(s) for {function_name}", BIG_ARGUMENT_COUNT_HINT, phase="semantic")
+    big_arg_type_match = re.search(r"(Big\.[A-Za-z_][A-Za-z0-9_]*) argument (\d+) expected ([A-Za-z_][A-Za-z0-9_]*), got (.+)", message)
+    if big_arg_type_match:
+        line, column = _source_position_from_message(message)
+        function_name, argument_index, expected_type, found_type = big_arg_type_match.groups()
+        return Diagnostic("VF-BI002", "Big argument type mismatch", line, column, found_type, f"argument {argument_index} as {expected_type} for {function_name}", BIG_ARGUMENT_TYPE_HINT, phase="semantic")
     unknown_assignment_match = re.search(r"unknown assignment target: ([A-Za-z_][A-Za-z0-9_]*)", message)
     if unknown_assignment_match:
         line, column = _source_position_from_message(message)

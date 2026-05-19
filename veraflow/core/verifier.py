@@ -4,8 +4,10 @@ import json
 from veraflow.core.ast import *
 from veraflow.core.string_templates import validate_template
 
+BUILTIN_TYPE_NAMES = {"Integer", "Boolean", "Double", "String", "BigInteger", "BigFloat"}
+
 RESERVED_NAMES = {
-    "Array", "Boolean", "Double", "Integer", "Result", "String",
+    "Array", "BigFloat", "BigInteger", "Boolean", "Double", "Integer", "Result", "String",
     "and", "call", "case", "default", "do", "else", "end", "ensures",
     "error", "exposing", "failure", "false", "function", "if", "import",
     "invariant", "is", "let", "module", "not", "ok", "or", "procedure",
@@ -26,7 +28,7 @@ class Verifier:
     def verify(self, program: Program) -> VerifiedProgram:
         self.validate_imports(program)
         self.validate_qualified_name(program.module_name, program.pos)
-        types = {"Integer": TypeDef("Integer","Integer"), "Boolean": TypeDef("Boolean","Boolean"), "Double": TypeDef("Double","Double"), "String": TypeDef("String","String")}
+        types = {name: TypeDef(name, name) for name in BUILTIN_TYPE_NAMES}
         records, errors, routines = {}, set(), {}
         declared_names = {name: "builtin" for name in types}
         for d in program.declarations:
@@ -76,7 +78,7 @@ class Verifier:
                 exposed.add(name)
 
     def validate_declaration_name(self, name: str, declared_names: dict[str, str], pos: SourcePos, kind: str) -> None:
-        if name in {"Integer", "Boolean", "Double", "String"}:
+        if name in BUILTIN_TYPE_NAMES:
             raise TypeCheckError(f"{pos.text()}: built-in type name already defined: {name}")
         self.validate_identifier(name, pos)
         existing_kind = declared_names.get(name)
@@ -296,6 +298,10 @@ class Verifier:
             if base not in ("Integer", "Double"):
                 raise TypeCheckError(f"{e.args[i].pos.text()}: {e.name} argument {i+1} expected numeric, got {type_to_string(t)}")
             return base
+        def expect_type(i, expected):
+            t = infer_arg(i)
+            if self.base(t, ctx) != expected:
+                raise TypeCheckError(f"{e.args[i].pos.text()}: {e.name} argument {i+1} expected {expected}, got {type_to_string(t)}")
         if e.name == "String.concat":
             if len(e.args) != 2:
                 raise TypeCheckError(f"{e.pos.text()}: String.concat expects 2 arguments")
@@ -354,6 +360,66 @@ class Verifier:
                 raise TypeCheckError(f"{e.pos.text()}: {e.name} expects 1 arguments")
             expect_numeric(0)
             return TypeName("Integer")
+        if e.name in {"Big.int", "Big.integer"}:
+            if len(e.args) != 1:
+                raise TypeCheckError(f"{e.pos.text()}: {e.name} expects 1 arguments")
+            expect_type(0, "String")
+            return TypeName("BigInteger")
+        if e.name == "Big.fromInteger":
+            if len(e.args) != 1:
+                raise TypeCheckError(f"{e.pos.text()}: Big.fromInteger expects 1 arguments")
+            expect_type(0, "Integer")
+            return TypeName("BigInteger")
+        if e.name == "Big.float":
+            if len(e.args) != 2:
+                raise TypeCheckError(f"{e.pos.text()}: Big.float expects 2 arguments")
+            expect_type(0, "String"); expect_type(1, "Integer")
+            return TypeName("BigFloat")
+        if e.name == "Big.floatFromInteger":
+            if len(e.args) != 2:
+                raise TypeCheckError(f"{e.pos.text()}: Big.floatFromInteger expects 2 arguments")
+            expect_type(0, "BigInteger"); expect_type(1, "Integer")
+            return TypeName("BigFloat")
+        if e.name in {"Big.addInt", "Big.subInt", "Big.mulInt", "Big.divInt"}:
+            if len(e.args) != 2:
+                raise TypeCheckError(f"{e.pos.text()}: {e.name} expects 2 arguments")
+            expect_type(0, "BigInteger"); expect_type(1, "BigInteger")
+            return TypeName("BigInteger")
+        if e.name in {"Big.negInt", "Big.absInt"}:
+            if len(e.args) != 1:
+                raise TypeCheckError(f"{e.pos.text()}: {e.name} expects 1 arguments")
+            expect_type(0, "BigInteger")
+            return TypeName("BigInteger")
+        if e.name == "Big.signInt":
+            if len(e.args) != 1:
+                raise TypeCheckError(f"{e.pos.text()}: Big.signInt expects 1 arguments")
+            expect_type(0, "BigInteger")
+            return TypeName("Integer")
+        if e.name in {"Big.addFloat", "Big.subFloat", "Big.mulFloat", "Big.divFloat"}:
+            if len(e.args) != 2:
+                raise TypeCheckError(f"{e.pos.text()}: {e.name} expects 2 arguments")
+            expect_type(0, "BigFloat"); expect_type(1, "BigFloat")
+            return TypeName("BigFloat")
+        if e.name in {"Big.sqrt", "Big.absFloat"}:
+            if len(e.args) != 1:
+                raise TypeCheckError(f"{e.pos.text()}: {e.name} expects 1 arguments")
+            expect_type(0, "BigFloat")
+            return TypeName("BigFloat")
+        if e.name == "Big.signFloat":
+            if len(e.args) != 1:
+                raise TypeCheckError(f"{e.pos.text()}: Big.signFloat expects 1 arguments")
+            expect_type(0, "BigFloat")
+            return TypeName("Integer")
+        if e.name == "Big.toString":
+            if len(e.args) != 1:
+                raise TypeCheckError(f"{e.pos.text()}: Big.toString expects 1 arguments")
+            expect_type(0, "BigInteger")
+            return TypeName("String")
+        if e.name == "Big.format":
+            if len(e.args) != 2:
+                raise TypeCheckError(f"{e.pos.text()}: Big.format expects 2 arguments")
+            expect_type(0, "BigFloat"); expect_type(1, "Integer")
+            return TypeName("String")
         return None
 
     def infer(self, e, env, ctx, allow_result, result_type):

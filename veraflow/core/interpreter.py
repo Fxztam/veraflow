@@ -3,6 +3,7 @@ import math
 from veraflow.core.ast import *
 from veraflow.core.string_templates import render_template
 from veraflow.core.verifier import VerifiedProgram
+from veraflow.runtime import big as std_big
 from veraflow.runtime import std_io
 
 class Interpreter:
@@ -169,6 +170,46 @@ class Interpreter:
                 return math.floor(args[0])
             if e.name == "Math.ceil":
                 return math.ceil(args[0])
+            if e.name in ("Big.int", "Big.integer"):
+                return std_big.integer(args[0])
+            if e.name == "Big.fromInteger":
+                return std_big.from_integer(args[0])
+            if e.name == "Big.float":
+                return std_big.float_from_string(args[0], args[1])
+            if e.name == "Big.floatFromInteger":
+                return std_big.float_from_integer(args[0], args[1])
+            if e.name == "Big.addInt":
+                return std_big.add_int(args[0], args[1])
+            if e.name == "Big.subInt":
+                return std_big.sub_int(args[0], args[1])
+            if e.name == "Big.mulInt":
+                return std_big.mul_int(args[0], args[1])
+            if e.name == "Big.divInt":
+                return std_big.div_int(args[0], args[1], e.pos)
+            if e.name == "Big.negInt":
+                return std_big.neg_int(args[0])
+            if e.name == "Big.absInt":
+                return std_big.abs_int(args[0])
+            if e.name == "Big.signInt":
+                return std_big.sign_int(args[0])
+            if e.name == "Big.addFloat":
+                return std_big.add_float(args[0], args[1])
+            if e.name == "Big.subFloat":
+                return std_big.sub_float(args[0], args[1])
+            if e.name == "Big.mulFloat":
+                return std_big.mul_float(args[0], args[1])
+            if e.name == "Big.divFloat":
+                return std_big.div_float(args[0], args[1], e.pos)
+            if e.name == "Big.sqrt":
+                return std_big.sqrt(args[0], e.pos)
+            if e.name == "Big.absFloat":
+                return std_big.abs_float(args[0])
+            if e.name == "Big.signFloat":
+                return std_big.sign_float(args[0])
+            if e.name == "Big.toString":
+                return std_big.to_string(args[0])
+            if e.name == "Big.format":
+                return std_big.format_float(args[0], args[1])
             return self.call(e.name,args)
         if isinstance(e, BinaryExpr):
             a,b=self.eval(e.left,env),self.eval(e.right,env)
@@ -214,6 +255,8 @@ class Interpreter:
             if td.base=="Boolean" and not isinstance(v,bool): raise TypeCheckError(f"Expected Boolean in {ctx}")
             if td.base=="Double" and (not isinstance(v,(int,float)) or isinstance(v,bool)): raise TypeCheckError(f"Expected Double in {ctx}")
             if td.base=="String" and not isinstance(v,str): raise TypeCheckError(f"Expected String in {ctx}")
+            if td.base=="BigInteger" and not isinstance(v,BigIntegerValue): raise TypeCheckError(f"Expected BigInteger in {ctx}")
+            if td.base=="BigFloat" and not isinstance(v,BigFloatValue): raise TypeCheckError(f"Expected BigFloat in {ctx}")
             if td.base in ("Integer", "Double"):
                 if td.min_value is not None and v < td.min_value:
                     raise VerificationError(f"{ctx} below range {td.name}: {v} < {td.min_value}")

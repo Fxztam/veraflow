@@ -15,7 +15,9 @@
     "external_grammar_required": true,
     "feature_must_ship_tests": true,
     "numeric_types": {
-      "Double": "IEEE-754 64-bit floating point; equivalent intent to Go float64"
+      "Double": "IEEE-754 64-bit floating point; equivalent intent to Go float64",
+      "BigInteger": "arbitrary-precision integer via Big module",
+      "BigFloat": "arbitrary-precision floating point via Big module with explicit precision"
     },
     "assignment_operator_for_mutation": ":=",
     "definition_operator_for_let": "=",
@@ -59,6 +61,29 @@
       "Math.max",
       "Math.floor",
       "Math.ceil"
+    ],
+    "big_module": true,
+    "big_operations": [
+      "Big.int",
+      "Big.fromInteger",
+      "Big.float",
+      "Big.floatFromInteger",
+      "Big.addInt",
+      "Big.subInt",
+      "Big.mulInt",
+      "Big.divInt",
+      "Big.negInt",
+      "Big.absInt",
+      "Big.signInt",
+      "Big.addFloat",
+      "Big.subFloat",
+      "Big.mulFloat",
+      "Big.divFloat",
+      "Big.sqrt",
+      "Big.absFloat",
+      "Big.signFloat",
+      "Big.toString",
+      "Big.format"
     ]
   },
   "version": "v11h_std_io",
@@ -71,6 +96,7 @@
     "strings",
     "string_templates",
     "std_io",
-    "math"
+    "math",
+    "big"
   ]
 }

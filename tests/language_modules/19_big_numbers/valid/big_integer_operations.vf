@@ -1,0 +1,17 @@
+module BigIntegerOperations
+
+import Big
+
+type Huge is BigInteger
+
+procedure main()
+is
+    let a: BigInteger = Big.int("640320")
+    let b: BigInteger = Big.fromInteger(24)
+    let squared: BigInteger = Big.mulInt(a, a)
+    let quotient: Huge = Big.divInt(squared, b)
+    let text: String = Big.toString(quotient)
+    check String.instr(text, "170") >= 0
+end main
+
+end BigIntegerOperations

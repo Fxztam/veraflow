@@ -1,0 +1,143 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "StringExpr",
+                "value": "10005"
+              },
+              {
+                "node": "NumberExpr",
+                "value": 256
+              }
+            ],
+            "name": "Big.float",
+            "node": "CallExpr"
+          },
+          "name": "x",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "BigFloat",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "name": "x",
+                "node": "VarExpr"
+              }
+            ],
+            "name": "Big.sqrt",
+            "node": "CallExpr"
+          },
+          "name": "root",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "BigFloat",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "args": [
+                  {
+                    "node": "StringExpr",
+                    "value": "426880"
+                  },
+                  {
+                    "node": "NumberExpr",
+                    "value": 256
+                  }
+                ],
+                "name": "Big.float",
+                "node": "CallExpr"
+              },
+              {
+                "name": "root",
+                "node": "VarExpr"
+              }
+            ],
+            "name": "Big.mulFloat",
+            "node": "CallExpr"
+          },
+          "name": "scaled",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "BigFloat",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "name": "scaled",
+                "node": "VarExpr"
+              },
+              {
+                "node": "NumberExpr",
+                "value": 5
+              }
+            ],
+            "name": "Big.format",
+            "node": "CallExpr"
+          },
+          "name": "text",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "String",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "args": [
+                {
+                  "name": "text",
+                  "node": "VarExpr"
+                },
+                {
+                  "node": "StringExpr",
+                  "value": "."
+                }
+              ],
+              "name": "String.instr",
+              "node": "CallExpr"
+            },
+            "node": "BinaryExpr",
+            "op": ">",
+            "right": {
+              "node": "NumberExpr",
+              "value": 0
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [
+    {
+      "exposing": [],
+      "module_name": "Big",
+      "node": "ImportDecl"
+    }
+  ],
+  "module_name": "BigFloatOperations",
+  "node": "Program"
+}

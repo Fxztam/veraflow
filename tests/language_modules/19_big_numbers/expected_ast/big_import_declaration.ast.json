@@ -1,0 +1,75 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "StringExpr",
+                "value": "42"
+              }
+            ],
+            "name": "Big.integer",
+            "node": "CallExpr"
+          },
+          "name": "item",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "BigInteger",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "name": "item",
+                "node": "VarExpr"
+              }
+            ],
+            "name": "Big.toString",
+            "node": "CallExpr"
+          },
+          "name": "text",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "String",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "text",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "StringExpr",
+              "value": "42"
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [
+    {
+      "exposing": [],
+      "module_name": "Big",
+      "node": "ImportDecl"
+    }
+  ],
+  "module_name": "BigImportDeclaration",
+  "node": "Program"
+}

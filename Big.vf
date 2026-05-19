@@ -1,0 +1,113 @@
+module Big
+
+/**
+@std
+Runtime arbitrary-precision number module. Trusted runtime binding; not syntax.
+*/
+
+function int(text: String) returns BigInteger
+is
+    return Big.int(text)
+end int
+
+function integer(text: String) returns BigInteger
+is
+    return Big.integer(text)
+end integer
+
+function fromInteger(item: Integer) returns BigInteger
+is
+    return Big.fromInteger(item)
+end fromInteger
+
+function float(text: String, precisionBits: Integer) returns BigFloat
+is
+    return Big.float(text, precisionBits)
+end float
+
+function floatFromInteger(item: BigInteger, precisionBits: Integer) returns BigFloat
+is
+    return Big.floatFromInteger(item, precisionBits)
+end floatFromInteger
+
+function addInt(left: BigInteger, right: BigInteger) returns BigInteger
+is
+    return Big.addInt(left, right)
+end addInt
+
+function subInt(left: BigInteger, right: BigInteger) returns BigInteger
+is
+    return Big.subInt(left, right)
+end subInt
+
+function mulInt(left: BigInteger, right: BigInteger) returns BigInteger
+is
+    return Big.mulInt(left, right)
+end mulInt
+
+function divInt(left: BigInteger, right: BigInteger) returns BigInteger
+is
+    return Big.divInt(left, right)
+end divInt
+
+function negInt(item: BigInteger) returns BigInteger
+is
+    return Big.negInt(item)
+end negInt
+
+function absInt(item: BigInteger) returns BigInteger
+is
+    return Big.absInt(item)
+end absInt
+
+function signInt(item: BigInteger) returns Integer
+is
+    return Big.signInt(item)
+end signInt
+
+function addFloat(left: BigFloat, right: BigFloat) returns BigFloat
+is
+    return Big.addFloat(left, right)
+end addFloat
+
+function subFloat(left: BigFloat, right: BigFloat) returns BigFloat
+is
+    return Big.subFloat(left, right)
+end subFloat
+
+function mulFloat(left: BigFloat, right: BigFloat) returns BigFloat
+is
+    return Big.mulFloat(left, right)
+end mulFloat
+
+function divFloat(left: BigFloat, right: BigFloat) returns BigFloat
+is
+    return Big.divFloat(left, right)
+end divFloat
+
+function sqrt(item: BigFloat) returns BigFloat
+is
+    return Big.sqrt(item)
+end sqrt
+
+function absFloat(item: BigFloat) returns BigFloat
+is
+    return Big.absFloat(item)
+end absFloat
+
+function signFloat(item: BigFloat) returns Integer
+is
+    return Big.signFloat(item)
+end signFloat
+
+function toString(item: BigInteger) returns String
+is
+    return Big.toString(item)
+end toString
+
+function format(item: BigFloat, digits: Integer) returns String
+is
+    return Big.format(item, digits)
+end format
+
+end Big

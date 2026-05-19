@@ -1,0 +1,13 @@
+VF-BI001: wrong Big argument count
+Phase: semantic
+Location: line 5, column 28
+Found: argument list
+Expected: 2 argument(s) for Big.float
+Hint:
+A Big built-in call must pass exactly the arguments required by that function.
+
+Examples:
+    Big.int(text)
+    Big.addInt(left, right)
+    Big.float(text, precisionBits)
+    Big.format(value, digits)

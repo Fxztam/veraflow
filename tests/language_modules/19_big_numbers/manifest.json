@@ -1,0 +1,43 @@
+{
+  "module": "19_big_numbers",
+  "title": "Big arbitrary-precision standard module",
+  "cases": [
+    {
+      "name": "Big integer operations verify",
+      "kind": "valid",
+      "file": "valid/big_integer_operations.vf",
+      "expected_ast": "expected_ast/big_integer_operations.ast.json"
+    },
+    {
+      "name": "Big float operations verify",
+      "kind": "valid",
+      "file": "valid/big_float_operations.vf",
+      "expected_ast": "expected_ast/big_float_operations.ast.json"
+    },
+    {
+      "name": "Big module declaration verifies",
+      "kind": "valid",
+      "file": "valid/big_import_declaration.vf",
+      "expected_ast": "expected_ast/big_import_declaration.ast.json"
+    },
+    {
+      "name": "Big module import resolves",
+      "kind": "valid_resolution",
+      "root": "fixtures/valid/import_big_module",
+      "entry": "App/Main.vf",
+      "expected_modules": "expected_modules/import_big_module.json"
+    },
+    {
+      "name": "Big argument count rejected",
+      "kind": "invalid_semantics",
+      "file": "invalid_semantics/big_argument_count.vf",
+      "expected_error": "expected_errors/big_argument_count.err"
+    },
+    {
+      "name": "Big argument type rejected",
+      "kind": "invalid_semantics",
+      "file": "invalid_semantics/big_argument_type.vf",
+      "expected_error": "expected_errors/big_argument_type.err"
+    }
+  ]
+}

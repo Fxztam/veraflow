@@ -1,0 +1,12 @@
+module App.Main
+
+import Big
+
+procedure main()
+is
+    let item: BigInteger = Big.int("7")
+    let text: String = Big.toString(item)
+    check text = "7"
+end main
+
+end App.Main
