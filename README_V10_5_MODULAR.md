@@ -201,6 +201,13 @@ no hidden compiler flags
 no automatic semantic change from comments
 ```
 
+## Numeric base types
+
+```text
+Double is VeraFlow's IEEE-754 64-bit floating point type.
+Its intended role is equivalent to Go float64.
+No separate Float64 alias is currently defined.
+```
 
 ## v11f native strings
 
