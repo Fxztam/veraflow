@@ -1,0 +1,9 @@
+VF-M005: cyclic import
+Phase: resolution
+Location: line 3, column 1
+Found: App.Main -> Banking.Proofs -> App.Main
+Expected: acyclic import graph
+Hint:
+Imports must not form a cycle.
+
+Move shared definitions into a third module and import that module from both sides.

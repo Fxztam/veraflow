@@ -1,0 +1,8 @@
+module PlainFunctionOkReturn
+
+function load() returns Integer
+is
+    return ok 1
+end load
+
+end PlainFunctionOkReturn

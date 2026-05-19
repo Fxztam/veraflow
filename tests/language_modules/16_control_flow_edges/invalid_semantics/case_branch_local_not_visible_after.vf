@@ -1,0 +1,16 @@
+module Control.CaseScopeAfter
+
+procedure main()
+is
+    let choice: Integer = 1
+    case choice is
+        when 1 =>
+            let branch_total: Integer = 1
+            check branch_total = 1
+        default =>
+            check true
+    end case
+    check branch_total = 1
+end main
+
+end Control.CaseScopeAfter

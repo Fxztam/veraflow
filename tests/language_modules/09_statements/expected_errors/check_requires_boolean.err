@@ -1,0 +1,9 @@
+VF-ST003: check requires Boolean
+Phase: semantic
+Location: line 5, column 11
+Found: Integer
+Expected: Boolean
+Hint:
+This statement position requires a Boolean expression.
+
+Use a comparison or Boolean expression such as `amount > 0` or `ready = true`.

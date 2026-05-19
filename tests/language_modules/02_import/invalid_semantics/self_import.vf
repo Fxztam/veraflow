@@ -1,0 +1,10 @@
+module App.Main
+
+import App.Main
+
+procedure main()
+is
+    check true
+end main
+
+end App.Main

@@ -1,0 +1,9 @@
+module IndexOnScalar
+
+procedure main()
+is
+    let amount: Integer = 1
+    check amount[0] = 1
+end main
+
+end IndexOnScalar

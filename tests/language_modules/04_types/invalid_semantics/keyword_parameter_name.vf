@@ -1,0 +1,8 @@
+module KeywordParameterName
+
+procedure accept(module: Integer)
+is
+    check true
+end accept
+
+end KeywordParameterName

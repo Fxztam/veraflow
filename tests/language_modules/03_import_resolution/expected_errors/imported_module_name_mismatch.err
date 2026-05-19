@@ -1,0 +1,13 @@
+VF-M002: imported module name mismatch
+Phase: resolution
+Location: line 3, column 1
+Found: Banking.WrongProofs
+Expected: Banking.Proofs
+Hint:
+The imported file must declare the module name used by the import.
+
+Example:
+    import Banking.Proofs
+
+The imported file should start with:
+    module Banking.Proofs

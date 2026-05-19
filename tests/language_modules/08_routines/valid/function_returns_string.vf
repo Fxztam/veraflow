@@ -1,0 +1,8 @@
+module FunctionReturnsString
+
+function label() returns String
+is
+    return "ready"
+end label
+
+end FunctionReturnsString

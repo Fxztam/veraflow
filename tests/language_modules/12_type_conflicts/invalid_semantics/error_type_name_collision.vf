@@ -1,0 +1,6 @@
+module ErrorTypeNameCollision
+
+error NotFound
+type NotFound is Integer
+
+end ErrorTypeNameCollision

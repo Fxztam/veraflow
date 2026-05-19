@@ -1,0 +1,13 @@
+VF-ER001: unknown result error type
+Phase: semantic
+Location: line 3, column 1
+Found: MissingError
+Expected: declared error
+Hint:
+The error type in `Result<T, E>` must name a declared error.
+
+Declare the error before using it in a Result type.
+
+Example:
+    error NotFound
+    function load() returns Result<Integer, NotFound>

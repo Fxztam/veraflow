@@ -1,0 +1,8 @@
+module FunctionReturnsDouble
+
+function ratio() returns Double
+is
+    return 1.5
+end ratio
+
+end FunctionReturnsDouble

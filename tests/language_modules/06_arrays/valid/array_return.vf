@@ -1,0 +1,8 @@
+module ArrayReturn
+
+function values() returns Array<Integer, 3>
+is
+    return [1, 2, 3]
+end values
+
+end ArrayReturn

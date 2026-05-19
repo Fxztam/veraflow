@@ -1,0 +1,8 @@
+module BooleanOperatorOperandMismatch
+
+procedure main()
+is
+    check true and 1
+end main
+
+end BooleanOperatorOperandMismatch

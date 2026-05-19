@@ -1,0 +1,13 @@
+module ArrayAssignmentSizeMismatch
+
+function values() returns Array<Integer, 3>
+is
+    return [1, 2, 3]
+end values
+
+procedure main()
+is
+    let xs: Array<Integer, 2> = values()
+end main
+
+end ArrayAssignmentSizeMismatch

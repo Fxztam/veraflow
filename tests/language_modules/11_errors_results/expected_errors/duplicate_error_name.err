@@ -1,0 +1,9 @@
+VF-N001: duplicate top-level declaration name
+Phase: semantic
+Location: line 4, column 1
+Found: NotFound
+Expected: unique declaration name
+Hint:
+Each top-level declaration name may be used only once in a module.
+
+Top-level declarations include types, records, errors, functions, and procedures.

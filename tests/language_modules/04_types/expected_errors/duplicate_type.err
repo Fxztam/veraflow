@@ -1,0 +1,9 @@
+VF-T001: duplicate type declaration
+Phase: semantic
+Location: line 4, column 1
+Found: Money
+Expected: unique type name
+Hint:
+Each type name may be declared only once in a module.
+
+Use a new name or remove the duplicate declaration.

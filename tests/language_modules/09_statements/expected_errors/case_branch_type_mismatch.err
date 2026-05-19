@@ -1,0 +1,9 @@
+VF-ST005: case branch type mismatch
+Phase: semantic
+Location: line 7, column 9
+Found: Boolean
+Expected: Integer
+Hint:
+Each case branch value must have the same base type as the case expression.
+
+Use branch values that match the expression after `case`.

@@ -1,0 +1,9 @@
+VF-E002: comparison type mismatch
+Phase: semantic
+Location: line 6, column 9
+Found: Integer with Boolean
+Expected: matching operand types
+Hint:
+Equality comparisons require both sides to have the same base type.
+
+Compare values of matching types, or convert the value before comparing it.

@@ -1,0 +1,9 @@
+VF-E004: ordering comparison requires numeric operands
+Phase: semantic
+Location: line 5, column 11
+Found: String and String
+Expected: numeric operands for <
+Hint:
+Ordering comparisons require numeric operands.
+
+Use `<`, `<=`, `>`, and `>=` with Integer or Double expressions.

@@ -1,0 +1,13 @@
+module Qualified.ProcedureCalls
+
+procedure ensure_positive(amount: Integer)
+is
+    check amount > 0
+end ensure_positive
+
+procedure main()
+is
+    call Qualified.ProcedureCalls.ensure_positive(1)
+end main
+
+end Qualified.ProcedureCalls

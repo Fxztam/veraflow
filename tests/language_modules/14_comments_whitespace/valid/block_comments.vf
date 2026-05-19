@@ -1,0 +1,11 @@
+module BlockComments
+
+/* comment before declaration */
+procedure main()
+is
+    let amount: Integer = /* before literal */ 1
+    check amount = 1 /* after expression */
+end main
+
+/* comment before module end */
+end BlockComments

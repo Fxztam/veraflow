@@ -1,0 +1,13 @@
+module FunctionReturnsRecord
+
+type Account is record
+    id: Integer
+    active: Boolean
+end record
+
+function default_account() returns Account
+is
+    return Account { id: 1, active: true }
+end default_account
+
+end FunctionReturnsRecord

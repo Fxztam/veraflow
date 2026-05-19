@@ -1,0 +1,8 @@
+module OrderingComparison
+
+procedure main()
+is
+    check 1 < 2 and 3 >= 3
+end main
+
+end OrderingComparison

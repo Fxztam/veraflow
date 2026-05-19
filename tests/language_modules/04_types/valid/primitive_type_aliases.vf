@@ -1,0 +1,13 @@
+module TypeExamples
+
+type Money is Integer
+type Flag is Boolean
+type Ratio is Double
+type Label is String
+
+function default_money() returns Money
+is
+    return 0
+end default_money
+
+end TypeExamples

@@ -1,0 +1,45 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "args": [
+                {
+                  "node": "StringExpr",
+                  "value": "vera-flow"
+                },
+                {
+                  "node": "StringExpr",
+                  "value": "-"
+                },
+                {
+                  "node": "StringExpr",
+                  "value": ""
+                }
+              ],
+              "name": "String.replace",
+              "node": "CallExpr"
+            },
+            "node": "ReturnPlain"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "label",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": {
+        "name": "String",
+        "node": "TypeName"
+      }
+    }
+  ],
+  "imports": [],
+  "module_name": "StringReplace",
+  "node": "Program"
+}

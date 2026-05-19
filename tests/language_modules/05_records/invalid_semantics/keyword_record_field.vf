@@ -1,0 +1,7 @@
+module KeywordRecordField
+
+type Account is record
+    module: Integer
+end record
+
+end KeywordRecordField

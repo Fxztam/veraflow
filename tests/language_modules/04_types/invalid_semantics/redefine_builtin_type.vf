@@ -1,0 +1,5 @@
+module RedefineBuiltinType
+
+type Integer is Double
+
+end RedefineBuiltinType

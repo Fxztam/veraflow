@@ -1,0 +1,15 @@
+module RecordAssignment
+
+type Account is record
+    id: Integer
+    active: Boolean
+end record
+
+procedure main()
+is
+    let first: Account = Account { id: 1, active: true }
+    let second: Account = Account { id: 2, active: false }
+    second := first
+end main
+
+end RecordAssignment

@@ -1,0 +1,13 @@
+module ProcedureCall
+
+procedure mark(flag: Boolean)
+is
+    check flag
+end mark
+
+procedure main()
+is
+    call mark(true)
+end main
+
+end ProcedureCall

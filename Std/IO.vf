@@ -1,0 +1,32 @@
+module Std.IO
+
+/**
+@std
+Runtime output module. Trusted runtime binding; not syntax.
+*/
+
+procedure log(value: String)
+is
+end log
+
+procedure log_int(value: Integer)
+is
+end log_int
+
+procedure log_bool(value: Boolean)
+is
+end log_bool
+
+procedure log_double(value: Double)
+is
+end log_double
+
+procedure logf(template: String, value: String)
+is
+end logf
+
+procedure logf_int(template: String, value: Integer)
+is
+end logf_int
+
+end Std.IO

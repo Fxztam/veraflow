@@ -1,0 +1,9 @@
+VF-U002: duplicate parameter name
+Phase: semantic
+Location: line 3, column 33
+Found: item
+Expected: unique parameter name
+Hint:
+Each routine parameter name may appear only once in the parameter list.
+
+Use distinct names for every parameter.

@@ -1,0 +1,13 @@
+module Qualified.FunctionAsCall
+
+function read() returns Integer
+is
+    return 1
+end read
+
+procedure main()
+is
+    call Qualified.FunctionAsCall.read()
+end main
+
+end Qualified.FunctionAsCall

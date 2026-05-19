@@ -1,0 +1,12 @@
+-- file header comment
+module LineComments
+
+-- declaration comment
+procedure main()
+is
+    -- statement comment
+    check true
+end main
+
+-- footer comment
+end LineComments

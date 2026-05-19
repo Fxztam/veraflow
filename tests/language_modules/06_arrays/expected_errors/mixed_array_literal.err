@@ -1,0 +1,10 @@
+VF-A002: array literal has mixed element types
+Phase: semantic
+Location: line 5, column 37
+Found: mixed element types
+Expected: same element type
+Hint:
+All values in an array literal must have the same base type.
+
+Example:
+    [1, 2, 3]

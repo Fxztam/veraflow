@@ -1,0 +1,118 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "branches": [
+            {
+              "body": [
+                {
+                  "node": "ReturnStmt",
+                  "value": {
+                    "expr": {
+                      "node": "NumberExpr",
+                      "value": 10
+                    },
+                    "node": "ReturnPlain"
+                  }
+                }
+              ],
+              "node": "CaseBranch",
+              "value": {
+                "node": "NumberExpr",
+                "value": 1
+              }
+            },
+            {
+              "body": [
+                {
+                  "node": "ReturnStmt",
+                  "value": {
+                    "expr": {
+                      "node": "NumberExpr",
+                      "value": 20
+                    },
+                    "node": "ReturnPlain"
+                  }
+                }
+              ],
+              "node": "CaseBranch",
+              "value": {
+                "node": "NumberExpr",
+                "value": 2
+              }
+            }
+          ],
+          "default_body": [
+            {
+              "node": "ReturnStmt",
+              "value": {
+                "expr": {
+                  "node": "NumberExpr",
+                  "value": 0
+                },
+                "node": "ReturnPlain"
+              }
+            }
+          ],
+          "expr": {
+            "name": "choice",
+            "node": "VarExpr"
+          },
+          "node": "CaseStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "score",
+      "node": "RoutineDecl",
+      "params": [
+        {
+          "name": "choice",
+          "node": "Param",
+          "type_name": "Integer"
+        }
+      ],
+      "requires": [],
+      "return_type": {
+        "name": "Integer",
+        "node": "TypeName"
+      }
+    },
+    {
+      "body": [
+        {
+          "expr": {
+            "left": {
+              "args": [
+                {
+                  "node": "NumberExpr",
+                  "value": 2
+                }
+              ],
+              "name": "score",
+              "node": "CallExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 20
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "Control.CaseReturn",
+  "node": "Program"
+}

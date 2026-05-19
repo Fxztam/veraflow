@@ -1,0 +1,9 @@
+module FunctionEnsuresResult
+
+function increment(amount: Integer) returns Integer
+ensures result = amount + 1
+is
+    return amount + 1
+end increment
+
+end FunctionEnsuresResult

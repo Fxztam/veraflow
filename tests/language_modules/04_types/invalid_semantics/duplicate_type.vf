@@ -1,0 +1,6 @@
+module DuplicateType
+
+type Money is Integer
+type Money is Double
+
+end DuplicateType

@@ -1,0 +1,9 @@
+VF-U009: function return type mismatch
+Phase: semantic
+Location: line 7, column 12
+Found: Boolean
+Expected: Count
+Hint:
+A function return expression must match the declared return type.
+
+Check the function's `returns` clause and the returned expression.

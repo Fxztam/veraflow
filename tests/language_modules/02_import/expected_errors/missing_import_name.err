@@ -1,0 +1,10 @@
+VF-I004: expected module name after 'import'
+Phase: syntax
+Location: line 3, column 7
+Found: end of line
+Expected: module name
+Hint:
+An import declaration must name the module to import.
+
+Example:
+    import Banking.Proofs

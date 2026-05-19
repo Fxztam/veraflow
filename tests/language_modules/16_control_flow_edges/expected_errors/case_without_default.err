@@ -1,0 +1,15 @@
+VF-ST009: case statement requires default branch
+Phase: syntax
+Location: line 9, column 5
+Found: 'end'
+Expected: "default =>" before "end case"
+Hint:
+Every `case` statement must include a `default` branch before `end case`.
+
+Example:
+    case choice is
+        when 1 =>
+            check true
+        default =>
+            check false = false
+    end case

@@ -1,0 +1,9 @@
+module AssignmentTypeMismatch
+
+procedure main()
+is
+    let amount: Integer = 1
+    amount := true
+end main
+
+end AssignmentTypeMismatch

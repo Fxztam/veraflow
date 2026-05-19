@@ -1,0 +1,9 @@
+module UnknownRecordLiteralType
+
+procedure main()
+is
+    let account: Integer = Account { id: 1 }
+    check true
+end main
+
+end UnknownRecordLiteralType

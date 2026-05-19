@@ -1,0 +1,9 @@
+VF-ER006: Result ok type mismatch
+Phase: semantic
+Location: line 7, column 12
+Found: Boolean
+Expected: Integer
+Hint:
+A Result `ok` return value must match the Result's success type.
+
+Check the first type argument in `Result<T, E>` and the expression after `ok`.

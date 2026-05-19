@@ -1,0 +1,77 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "items": [
+                {
+                  "node": "NumberExpr",
+                  "value": 1
+                },
+                {
+                  "node": "NumberExpr",
+                  "value": 2
+                },
+                {
+                  "node": "NumberExpr",
+                  "value": 3
+                }
+              ],
+              "node": "ArrayLiteralExpr"
+            },
+            "node": "ReturnPlain"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "values",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": {
+        "element_type": "Integer",
+        "node": "ArrayTypeName",
+        "size": 3
+      }
+    },
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [],
+            "name": "values",
+            "node": "CallExpr"
+          },
+          "name": "xs",
+          "node": "LetStmt",
+          "type_ref": {
+            "element_type": "Integer",
+            "node": "ArrayTypeName",
+            "size": 3
+          }
+        },
+        {
+          "expr": {
+            "node": "BoolExpr",
+            "value": true
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "ArrayAssignmentFromFunction",
+  "node": "Program"
+}

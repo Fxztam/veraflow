@@ -1,0 +1,9 @@
+module Qualified.UnknownForeign
+
+procedure main()
+is
+    let total: Integer = Other.Module.increment(1)
+    check total = 2
+end main
+
+end Qualified.UnknownForeign

@@ -1,0 +1,45 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "left": {
+              "left": {
+                "node": "BoolExpr",
+                "value": true
+              },
+              "node": "BinaryExpr",
+              "op": "and",
+              "right": {
+                "expr": {
+                  "node": "BoolExpr",
+                  "value": false
+                },
+                "node": "UnaryExpr",
+                "op": "not"
+              }
+            },
+            "node": "BinaryExpr",
+            "op": "or",
+            "right": {
+              "node": "BoolExpr",
+              "value": true
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "BooleanLogic",
+  "node": "Program"
+}

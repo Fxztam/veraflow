@@ -1,0 +1,12 @@
+module Control.WhileWithoutInvariant
+
+procedure main()
+is
+    let amount: Integer = 0
+    while amount < 1
+    do
+        amount := amount + 1
+    end while
+end main
+
+end Control.WhileWithoutInvariant

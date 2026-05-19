@@ -1,0 +1,38 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "items": [],
+            "node": "ArrayLiteralExpr"
+          },
+          "name": "values",
+          "node": "LetStmt",
+          "type_ref": {
+            "element_type": "Integer",
+            "node": "ArrayTypeName",
+            "size": 0
+          }
+        },
+        {
+          "expr": {
+            "node": "BoolExpr",
+            "value": true
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "EmptyArrayLiteral",
+  "node": "Program"
+}

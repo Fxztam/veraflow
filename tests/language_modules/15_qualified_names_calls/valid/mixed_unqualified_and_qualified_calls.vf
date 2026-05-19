@@ -1,0 +1,15 @@
+module Qualified.Mixed
+
+function increment(amount: Integer) returns Integer
+is
+    return amount + 1
+end increment
+
+procedure main()
+is
+    let short_name: Integer = increment(1)
+    let qualified_name: Integer = Qualified.Mixed.increment(short_name)
+    check qualified_name = 3
+end main
+
+end Qualified.Mixed

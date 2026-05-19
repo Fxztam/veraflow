@@ -1,0 +1,37 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "node": "StringExpr",
+            "value": "ready"
+          },
+          "name": "label",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "String",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "node": "BoolExpr",
+            "value": true
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "StringLiteral",
+  "node": "Program"
+}

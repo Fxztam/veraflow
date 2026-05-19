@@ -1,0 +1,52 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "name": "flag",
+            "node": "VarExpr"
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "mark",
+      "node": "RoutineDecl",
+      "params": [
+        {
+          "name": "flag",
+          "node": "Param",
+          "type_name": "Boolean"
+        }
+      ],
+      "requires": [],
+      "return_type": null
+    },
+    {
+      "body": [
+        {
+          "args": [
+            {
+              "node": "BoolExpr",
+              "value": true
+            }
+          ],
+          "name": "mark",
+          "node": "CallStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "ProcedureCall",
+  "node": "Program"
+}

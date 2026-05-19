@@ -1,0 +1,9 @@
+module UnknownLetType
+
+procedure main()
+is
+    let value: MissingType = 0
+    check true
+end main
+
+end UnknownLetType

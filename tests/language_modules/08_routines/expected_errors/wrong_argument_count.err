@@ -1,0 +1,9 @@
+VF-U007: wrong routine argument count
+Phase: semantic
+Location: line 10, column 11
+Found: 1
+Expected: 2 argument(s) for add
+Hint:
+A routine call must pass exactly the parameters declared by the routine.
+
+Check the routine declaration and update the argument list.

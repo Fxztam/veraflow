@@ -1,0 +1,9 @@
+module FieldAccessOnScalar
+
+procedure main()
+is
+    let amount: Integer = 1
+    check amount.id = 1
+end main
+
+end FieldAccessOnScalar

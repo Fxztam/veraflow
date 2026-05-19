@@ -1,0 +1,6 @@
+module MissingEnd
+
+procedure main()
+is
+    check true
+end main

@@ -1,0 +1,116 @@
+{
+  "declarations": [
+    {
+      "fields": [
+        {
+          "name": "city_id",
+          "node": "RecordField",
+          "type_name": "Integer"
+        }
+      ],
+      "name": "Address",
+      "node": "RecordTypeDecl"
+    },
+    {
+      "fields": [
+        {
+          "name": "id",
+          "node": "RecordField",
+          "type_name": "Integer"
+        },
+        {
+          "name": "address",
+          "node": "RecordField",
+          "type_name": "Address"
+        }
+      ],
+      "name": "Customer",
+      "node": "RecordTypeDecl"
+    },
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [
+              {
+                "expr": {
+                  "node": "NumberExpr",
+                  "value": 7
+                },
+                "name": "city_id",
+                "node": "NamedArg"
+              }
+            ],
+            "node": "RecordLiteralExpr",
+            "type_name": "Address"
+          },
+          "name": "address",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Address",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "expr": {
+                  "node": "NumberExpr",
+                  "value": 1
+                },
+                "name": "id",
+                "node": "NamedArg"
+              },
+              {
+                "expr": {
+                  "name": "address",
+                  "node": "VarExpr"
+                },
+                "name": "address",
+                "node": "NamedArg"
+              }
+            ],
+            "node": "RecordLiteralExpr",
+            "type_name": "Customer"
+          },
+          "name": "customer",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Customer",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "node": "FieldAccessExpr",
+              "path": [
+                "customer",
+                "address",
+                "city_id"
+              ]
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 7
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "NestedRecordFieldAccess",
+  "node": "Program"
+}

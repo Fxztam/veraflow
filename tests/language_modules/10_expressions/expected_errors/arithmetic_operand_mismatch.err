@@ -1,0 +1,9 @@
+VF-E005: arithmetic requires numeric operands
+Phase: semantic
+Location: line 5, column 27
+Found: Integer and Boolean
+Expected: numeric operands for +
+Hint:
+Arithmetic operators require numeric operands.
+
+Use Integer or Double expressions with `+`, `-`, `*`, and `/`.

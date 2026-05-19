@@ -1,0 +1,9 @@
+VF-ER003: wrong Result error return
+Phase: semantic
+Location: line 8, column 12
+Found: PermissionDenied
+Expected: Result<Integer,NotFound>
+Hint:
+A Result function may only return the error declared in its `Result<T, E>` type.
+
+Return the declared error type or change the function's Result type.

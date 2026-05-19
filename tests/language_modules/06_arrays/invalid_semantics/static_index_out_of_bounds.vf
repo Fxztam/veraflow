@@ -1,0 +1,9 @@
+module StaticIndexOutOfBounds
+
+procedure main()
+is
+    let values: Array<Integer, 3> = [1, 2, 3]
+    check values[3] = 0
+end main
+
+end StaticIndexOutOfBounds

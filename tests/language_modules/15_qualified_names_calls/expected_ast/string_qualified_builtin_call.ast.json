@@ -1,0 +1,77 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "StringExpr",
+                "value": "Vera"
+              },
+              {
+                "node": "StringExpr",
+                "value": "Flow"
+              }
+            ],
+            "name": "String.concat",
+            "node": "CallExpr"
+          },
+          "name": "greeting",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "String",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "name": "greeting",
+                "node": "VarExpr"
+              },
+              {
+                "node": "StringExpr",
+                "value": "Flow"
+              }
+            ],
+            "name": "String.instr",
+            "node": "CallExpr"
+          },
+          "name": "index",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Integer",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "index",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 4
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "Qualified.StringBuiltins",
+  "node": "Program"
+}

@@ -1,0 +1,10 @@
+VF-E006: unary not requires Boolean
+Phase: semantic
+Location: line 5, column 11
+Found: Integer
+Expected: Boolean
+Hint:
+The unary `not` operator requires a Boolean operand.
+
+Example:
+    not ready

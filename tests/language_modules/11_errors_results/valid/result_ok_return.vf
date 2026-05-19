@@ -1,0 +1,10 @@
+module ResultOkReturn
+
+error NotFound
+
+function load() returns Result<Integer, NotFound>
+is
+    return ok 1
+end load
+
+end ResultOkReturn

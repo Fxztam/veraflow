@@ -1,0 +1,8 @@
+module UnknownParameterType
+
+procedure accept(value: MissingType)
+is
+    check true
+end accept
+
+end UnknownParameterType

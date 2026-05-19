@@ -1,0 +1,12 @@
+module RecordFunctionNameCollision
+
+type Account is record
+    id: Integer
+end record
+
+function Account() returns Integer
+is
+    return 1
+end Account
+
+end RecordFunctionNameCollision

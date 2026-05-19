@@ -1,0 +1,9 @@
+VF-CT002: Result contract expression outside Result ensures
+Phase: semantic
+Location: line 6, column 10
+Found: success
+Expected: Result ensures context
+Hint:
+Result contract expressions are only available in `ensures` clauses of Result-returning functions.
+
+Use `success`, `failure`, `value`, or `error` only when the function returns `Result<T, E>`.

@@ -1,0 +1,13 @@
+module WhileInvariantRequiresBoolean
+
+procedure main()
+is
+    let amount: Integer = 1
+    while amount > 0
+        invariant amount
+    do
+        amount := amount - 1
+    end while
+end main
+
+end WhileInvariantRequiresBoolean

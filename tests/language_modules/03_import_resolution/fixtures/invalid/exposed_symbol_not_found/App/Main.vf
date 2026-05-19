@@ -1,0 +1,10 @@
+module App.Main
+
+import Banking.Proofs exposing missing_symbol
+
+procedure main()
+is
+    check true
+end main
+
+end App.Main

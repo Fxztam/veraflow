@@ -1,0 +1,9 @@
+module StringEquality
+
+procedure main()
+is
+    let label: String = "ready"
+    check label = "ready"
+end main
+
+end StringEquality

@@ -1,0 +1,59 @@
+{
+  "declarations": [
+    {
+      "base": "Integer",
+      "max_value": null,
+      "min_value": null,
+      "name": "Money",
+      "node": "TypeDecl"
+    },
+    {
+      "base": "Boolean",
+      "max_value": null,
+      "min_value": null,
+      "name": "Flag",
+      "node": "TypeDecl"
+    },
+    {
+      "base": "Double",
+      "max_value": null,
+      "min_value": null,
+      "name": "Ratio",
+      "node": "TypeDecl"
+    },
+    {
+      "base": "String",
+      "max_value": null,
+      "min_value": null,
+      "name": "Label",
+      "node": "TypeDecl"
+    },
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "node": "NumberExpr",
+              "value": 0
+            },
+            "node": "ReturnPlain"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "default_money",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": {
+        "name": "Money",
+        "node": "TypeName"
+      }
+    }
+  ],
+  "imports": [],
+  "module_name": "TypeExamples",
+  "node": "Program"
+}

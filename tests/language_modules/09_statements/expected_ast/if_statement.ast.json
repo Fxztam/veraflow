@@ -1,0 +1,71 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "node": "NumberExpr",
+            "value": 1
+          },
+          "name": "amount",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Integer",
+            "node": "TypeName"
+          }
+        },
+        {
+          "condition": {
+            "left": {
+              "name": "amount",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 1
+            }
+          },
+          "else_body": [
+            {
+              "expr": {
+                "left": {
+                  "node": "BoolExpr",
+                  "value": false
+                },
+                "node": "BinaryExpr",
+                "op": "=",
+                "right": {
+                  "node": "BoolExpr",
+                  "value": true
+                }
+              },
+              "node": "CheckStmt"
+            }
+          ],
+          "node": "IfStmt",
+          "then_body": [
+            {
+              "expr": {
+                "node": "BoolExpr",
+                "value": true
+              },
+              "node": "CheckStmt"
+            }
+          ]
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "IfStatement",
+  "node": "Program"
+}

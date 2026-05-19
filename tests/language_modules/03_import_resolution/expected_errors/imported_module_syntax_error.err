@@ -1,0 +1,9 @@
+VF-M003: imported module has syntax error
+Phase: resolution
+Location: line 3, column 1
+Found: Banking.Proofs
+Expected: parsable imported module
+Hint:
+The imported module must parse before it can be used.
+
+Open the imported `.vf` file and fix the syntax error there first.

@@ -1,0 +1,13 @@
+module CallRequiresProcedure
+
+function count() returns Integer
+is
+    return 1
+end count
+
+procedure main()
+is
+    call count()
+end main
+
+end CallRequiresProcedure

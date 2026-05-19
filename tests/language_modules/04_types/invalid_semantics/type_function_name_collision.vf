@@ -1,0 +1,10 @@
+module TypeFunctionNameCollision
+
+type Money is Integer
+
+function Money() returns Integer
+is
+    return 0
+end Money
+
+end TypeFunctionNameCollision

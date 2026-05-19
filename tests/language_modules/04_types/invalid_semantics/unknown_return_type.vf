@@ -1,0 +1,8 @@
+module UnknownReturnType
+
+function missing() returns MissingType
+is
+    return 0
+end missing
+
+end UnknownReturnType

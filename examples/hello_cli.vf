@@ -1,0 +1,9 @@
+module HelloCli
+
+procedure main()
+is
+    let s: String = "Hello VeraFlow CLI"
+    check s = "Hello VeraFlow CLI"
+end main
+
+end HelloCli

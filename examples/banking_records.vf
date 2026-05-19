@@ -1,0 +1,27 @@
+module Banking.Demo
+
+type Address is record
+    city_id: Integer
+    verified: Boolean
+end record
+
+type Customer is record
+    id: Integer
+    active: Boolean
+    address: Address
+end record
+
+function make_customer(id: Integer, city_id: Integer) returns Customer
+ensures result.id = id
+ensures result.address.city_id = city_id
+is
+    return Customer { id: id, active: true, address: Address { city_id: city_id, verified: true } }
+end make_customer
+
+procedure main()
+is
+    let c: Customer = make_customer(1001, 42)
+    check c.id = 1001
+    check c.address.city_id = 42
+end main
+end Banking.Demo

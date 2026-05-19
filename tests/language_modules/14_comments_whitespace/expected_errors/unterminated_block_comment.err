@@ -1,0 +1,9 @@
+VF-CM002: unterminated block comment
+Phase: syntax
+Location: line 3, column 1
+Found: "/*"
+Expected: "*/"
+Hint:
+A block comment must end with `*/`.
+
+Add the closing marker before the next VeraFlow declaration or before the end of the file.

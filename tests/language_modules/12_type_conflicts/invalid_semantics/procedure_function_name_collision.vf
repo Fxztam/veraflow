@@ -1,0 +1,13 @@
+module ProcedureFunctionNameCollision
+
+procedure load()
+is
+    check true
+end load
+
+function load() returns Integer
+is
+    return 1
+end load
+
+end ProcedureFunctionNameCollision

@@ -1,0 +1,14 @@
+VF-ST008: while loop requires invariant
+Phase: syntax
+Location: line 7, column 5
+Found: 'do'
+Expected: "invariant" before "do"
+Hint:
+Every `while` loop must declare at least one invariant before `do`.
+
+Example:
+    while amount > 0
+        invariant amount >= 0
+    do
+        amount := amount - 1
+    end while

@@ -1,0 +1,96 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "node": "NumberExpr",
+            "value": 3
+          },
+          "name": "amount",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Integer",
+            "node": "TypeName"
+          }
+        },
+        {
+          "body": [
+            {
+              "expr": {
+                "left": {
+                  "name": "amount",
+                  "node": "VarExpr"
+                },
+                "node": "BinaryExpr",
+                "op": "-",
+                "right": {
+                  "node": "NumberExpr",
+                  "value": 1
+                }
+              },
+              "name": "amount",
+              "node": "AssignStmt"
+            }
+          ],
+          "condition": {
+            "left": {
+              "name": "amount",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": ">",
+            "right": {
+              "node": "NumberExpr",
+              "value": 0
+            }
+          },
+          "invariants": [
+            {
+              "left": {
+                "name": "amount",
+                "node": "VarExpr"
+              },
+              "node": "BinaryExpr",
+              "op": ">=",
+              "right": {
+                "node": "NumberExpr",
+                "value": 0
+              }
+            }
+          ],
+          "node": "WhileStmt",
+          "variant": {
+            "name": "amount",
+            "node": "VarExpr"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "amount",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 0
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "WhileStatement",
+  "node": "Program"
+}

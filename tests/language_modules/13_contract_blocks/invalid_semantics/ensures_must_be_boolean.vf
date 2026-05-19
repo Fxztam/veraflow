@@ -1,0 +1,9 @@
+module EnsuresMustBeBoolean
+
+function current() returns Integer
+ensures result
+is
+    return 1
+end current
+
+end EnsuresMustBeBoolean

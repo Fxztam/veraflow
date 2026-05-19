@@ -1,0 +1,8 @@
+module CoreMinimal
+
+procedure main()
+is
+    check true
+end main
+
+end CoreMinimal

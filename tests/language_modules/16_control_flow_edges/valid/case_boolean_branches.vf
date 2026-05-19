@@ -1,0 +1,16 @@
+module Control.BooleanCase
+
+procedure main()
+is
+    let active: Boolean = true
+    case active is
+        when true =>
+            check active
+        when false =>
+            check active = false
+        default =>
+            check true
+    end case
+end main
+
+end Control.BooleanCase

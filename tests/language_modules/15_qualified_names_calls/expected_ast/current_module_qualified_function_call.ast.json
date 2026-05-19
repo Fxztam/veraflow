@@ -1,0 +1,89 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "left": {
+                "name": "amount",
+                "node": "VarExpr"
+              },
+              "node": "BinaryExpr",
+              "op": "+",
+              "right": {
+                "node": "NumberExpr",
+                "value": 1
+              }
+            },
+            "node": "ReturnPlain"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "increment",
+      "node": "RoutineDecl",
+      "params": [
+        {
+          "name": "amount",
+          "node": "Param",
+          "type_name": "Integer"
+        }
+      ],
+      "requires": [],
+      "return_type": {
+        "name": "Integer",
+        "node": "TypeName"
+      }
+    },
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [
+              {
+                "node": "NumberExpr",
+                "value": 1
+              }
+            ],
+            "name": "Qualified.Calls.increment",
+            "node": "CallExpr"
+          },
+          "name": "total",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Integer",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "total",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 2
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "Qualified.Calls",
+  "node": "Program"
+}

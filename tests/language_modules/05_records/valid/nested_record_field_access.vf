@@ -1,0 +1,19 @@
+module NestedRecordFieldAccess
+
+type Address is record
+    city_id: Integer
+end record
+
+type Customer is record
+    id: Integer
+    address: Address
+end record
+
+procedure main()
+is
+    let address: Address = Address { city_id: 7 }
+    let customer: Customer = Customer { id: 1, address: address }
+    check customer.address.city_id = 7
+end main
+
+end NestedRecordFieldAccess

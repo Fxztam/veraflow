@@ -1,0 +1,8 @@
+module FunctionReturnTypeMismatch
+
+function read() returns Integer
+is
+    return true
+end read
+
+end FunctionReturnTypeMismatch

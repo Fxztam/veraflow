@@ -1,0 +1,8 @@
+module UnknownVariableExpression
+
+procedure main()
+is
+    check missing = 1
+end main
+
+end UnknownVariableExpression

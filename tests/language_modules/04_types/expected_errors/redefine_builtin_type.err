@@ -1,0 +1,10 @@
+VF-T002: built-in type cannot be redefined
+Phase: semantic
+Location: line 3, column 1
+Found: Integer
+Expected: new type name
+Hint:
+Built-in VeraFlow types cannot be redefined.
+
+Built-in types:
+    Integer, Boolean, Double, String

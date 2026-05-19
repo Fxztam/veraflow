@@ -1,0 +1,15 @@
+module ParameterAliasMismatch
+
+type Count is Integer range 0..100
+
+procedure accept(value: Count)
+is
+    check true
+end accept
+
+procedure main()
+is
+    call accept(true)
+end main
+
+end ParameterAliasMismatch

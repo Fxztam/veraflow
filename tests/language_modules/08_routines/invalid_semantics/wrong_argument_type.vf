@@ -1,0 +1,13 @@
+module WrongArgumentType
+
+function negate(flag: Boolean) returns Boolean
+is
+    return not flag
+end negate
+
+procedure main()
+is
+    check negate(1)
+end main
+
+end WrongArgumentType

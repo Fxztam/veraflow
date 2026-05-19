@@ -1,0 +1,8 @@
+module ReturnStatement
+
+function answer() returns Integer
+is
+    return 42
+end answer
+
+end ReturnStatement

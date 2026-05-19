@@ -1,0 +1,5 @@
+module IntegerFractionalRange
+
+type Count is Integer range 0.5..10.5
+
+end IntegerFractionalRange

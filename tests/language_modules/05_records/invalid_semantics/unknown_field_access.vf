@@ -1,0 +1,13 @@
+module UnknownFieldAccess
+
+type Account is record
+    id: Integer
+end record
+
+procedure main()
+is
+    let account: Account = Account { id: 1 }
+    check account.active
+end main
+
+end UnknownFieldAccess

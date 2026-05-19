@@ -1,0 +1,36 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "args": [
+            {
+              "node": "StringExpr",
+              "value": "qualified log"
+            }
+          ],
+          "name": "Std.IO.log",
+          "node": "CallStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [
+    {
+      "exposing": [
+        "log"
+      ],
+      "module_name": "Std.IO",
+      "node": "ImportDecl"
+    }
+  ],
+  "module_name": "Qualified.StdIO",
+  "node": "Program"
+}

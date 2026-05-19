@@ -1,0 +1,68 @@
+{
+  "declarations": [
+    {
+      "name": "NotFound",
+      "node": "ErrorDecl"
+    },
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "node": "NumberExpr",
+              "value": 1
+            },
+            "node": "ReturnOk"
+          }
+        }
+      ],
+      "ensures": [
+        {
+          "left": {
+            "name": "success",
+            "node": "SpecialResultExpr"
+          },
+          "node": "BinaryExpr",
+          "op": "or",
+          "right": {
+            "name": "failure",
+            "node": "SpecialResultExpr"
+          }
+        }
+      ],
+      "kind": "function",
+      "name": "load",
+      "node": "RoutineDecl",
+      "params": [
+        {
+          "name": "found",
+          "node": "Param",
+          "type_name": "Boolean"
+        }
+      ],
+      "requires": [
+        {
+          "left": {
+            "name": "found",
+            "node": "VarExpr"
+          },
+          "node": "BinaryExpr",
+          "op": "=",
+          "right": {
+            "node": "BoolExpr",
+            "value": true
+          }
+        }
+      ],
+      "return_type": {
+        "error_type": "NotFound",
+        "node": "ResultTypeName",
+        "ok_type": "Integer"
+      }
+    }
+  ],
+  "imports": [],
+  "module_name": "ResultStatusEnsures",
+  "node": "Program"
+}

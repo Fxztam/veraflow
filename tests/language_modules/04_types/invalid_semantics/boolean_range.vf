@@ -1,0 +1,5 @@
+module BooleanRange
+
+type Flag is Boolean range 0..1
+
+end BooleanRange

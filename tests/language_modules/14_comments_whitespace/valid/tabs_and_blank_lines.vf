@@ -1,0 +1,12 @@
+module TabsAndBlankLines
+
+
+procedure main()
+is
+	let amount: Integer = 1
+
+	check amount = 1
+end main
+
+
+end TabsAndBlankLines

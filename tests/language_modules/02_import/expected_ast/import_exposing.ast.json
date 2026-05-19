@@ -1,0 +1,33 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "node": "BoolExpr",
+            "value": true
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [
+    {
+      "exposing": [
+        "balance_never_negative"
+      ],
+      "module_name": "Banking.Proofs",
+      "node": "ImportDecl"
+    }
+  ],
+  "module_name": "App.Main",
+  "node": "Program"
+}

@@ -1,0 +1,13 @@
+module WrongArgumentCount
+
+function add(left: Integer, right: Integer) returns Integer
+is
+    return left + right
+end add
+
+procedure main()
+is
+    check add(1) = 1
+end main
+
+end WrongArgumentCount

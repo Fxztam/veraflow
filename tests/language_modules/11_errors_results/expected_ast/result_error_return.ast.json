@@ -1,0 +1,33 @@
+{
+  "declarations": [
+    {
+      "name": "NotFound",
+      "node": "ErrorDecl"
+    },
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "error_name": "NotFound",
+            "node": "ReturnError"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "load",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": {
+        "error_type": "NotFound",
+        "node": "ResultTypeName",
+        "ok_type": "Integer"
+      }
+    }
+  ],
+  "imports": [],
+  "module_name": "ResultErrorReturn",
+  "node": "Program"
+}

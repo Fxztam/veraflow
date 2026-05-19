@@ -1,0 +1,102 @@
+{
+  "declarations": [
+    {
+      "fields": [
+        {
+          "name": "id",
+          "node": "RecordField",
+          "type_name": "Integer"
+        },
+        {
+          "name": "active",
+          "node": "RecordField",
+          "type_name": "Boolean"
+        }
+      ],
+      "name": "Account",
+      "node": "RecordTypeDecl"
+    },
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [
+              {
+                "expr": {
+                  "node": "NumberExpr",
+                  "value": 1
+                },
+                "name": "id",
+                "node": "NamedArg"
+              },
+              {
+                "expr": {
+                  "node": "BoolExpr",
+                  "value": true
+                },
+                "name": "active",
+                "node": "NamedArg"
+              }
+            ],
+            "node": "RecordLiteralExpr",
+            "type_name": "Account"
+          },
+          "name": "first",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Account",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "args": [
+              {
+                "expr": {
+                  "node": "NumberExpr",
+                  "value": 2
+                },
+                "name": "id",
+                "node": "NamedArg"
+              },
+              {
+                "expr": {
+                  "node": "BoolExpr",
+                  "value": false
+                },
+                "name": "active",
+                "node": "NamedArg"
+              }
+            ],
+            "node": "RecordLiteralExpr",
+            "type_name": "Account"
+          },
+          "name": "second",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Account",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "name": "first",
+            "node": "VarExpr"
+          },
+          "name": "second",
+          "node": "AssignStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "RecordAssignment",
+  "node": "Program"
+}

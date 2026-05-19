@@ -1,0 +1,9 @@
+module NestedMarkerInsideLineComment
+
+-- /* this marker is inside a line comment and is ignored
+procedure main()
+is
+    check true
+end main
+
+end NestedMarkerInsideLineComment

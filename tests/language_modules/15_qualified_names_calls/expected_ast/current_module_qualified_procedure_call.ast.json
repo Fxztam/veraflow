@@ -1,0 +1,60 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "left": {
+              "name": "amount",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": ">",
+            "right": {
+              "node": "NumberExpr",
+              "value": 0
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "ensure_positive",
+      "node": "RoutineDecl",
+      "params": [
+        {
+          "name": "amount",
+          "node": "Param",
+          "type_name": "Integer"
+        }
+      ],
+      "requires": [],
+      "return_type": null
+    },
+    {
+      "body": [
+        {
+          "args": [
+            {
+              "node": "NumberExpr",
+              "value": 1
+            }
+          ],
+          "name": "Qualified.ProcedureCalls.ensure_positive",
+          "node": "CallStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "Qualified.ProcedureCalls",
+  "node": "Program"
+}

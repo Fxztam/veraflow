@@ -1,0 +1,13 @@
+VF-U001: function end name mismatch
+Phase: semantic
+Location: line 3, column 1
+Found: write
+Expected: read
+Hint:
+A routine must end with the same name used in its declaration.
+
+Example:
+    function total() returns Integer
+    is
+        return 0
+    end total

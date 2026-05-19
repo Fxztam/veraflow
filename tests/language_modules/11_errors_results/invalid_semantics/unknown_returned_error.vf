@@ -1,0 +1,10 @@
+module UnknownReturnedError
+
+error NotFound
+
+function load() returns Result<Integer, NotFound>
+is
+    return error MissingError
+end load
+
+end UnknownReturnedError

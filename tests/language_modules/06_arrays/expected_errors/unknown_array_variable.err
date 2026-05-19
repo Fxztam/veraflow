@@ -1,0 +1,9 @@
+VF-A005: unknown array
+Phase: semantic
+Location: line 5, column 11
+Found: values
+Expected: declared array variable
+Hint:
+Array indexing must start with a known local array variable.
+
+Declare the array before reading from it.

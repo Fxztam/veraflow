@@ -1,0 +1,9 @@
+module UnaryNot
+
+procedure main()
+is
+    let ready: Boolean = false
+    check not ready
+end main
+
+end UnaryNot

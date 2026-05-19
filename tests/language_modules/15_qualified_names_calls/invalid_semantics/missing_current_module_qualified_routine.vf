@@ -1,0 +1,8 @@
+module Qualified.MissingLocal
+
+procedure main()
+is
+    call Qualified.MissingLocal.not_declared()
+end main
+
+end Qualified.MissingLocal

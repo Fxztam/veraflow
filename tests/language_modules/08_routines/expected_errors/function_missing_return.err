@@ -1,0 +1,9 @@
+VF-U003: function has no guaranteed return
+Phase: semantic
+Location: line 3, column 1
+Found: read
+Expected: return statement on all paths
+Hint:
+Every function must guarantee a return statement.
+
+Add a return statement on all paths through the function body.

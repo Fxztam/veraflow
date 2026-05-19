@@ -1,0 +1,9 @@
+VF-ST004: while variant must be Integer
+Phase: semantic
+Location: line 8, column 17
+Found: Boolean
+Expected: Integer
+Hint:
+A while variant must be an Integer expression.
+
+Variants are used as numeric progress measures for loop termination reasoning.

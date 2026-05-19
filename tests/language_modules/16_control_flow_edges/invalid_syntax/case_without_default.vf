@@ -1,0 +1,12 @@
+module Control.CaseWithoutDefault
+
+procedure main()
+is
+    let choice: Integer = 1
+    case choice is
+        when 1 =>
+            check true
+    end case
+end main
+
+end Control.CaseWithoutDefault

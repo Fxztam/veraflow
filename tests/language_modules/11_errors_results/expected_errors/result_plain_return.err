@@ -1,0 +1,9 @@
+VF-ER004: Result function must return ok or error
+Phase: semantic
+Location: line 7, column 12
+Found: plain return
+Expected: ok or error return
+Hint:
+A Result function must return either `ok <expr>` or `error <Name>`.
+
+Plain return expressions are only valid for non-Result functions.

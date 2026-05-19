@@ -1,0 +1,39 @@
+module Retail.CliDemo
+
+import Retail.Proofs exposing total_non_negative
+
+type Money is Integer range 0 .. 1000000
+
+type Customer is record
+    id: Integer
+    name: String
+    active: Boolean
+end record
+
+function label_customer(c: Customer) returns String
+ensures result = String.concat("Customer: ", c.name)
+is
+    return String.concat("Customer: ", c.name)
+end label_customer
+
+function shipping_fee(amount: Money) returns Money
+ensures result >= 0
+is
+    if amount >= 100 then
+        return 0
+    else
+        return 7
+    end if
+end shipping_fee
+
+procedure main()
+is
+    let c: Customer = Customer { id: 1001, name: "Ada", active: true }
+    let label: String = label_customer(c)
+    let fee: Money = shipping_fee(42)
+
+    check label = "Customer: Ada"
+    check fee = 7
+end main
+
+end Retail.CliDemo

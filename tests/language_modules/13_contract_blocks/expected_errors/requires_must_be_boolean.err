@@ -1,0 +1,9 @@
+VF-CT001: requires clause requires Boolean
+Phase: semantic
+Location: line 4, column 10
+Found: Integer
+Expected: Boolean
+Hint:
+Contract clauses must be Boolean expressions.
+
+Use a comparison or Boolean expression after `requires` or `ensures`.

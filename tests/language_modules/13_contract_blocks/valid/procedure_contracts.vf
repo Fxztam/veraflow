@@ -1,0 +1,10 @@
+module ProcedureContracts
+
+procedure accept(amount: Integer)
+requires amount >= 0
+ensures true
+is
+    check amount >= 0
+end accept
+
+end ProcedureContracts

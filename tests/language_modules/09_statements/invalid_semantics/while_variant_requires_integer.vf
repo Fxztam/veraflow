@@ -1,0 +1,14 @@
+module WhileVariantRequiresInteger
+
+procedure main()
+is
+    let amount: Integer = 1
+    while amount > 0
+        invariant amount >= 0
+        variant true
+    do
+        amount := amount - 1
+    end while
+end main
+
+end WhileVariantRequiresInteger

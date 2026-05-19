@@ -1,0 +1,8 @@
+module RoutineEndNameMismatch
+
+function read() returns Integer
+is
+    return 1
+end write
+
+end RoutineEndNameMismatch

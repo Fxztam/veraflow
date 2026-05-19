@@ -1,0 +1,74 @@
+{
+  "declarations": [
+    {
+      "fields": [
+        {
+          "name": "id",
+          "node": "RecordField",
+          "type_name": "Integer"
+        },
+        {
+          "name": "active",
+          "node": "RecordField",
+          "type_name": "Boolean"
+        }
+      ],
+      "name": "Account",
+      "node": "RecordTypeDecl"
+    },
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [
+              {
+                "expr": {
+                  "node": "NumberExpr",
+                  "value": 1
+                },
+                "name": "id",
+                "node": "NamedArg"
+              },
+              {
+                "expr": {
+                  "node": "BoolExpr",
+                  "value": true
+                },
+                "name": "active",
+                "node": "NamedArg"
+              }
+            ],
+            "node": "RecordLiteralExpr",
+            "type_name": "Account"
+          },
+          "name": "account",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Account",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "node": "FieldAccessExpr",
+            "path": [
+              "account",
+              "active"
+            ]
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "RecordLiteral",
+  "node": "Program"
+}

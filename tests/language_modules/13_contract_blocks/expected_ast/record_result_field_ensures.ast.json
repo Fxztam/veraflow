@@ -1,0 +1,96 @@
+{
+  "declarations": [
+    {
+      "fields": [
+        {
+          "name": "id",
+          "node": "RecordField",
+          "type_name": "Integer"
+        },
+        {
+          "name": "active",
+          "node": "RecordField",
+          "type_name": "Boolean"
+        }
+      ],
+      "name": "Account",
+      "node": "RecordTypeDecl"
+    },
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "args": [
+                {
+                  "expr": {
+                    "node": "NumberExpr",
+                    "value": 1
+                  },
+                  "name": "id",
+                  "node": "NamedArg"
+                },
+                {
+                  "expr": {
+                    "node": "BoolExpr",
+                    "value": true
+                  },
+                  "name": "active",
+                  "node": "NamedArg"
+                }
+              ],
+              "node": "RecordLiteralExpr",
+              "type_name": "Account"
+            },
+            "node": "ReturnPlain"
+          }
+        }
+      ],
+      "ensures": [
+        {
+          "left": {
+            "node": "FieldAccessExpr",
+            "path": [
+              "result",
+              "id"
+            ]
+          },
+          "node": "BinaryExpr",
+          "op": "=",
+          "right": {
+            "node": "NumberExpr",
+            "value": 1
+          }
+        },
+        {
+          "left": {
+            "node": "FieldAccessExpr",
+            "path": [
+              "result",
+              "active"
+            ]
+          },
+          "node": "BinaryExpr",
+          "op": "=",
+          "right": {
+            "node": "BoolExpr",
+            "value": true
+          }
+        }
+      ],
+      "kind": "function",
+      "name": "make_account",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": {
+        "name": "Account",
+        "node": "TypeName"
+      }
+    }
+  ],
+  "imports": [],
+  "module_name": "RecordResultFieldEnsures",
+  "node": "Program"
+}

@@ -1,0 +1,9 @@
+module KeywordLocalName
+
+procedure main()
+is
+    let module: Integer = 0
+    check true
+end main
+
+end KeywordLocalName

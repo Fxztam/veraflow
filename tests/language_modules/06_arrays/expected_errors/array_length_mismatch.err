@@ -1,0 +1,10 @@
+VF-A003: array length mismatch
+Phase: semantic
+Location: line 5, column 5
+Found: 2
+Expected: 3
+Hint:
+An array literal must match the fixed size declared by its Array type.
+
+Example:
+    let xs: Array<Integer, 3> = [1, 2, 3]

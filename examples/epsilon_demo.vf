@@ -1,0 +1,20 @@
+module EpsilonDemo
+
+import Std.IO exposing logf
+
+procedure main()
+is
+    let epsilon: Double = 1.0
+
+    while 1.0 + epsilon != 1.0
+        invariant epsilon > 0.0
+    do
+        epsilon := epsilon / 2.0
+    end while
+
+    epsilon := epsilon * 2.0
+
+    call Std.IO.logf("epsilon = {}", epsilon)
+end main
+
+end EpsilonDemo

@@ -1,0 +1,17 @@
+VF-C001: expected module declaration
+Phase: syntax
+Location: line 1, column 1
+Found: end of file
+Expected: "module"
+Hint:
+A VeraFlow file must include a module name and end with the same name.
+
+Example:
+    module Hello
+
+    procedure main()
+    is
+        check true
+    end main
+
+    end Hello

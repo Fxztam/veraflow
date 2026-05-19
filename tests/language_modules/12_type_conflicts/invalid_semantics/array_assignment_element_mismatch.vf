@@ -1,0 +1,13 @@
+module ArrayAssignmentElementMismatch
+
+function values() returns Array<Integer, 3>
+is
+    return [1, 2, 3]
+end values
+
+procedure main()
+is
+    let flags: Array<Boolean, 3> = values()
+end main
+
+end ArrayAssignmentElementMismatch

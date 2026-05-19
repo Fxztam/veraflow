@@ -1,0 +1,20 @@
+module Control.CaseReturn
+
+function score(choice: Integer) returns Integer
+is
+    case choice is
+        when 1 =>
+            return 10
+        when 2 =>
+            return 20
+        default =>
+            return 0
+    end case
+end score
+
+procedure main()
+is
+    check score(2) = 20
+end main
+
+end Control.CaseReturn

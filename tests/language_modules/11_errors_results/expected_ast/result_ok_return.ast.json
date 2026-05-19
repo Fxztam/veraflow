@@ -1,0 +1,36 @@
+{
+  "declarations": [
+    {
+      "name": "NotFound",
+      "node": "ErrorDecl"
+    },
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "node": "NumberExpr",
+              "value": 1
+            },
+            "node": "ReturnOk"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "load",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": {
+        "error_type": "NotFound",
+        "node": "ResultTypeName",
+        "ok_type": "Integer"
+      }
+    }
+  ],
+  "imports": [],
+  "module_name": "ResultOkReturn",
+  "node": "Program"
+}

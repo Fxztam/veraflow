@@ -1,0 +1,13 @@
+module FunctionCallExpressionValue
+
+function one() returns Integer
+is
+    return 1
+end one
+
+procedure main()
+is
+    check one() + 1 = 2
+end main
+
+end FunctionCallExpressionValue

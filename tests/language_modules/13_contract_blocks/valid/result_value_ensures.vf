@@ -1,0 +1,12 @@
+module ResultValueEnsures
+
+error NotFound
+
+function load() returns Result<Integer, NotFound>
+ensures value >= 0
+ensures error = NotFound or success
+is
+    return ok 1
+end load
+
+end ResultValueEnsures

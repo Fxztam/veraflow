@@ -1,0 +1,12 @@
+VF-C005: module end name mismatch
+Phase: semantic
+Location: line 1, column 1
+Found: MissingEnde
+Expected: MissingEnd
+Hint:
+The module end declaration must repeat the exact module name.
+
+Example:
+    module MissingEnd
+    ...
+    end MissingEnd

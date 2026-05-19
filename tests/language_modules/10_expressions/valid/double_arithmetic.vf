@@ -1,0 +1,9 @@
+module DoubleArithmetic
+
+procedure main()
+is
+    let total: Double = 1.5 + 2.5
+    check total > 3.0
+end main
+
+end DoubleArithmetic

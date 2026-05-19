@@ -1,0 +1,58 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "left": {
+                "name": "amount",
+                "node": "VarExpr"
+              },
+              "node": "BinaryExpr",
+              "op": "+",
+              "right": {
+                "node": "NumberExpr",
+                "value": 1
+              }
+            },
+            "node": "ReturnPlain"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "increment",
+      "node": "RoutineDecl",
+      "params": [
+        {
+          "name": "amount",
+          "node": "Param",
+          "type_name": "Integer"
+        }
+      ],
+      "requires": [
+        {
+          "left": {
+            "name": "amount",
+            "node": "VarExpr"
+          },
+          "node": "BinaryExpr",
+          "op": ">=",
+          "right": {
+            "node": "NumberExpr",
+            "value": 0
+          }
+        }
+      ],
+      "return_type": {
+        "name": "Integer",
+        "node": "TypeName"
+      }
+    }
+  ],
+  "imports": [],
+  "module_name": "FunctionRequires",
+  "node": "Program"
+}

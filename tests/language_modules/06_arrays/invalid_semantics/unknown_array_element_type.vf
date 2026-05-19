@@ -1,0 +1,9 @@
+module UnknownArrayElementType
+
+procedure main()
+is
+    let values: Array<MissingType, 2> = []
+    check true
+end main
+
+end UnknownArrayElementType

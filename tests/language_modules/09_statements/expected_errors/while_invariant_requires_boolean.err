@@ -1,0 +1,9 @@
+VF-ST003: while invariant requires Boolean
+Phase: semantic
+Location: line 7, column 19
+Found: Integer
+Expected: Boolean
+Hint:
+This statement position requires a Boolean expression.
+
+Use a comparison or Boolean expression such as `amount > 0` or `ready = true`.

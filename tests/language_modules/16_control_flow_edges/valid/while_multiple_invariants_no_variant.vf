@@ -1,0 +1,15 @@
+module Control.WhileInvariants
+
+procedure main()
+is
+    let amount: Integer = 0
+    while amount < 2
+        invariant amount >= 0
+        invariant amount <= 2
+    do
+        amount := amount + 1
+    end while
+    check amount = 2
+end main
+
+end Control.WhileInvariants

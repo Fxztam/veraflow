@@ -1,0 +1,8 @@
+module CheckStatement
+
+procedure main()
+is
+    check true
+end main
+
+end CheckStatement

@@ -1,0 +1,8 @@
+module StringReplaceArgumentCount
+
+function label() returns String
+is
+    return String.replace("vera", "v")
+end label
+
+end StringReplaceArgumentCount

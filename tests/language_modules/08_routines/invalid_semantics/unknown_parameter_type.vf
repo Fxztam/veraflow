@@ -1,0 +1,8 @@
+module UnknownParameterType
+
+function read(item: MissingType) returns Integer
+is
+    return 1
+end read
+
+end UnknownParameterType

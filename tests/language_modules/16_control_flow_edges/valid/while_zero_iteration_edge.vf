@@ -1,0 +1,15 @@
+module Control.WhileZero
+
+procedure main()
+is
+    let amount: Integer = 0
+    while amount > 0
+        invariant amount >= 0
+        variant amount
+    do
+        amount := amount - 1
+    end while
+    check amount = 0
+end main
+
+end Control.WhileZero

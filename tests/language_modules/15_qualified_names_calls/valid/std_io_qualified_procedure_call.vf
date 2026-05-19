@@ -1,0 +1,10 @@
+module Qualified.StdIO
+
+import Std.IO exposing log
+
+procedure main()
+is
+    call Std.IO.log("qualified log")
+end main
+
+end Qualified.StdIO

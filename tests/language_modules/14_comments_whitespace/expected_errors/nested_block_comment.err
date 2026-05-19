@@ -1,0 +1,9 @@
+VF-CM001: nested block comment
+Phase: syntax
+Location: line 3, column 10
+Found: "/*" inside block comment
+Expected: non-nested block comment
+Hint:
+Block comments cannot be nested.
+
+Close the first block comment before starting another one, or use line comments inside the block text.

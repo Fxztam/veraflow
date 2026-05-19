@@ -1,0 +1,10 @@
+VF-I005: expected symbol name after 'exposing'
+Phase: syntax
+Location: line 3, column 31
+Found: end of line
+Expected: symbol name
+Hint:
+An exposing clause must list at least one symbol.
+
+Example:
+    import Banking.Proofs exposing balance_never_negative

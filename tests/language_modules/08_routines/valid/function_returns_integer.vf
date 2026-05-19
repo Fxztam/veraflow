@@ -1,0 +1,8 @@
+module FunctionReturnsInteger
+
+function count() returns Integer
+is
+    return 42
+end count
+
+end FunctionReturnsInteger

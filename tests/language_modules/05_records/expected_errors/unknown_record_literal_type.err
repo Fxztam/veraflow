@@ -1,0 +1,9 @@
+VF-R002: unknown record type
+Phase: semantic
+Location: line 5, column 28
+Found: Account
+Expected: declared record type
+Hint:
+A record literal must use a declared record type.
+
+Declare the record type before constructing a record literal.

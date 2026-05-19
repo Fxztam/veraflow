@@ -1,0 +1,23 @@
+{
+  "declarations": [
+    {
+      "fields": [
+        {
+          "name": "id",
+          "node": "RecordField",
+          "type_name": "Integer"
+        },
+        {
+          "name": "active",
+          "node": "RecordField",
+          "type_name": "Boolean"
+        }
+      ],
+      "name": "Account",
+      "node": "RecordTypeDecl"
+    }
+  ],
+  "imports": [],
+  "module_name": "RecordDeclaration",
+  "node": "Program"
+}

@@ -1,0 +1,10 @@
+module Qualified.StringBuiltins
+
+procedure main()
+is
+    let greeting: String = String.concat("Vera", "Flow")
+    let index: Integer = String.instr(greeting, "Flow")
+    check index = 4
+end main
+
+end Qualified.StringBuiltins

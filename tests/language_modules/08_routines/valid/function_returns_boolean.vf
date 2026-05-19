@@ -1,0 +1,8 @@
+module FunctionReturnsBoolean
+
+function ready() returns Boolean
+is
+    return true
+end ready
+
+end FunctionReturnsBoolean

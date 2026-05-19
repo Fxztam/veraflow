@@ -1,0 +1,15 @@
+module RecordResultFieldEnsures
+
+type Account is record
+    id: Integer
+    active: Boolean
+end record
+
+function make_account() returns Account
+ensures result.id = 1
+ensures result.active = true
+is
+    return Account { id: 1, active: true }
+end make_account
+
+end RecordResultFieldEnsures

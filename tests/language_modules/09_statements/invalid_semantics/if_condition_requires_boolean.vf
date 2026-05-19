@@ -1,0 +1,10 @@
+module IfConditionRequiresBoolean
+
+procedure main()
+is
+    if 1 then
+        check true
+    end if
+end main
+
+end IfConditionRequiresBoolean

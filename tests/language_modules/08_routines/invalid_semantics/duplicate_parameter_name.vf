@@ -1,0 +1,8 @@
+module DuplicateParameterName
+
+function combine(item: Integer, item: Integer) returns Integer
+is
+    return item
+end combine
+
+end DuplicateParameterName

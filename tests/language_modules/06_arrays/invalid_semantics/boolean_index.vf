@@ -1,0 +1,9 @@
+module BooleanIndex
+
+procedure main()
+is
+    let values: Array<Integer, 3> = [1, 2, 3]
+    check values[true] = 1
+end main
+
+end BooleanIndex

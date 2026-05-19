@@ -1,0 +1,14 @@
+module Qualified.Nested
+
+function increment(amount: Integer) returns Integer
+is
+    return amount + 1
+end increment
+
+procedure main()
+is
+    let total: Integer = Qualified.Nested.increment(Qualified.Nested.increment(1))
+    check total = 3
+end main
+
+end Qualified.Nested

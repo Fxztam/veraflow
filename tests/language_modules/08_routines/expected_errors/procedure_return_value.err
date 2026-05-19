@@ -1,0 +1,9 @@
+VF-U004: procedure cannot return a value
+Phase: semantic
+Location: line 5, column 12
+Found: return value
+Expected: no return value
+Hint:
+Procedures do not return values.
+
+Use a function when a routine needs to produce a value.

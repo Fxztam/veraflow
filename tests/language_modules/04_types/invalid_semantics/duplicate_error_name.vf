@@ -1,0 +1,6 @@
+module DuplicateErrorName
+
+error InvalidAmount
+error InvalidAmount
+
+end DuplicateErrorName

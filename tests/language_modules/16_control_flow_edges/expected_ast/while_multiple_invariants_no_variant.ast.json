@@ -1,0 +1,105 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "node": "NumberExpr",
+            "value": 0
+          },
+          "name": "amount",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Integer",
+            "node": "TypeName"
+          }
+        },
+        {
+          "body": [
+            {
+              "expr": {
+                "left": {
+                  "name": "amount",
+                  "node": "VarExpr"
+                },
+                "node": "BinaryExpr",
+                "op": "+",
+                "right": {
+                  "node": "NumberExpr",
+                  "value": 1
+                }
+              },
+              "name": "amount",
+              "node": "AssignStmt"
+            }
+          ],
+          "condition": {
+            "left": {
+              "name": "amount",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "<",
+            "right": {
+              "node": "NumberExpr",
+              "value": 2
+            }
+          },
+          "invariants": [
+            {
+              "left": {
+                "name": "amount",
+                "node": "VarExpr"
+              },
+              "node": "BinaryExpr",
+              "op": ">=",
+              "right": {
+                "node": "NumberExpr",
+                "value": 0
+              }
+            },
+            {
+              "left": {
+                "name": "amount",
+                "node": "VarExpr"
+              },
+              "node": "BinaryExpr",
+              "op": "<=",
+              "right": {
+                "node": "NumberExpr",
+                "value": 2
+              }
+            }
+          ],
+          "node": "WhileStmt",
+          "variant": null
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "amount",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 2
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "Control.WhileInvariants",
+  "node": "Program"
+}

@@ -1,0 +1,157 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "node": "NumberExpr",
+            "value": 1
+          },
+          "name": "amount",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Integer",
+            "node": "TypeName"
+          }
+        },
+        {
+          "condition": {
+            "left": {
+              "name": "amount",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 1
+            }
+          },
+          "else_body": [
+            {
+              "body": [
+                {
+                  "expr": {
+                    "left": {
+                      "name": "amount",
+                      "node": "VarExpr"
+                    },
+                    "node": "BinaryExpr",
+                    "op": "-",
+                    "right": {
+                      "node": "NumberExpr",
+                      "value": 1
+                    }
+                  },
+                  "name": "amount",
+                  "node": "AssignStmt"
+                }
+              ],
+              "condition": {
+                "left": {
+                  "name": "amount",
+                  "node": "VarExpr"
+                },
+                "node": "BinaryExpr",
+                "op": ">",
+                "right": {
+                  "node": "NumberExpr",
+                  "value": 0
+                }
+              },
+              "invariants": [
+                {
+                  "left": {
+                    "name": "amount",
+                    "node": "VarExpr"
+                  },
+                  "node": "BinaryExpr",
+                  "op": ">=",
+                  "right": {
+                    "node": "NumberExpr",
+                    "value": 0
+                  }
+                }
+              ],
+              "node": "WhileStmt",
+              "variant": {
+                "name": "amount",
+                "node": "VarExpr"
+              }
+            }
+          ],
+          "node": "IfStmt",
+          "then_body": [
+            {
+              "branches": [
+                {
+                  "body": [
+                    {
+                      "expr": {
+                        "node": "BoolExpr",
+                        "value": true
+                      },
+                      "node": "CheckStmt"
+                    }
+                  ],
+                  "node": "CaseBranch",
+                  "value": {
+                    "node": "NumberExpr",
+                    "value": 1
+                  }
+                }
+              ],
+              "default_body": [
+                {
+                  "expr": {
+                    "left": {
+                      "node": "BoolExpr",
+                      "value": false
+                    },
+                    "node": "BinaryExpr",
+                    "op": "=",
+                    "right": {
+                      "node": "BoolExpr",
+                      "value": false
+                    }
+                  },
+                  "node": "CheckStmt"
+                }
+              ],
+              "expr": {
+                "name": "amount",
+                "node": "VarExpr"
+              },
+              "node": "CaseStmt"
+            }
+          ]
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "amount",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 1
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "Control.NestedEdges",
+  "node": "Program"
+}

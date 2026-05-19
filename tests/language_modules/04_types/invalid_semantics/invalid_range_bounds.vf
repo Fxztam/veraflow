@@ -1,0 +1,5 @@
+module InvalidRangeBounds
+
+type Percent is Integer range 100..0
+
+end InvalidRangeBounds

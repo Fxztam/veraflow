@@ -1,0 +1,50 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "left": {
+                "name": "left",
+                "node": "VarExpr"
+              },
+              "node": "BinaryExpr",
+              "op": "+",
+              "right": {
+                "name": "right",
+                "node": "VarExpr"
+              }
+            },
+            "node": "ReturnPlain"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "add",
+      "node": "RoutineDecl",
+      "params": [
+        {
+          "name": "left",
+          "node": "Param",
+          "type_name": "Integer"
+        },
+        {
+          "name": "right",
+          "node": "Param",
+          "type_name": "Integer"
+        }
+      ],
+      "requires": [],
+      "return_type": {
+        "name": "Integer",
+        "node": "TypeName"
+      }
+    }
+  ],
+  "imports": [],
+  "module_name": "FunctionParameters",
+  "node": "Program"
+}

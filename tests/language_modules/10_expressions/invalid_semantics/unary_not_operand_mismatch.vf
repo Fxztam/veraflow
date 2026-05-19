@@ -1,0 +1,8 @@
+module UnaryNotOperandMismatch
+
+procedure main()
+is
+    check not 1
+end main
+
+end UnaryNotOperandMismatch

@@ -1,0 +1,9 @@
+module ArrayLiteral
+
+procedure main()
+is
+    let values: Array<Integer, 3> = [1, 2, 3]
+    check true
+end main
+
+end ArrayLiteral

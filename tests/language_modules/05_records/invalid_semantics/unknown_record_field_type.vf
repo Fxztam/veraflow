@@ -1,0 +1,7 @@
+module UnknownRecordFieldType
+
+type Account is record
+    id: MissingType
+end record
+
+end UnknownRecordFieldType

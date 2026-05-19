@@ -1,0 +1,9 @@
+module FunctionRequires
+
+function increment(amount: Integer) returns Integer
+requires amount >= 0
+is
+    return amount + 1
+end increment
+
+end FunctionRequires

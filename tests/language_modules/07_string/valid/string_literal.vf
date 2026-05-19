@@ -1,0 +1,9 @@
+module StringLiteral
+
+procedure main()
+is
+    let label: String = "ready"
+    check true
+end main
+
+end StringLiteral

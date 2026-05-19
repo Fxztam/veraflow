@@ -1,0 +1,70 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "condition": {
+            "left": {
+              "name": "amount",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "<",
+            "right": {
+              "node": "NumberExpr",
+              "value": 0
+            }
+          },
+          "else_body": [],
+          "node": "IfStmt",
+          "then_body": [
+            {
+              "expr": {
+                "left": {
+                  "name": "amount",
+                  "node": "VarExpr"
+                },
+                "node": "BinaryExpr",
+                "op": "<",
+                "right": {
+                  "node": "NumberExpr",
+                  "value": 0
+                }
+              },
+              "node": "CheckStmt"
+            }
+          ]
+        },
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "name": "amount",
+              "node": "VarExpr"
+            },
+            "node": "ReturnPlain"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "normalize",
+      "node": "RoutineDecl",
+      "params": [
+        {
+          "name": "amount",
+          "node": "Param",
+          "type_name": "Integer"
+        }
+      ],
+      "requires": [],
+      "return_type": {
+        "name": "Integer",
+        "node": "TypeName"
+      }
+    }
+  ],
+  "imports": [],
+  "module_name": "Control.ReturnAfterIf",
+  "node": "Program"
+}

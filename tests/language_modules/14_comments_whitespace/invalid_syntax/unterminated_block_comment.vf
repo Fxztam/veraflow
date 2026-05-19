@@ -1,0 +1,9 @@
+module UnterminatedBlockComment
+
+/* this block comment never closes
+procedure main()
+is
+    check true
+end main
+
+end UnterminatedBlockComment

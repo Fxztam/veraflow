@@ -1,0 +1,9 @@
+VF-S002: String argument type mismatch
+Phase: semantic
+Location: line 5, column 34
+Found: Integer
+Expected: argument 2 as String for String.concat
+Hint:
+String built-in arguments must match the expected type for their position.
+
+Check the String function signature and pass String or Integer values as required.

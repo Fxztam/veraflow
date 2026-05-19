@@ -1,0 +1,42 @@
+module StdIoConsoleDemo
+
+import Std.IO exposing log, logf
+
+type Customer is record
+    id: Integer
+    name: String
+end record
+
+function bonus(base: Integer) returns Integer
+ensures result = base + 10
+is
+    return base + 10
+end bonus
+
+procedure main()
+is
+    let c: Customer = Customer { id: 1001, name: "Ada" }
+    let total: Integer = bonus(32)
+    let message: String = String.concat("Customer: ", c.name)
+    let epsilon: Double = 1.0
+
+    call Std.IO.log("=== VeraFlow Std.IO Demo ===")
+    call Std.IO.log(message)
+    call Std.IO.logf("customer id = {}", c.id)
+    call Std.IO.logf("value = {}", total)
+
+    let epsilon: Double = 1.0
+
+    while 1.0 + epsilon != 1.0
+        invariant epsilon > 0.0
+    do
+        epsilon := epsilon / 2.0
+    end while
+
+    epsilon := epsilon * 2.0
+
+    call Std.IO.logf("epsilon = {}", epsilon)
+
+end main
+
+end StdIoConsoleDemo

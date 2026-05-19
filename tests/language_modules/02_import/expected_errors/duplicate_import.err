@@ -1,0 +1,11 @@
+VF-I002: duplicate import declaration
+Phase: semantic
+Location: line 4, column 1
+Found: Banking.Proofs
+Expected: unique imported module
+Hint:
+Each imported module may appear only once.
+
+Example:
+    import Banking.Types
+    import Banking.Proofs

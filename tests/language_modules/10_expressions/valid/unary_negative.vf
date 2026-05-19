@@ -1,0 +1,9 @@
+module UnaryNegative
+
+procedure main()
+is
+    let amount: Integer = -1
+    check amount < 0
+end main
+
+end UnaryNegative

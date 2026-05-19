@@ -1,0 +1,9 @@
+module MixedArrayLiteral
+
+procedure main()
+is
+    let values: Array<Integer, 3> = [1, true, 3]
+    check true
+end main
+
+end MixedArrayLiteral

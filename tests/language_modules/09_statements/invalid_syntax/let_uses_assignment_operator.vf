@@ -1,0 +1,9 @@
+module LetUsesAssignmentOperator
+
+procedure main()
+is
+    let amount := 1
+    check true
+end main
+
+end LetUsesAssignmentOperator

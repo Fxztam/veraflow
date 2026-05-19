@@ -1,0 +1,265 @@
+[OK] core :: core arithmetic add: PASS
+[OK] core :: core subtraction multiplication: PASS
+[OK] core :: core division integer: PASS
+[OK] core :: core check fail: FAIL as expected: VerificationError: line 5:2: check failed
+[OK] core :: core requires fail: FAIL as expected: VerificationError: line 3:10: requires failed in f: BinaryExpr(op='>', left=VarExpr(name='x', pos=SourcePos(line=3, column=10)), right=NumberExpr(value=0, pos=SourcePos(line=3, column=14)), pos=SourcePos(line=3, column=10))
+[OK] core :: core ensures fail: FAIL as expected: VerificationError: line 3:9: ensures failed in f: BinaryExpr(op='=', left=VarExpr(name='result', pos=SourcePos(line=3, column=9)), right=BinaryExpr(op='+', left=VarExpr(name='x', pos=SourcePos(line=3, column=18)), right=NumberExpr(value=1, pos=SourcePos(line=3, column=22)), pos=SourcePos(line=3, column=18)), pos=SourcePos(line=3, column=9))
+[OK] core :: core if true branch: PASS
+[OK] core :: core if else branch: PASS
+[OK] core :: core missing return fail: FAIL as expected: TypeCheckError: line 2:1: function f has no guaranteed return
+[OK] core :: core partial return fail: FAIL as expected: TypeCheckError: line 2:1: function f has no guaranteed return
+[OK] type_system :: boolean and or not: PASS
+[OK] type_system :: type bool to int fail: FAIL as expected: TypeCheckError: line 5:2: cannot assign Boolean to Integer
+[OK] type_system :: type int to bool fail: FAIL as expected: TypeCheckError: line 5:2: cannot assign Integer to Boolean
+[OK] type_system :: if condition type fail: FAIL as expected: TypeCheckError: line 5:5: Expected Boolean, got Integer
+[OK] double :: double arithmetic: PASS
+[OK] double :: mixed integer double coercion: PASS
+[OK] double :: double range OK: PASS
+[OK] double :: double range high fail: FAIL as expected: VerificationError: line 5:2: variable r above range Ratio: 1.25 > 1.0
+[OK] double :: double to integer fail: FAIL as expected: TypeCheckError: line 4:2: cannot assign Double to Integer
+[OK] array :: array literal OK: PASS
+[OK] array :: array length fail: FAIL as expected: TypeCheckError: line 4:2: array length mismatch: expected 3, got 2
+[OK] array :: array element type fail: FAIL as expected: TypeCheckError: line 4:30: array literal has mixed element types
+[OK] array :: array index OK: PASS
+[OK] array :: array static index fail: FAIL as expected: TypeCheckError: line 5:8: array index out of bounds: 3 for size 3
+[OK] array :: array runtime index fail: FAIL as expected: VerificationError: line 6:8: array index out of bounds
+[OK] record :: record literal OK: PASS
+[OK] record :: record reorder OK: PASS
+[OK] record :: record missing field fail: FAIL as expected: TypeCheckError: line 8:20: missing record field(s) for Customer: active
+[OK] record :: record unknown field fail: FAIL as expected: TypeCheckError: line 7:38: unknown field for Customer: active
+[OK] record :: record duplicate field decl fail: FAIL as expected: TypeCheckError: line 4:2: duplicate record field: id
+[OK] record :: record duplicate literal field fail: FAIL as expected: TypeCheckError: line 8:38: duplicate record literal field: id
+[OK] record :: record wrong literal field type fail: FAIL as expected: TypeCheckError: line 8:31: cannot assign Boolean to Integer
+[OK] record :: field access OK: PASS
+[OK] record :: field access unknown fail: FAIL as expected: TypeCheckError: line 8:8: unknown field name for record Customer
+[OK] record :: field access non record fail: FAIL as expected: TypeCheckError: line 5:8: field access requires record before .id, got Integer
+[OK] record :: field access type fail: FAIL as expected: TypeCheckError: line 8:2: cannot assign Integer to Boolean
+[OK] record :: record assignment OK: PASS
+[OK] record :: record wrong record assignment fail: FAIL as expected: TypeCheckError: line 10:2: cannot assign B to A
+[OK] nested_record :: nested record OK: PASS
+[OK] nested_record :: nested unknown field fail: FAIL as expected: TypeCheckError: line 12:8: unknown field zip for record Address
+[OK] nested_record :: nested too deep fail: FAIL as expected: TypeCheckError: line 12:8: field access requires record before .foo, got Integer
+[OK] update :: field update OK: PASS
+[OK] update :: nested field update OK: PASS
+[OK] update :: field update type fail: FAIL as expected: TypeCheckError: line 8:2: cannot assign Boolean to Integer
+[OK] update :: field update unknown fail: FAIL as expected: TypeCheckError: line 8:2: unknown field name for record Customer
+[OK] contract :: result field contract OK: PASS
+[OK] contract :: result field contract fail: FAIL as expected: VerificationError: line 6:9: ensures failed in make_customer: BinaryExpr(op='=', left=FieldAccessExpr(path=['result', 'id'], pos=SourcePos(line=6, column=9)), right=NumberExpr(value=2, pos=SourcePos(line=6, column=21)), pos=SourcePos(line=6, column=9))
+[OK] contract :: nested result field contract OK: PASS
+[OK] contract :: result contract type fail: FAIL as expected: TypeCheckError: line 6:9: cannot compare Integer with Boolean
+[OK] loop :: while variant OK: PASS
+[OK] loop :: while invariant fail: FAIL as expected: VerificationError: line 6:13: loop invariant failed after body
+[OK] loop :: while variant fail: FAIL as expected: VerificationError: line 7:11: loop variant did not decrease
+[OK] grammar :: grammar missing end fail: FAIL as expected: UnexpectedToken: Unexpected token Token('$END', '') at line 4, column 19.
+Expected one of: 
+	* IF
+	* OR
+	* CHECK
+	* CALL
+	* AND
+	* RETURN
+	* __ANON_3
+	* __ANON_5
+	* LESSTHAN
+	* MINUS
+	* WHILE
+	* __ANON_4
+	* MORETHAN
+	* PLUS
+	* END
+	* STAR
+	* LET
+	* EQUAL
+	* CASE
+	* SLASH
+	* NAME
+
+[OK] grammar :: grammar unknown token fail: FAIL as expected: UnexpectedCharacters: No terminal matches '@' in the current parser context, at line 4 col 19
+
+ let x: Integer = @
+                  ^
+Expected one of: 
+	* SIGNED_FLOAT
+	* LSQB
+	* MINUS
+	* INT_NUMBER
+	* LPAR
+	* ESCAPED_STRING
+	* NAME
+
+Previous tokens: Token('EQUAL', '=')
+
+[OK] grammar :: parser ambiguity record vs function OK: PASS
+[OK] stress :: large nested record OK: PASS
+[OK] stress :: large nested update OK: PASS
+[OK] result :: result ok return smoke: PASS
+[OK] result :: result wrong error fail: FAIL as expected: TypeCheckError: line 6:9: Function returns Result<Integer,E>, cannot return error F
+[OK] v11a :: v11a assignment operator OK: PASS
+[OK] v11a :: v11a field assignment operator OK: PASS
+[OK] v11a :: v11a old plain assignment fails: FAIL as expected: UnexpectedToken: Unexpected token Token('EQUAL', '=') at line 6, column 7.
+Expected one of: 
+	* DOT
+	* ":="
+Previous tokens: [Token('NAME', 'x')]
+
+[OK] v11a :: v11a old field assignment fails: FAIL as expected: UnexpectedToken: Unexpected token Token('EQUAL', '=') at line 9, column 13.
+Expected one of: 
+	* DOT
+	* __ANON_1
+
+[OK] v11a :: v11a equality unchanged OK: PASS
+[OK] v11b :: plain import OK: PASS
+[OK] v11b :: import exposing one symbol OK: PASS
+[OK] v11b :: multiple imports OK: PASS
+[OK] v11b :: duplicate import fails: FAIL as expected: TypeCheckError: line 4:1: duplicate import: Banking.Proofs
+[OK] v11b :: self import fails: FAIL as expected: TypeCheckError: line 3:1: module cannot import itself: App.Main
+[OK] v11b :: duplicate exposing fails: FAIL as expected: TypeCheckError: line 3:1: duplicate exposing symbol balance_never_negative in import Banking.Proofs
+[OK] v11b :: qualified module name still OK without imports: PASS
+[OK] v11c :: qualified module and procedure end OK: PASS
+[OK] v11c :: if end if OK: PASS
+[OK] v11c :: while end while OK: PASS
+[OK] v11c :: record end record OK: PASS
+[OK] v11c :: naked procedure end fails: FAIL as expected: UnexpectedToken: Unexpected token Token('NAME', 'NakedEndFails') at line 7, column 5.
+Expected one of: 
+	* END
+	* PROCEDURE
+	* FUNCTION
+	* ERROR
+	* TYPE
+Previous tokens: [Token('NAME', 'end')]
+
+[OK] v11c :: wrong procedure end name fails: FAIL as expected: TypeCheckError: line 3:1: procedure end name mismatch: expected main, got other
+[OK] v11c :: wrong module end name fails: FAIL as expected: TypeCheckError: line 2:1: module end name mismatch: expected WrongModuleEndFails, got OtherModule
+[OK] v11c :: naked if end fails: FAIL as expected: UnexpectedToken: Unexpected token Token('END', 'end') at line 8, column 1.
+Expected one of: 
+	* IF
+Previous tokens: [Token('END', 'end')]
+
+[OK] v11d :: case integer first branch OK: PASS
+[OK] v11d :: case integer default OK: PASS
+[OK] v11d :: case boolean OK: PASS
+[OK] v11d :: case branch type mismatch fails: FAIL as expected: TypeCheckError: line 7:9: case branch type Boolean does not match case expression Integer
+[OK] v11d :: case missing default fails: FAIL as expected: UnexpectedToken: Unexpected token Token('END', 'end') at line 9, column 5.
+Expected one of: 
+	* DEFAULT
+	* WHEN
+
+[OK] v11d :: case duplicate branch fails: FAIL as expected: TypeCheckError: line 9:9: duplicate case branch value
+[OK] v11d :: case nested if OK: PASS
+[OK] v11e :: line comment OK: PASS
+[OK] v11e :: block comment OK: PASS
+[OK] v11e :: ai doc comment OK no semantic effect: PASS
+[OK] v11e :: commented failing code is ignored: PASS
+[OK] v11e :: comments inside case OK: PASS
+[OK] v11e :: unterminated block comment fails: FAIL as expected: UnexpectedToken: Unexpected token Token('SLASH', '/') at line 3, column 1.
+Expected one of: 
+	* END
+	* IMPORT
+	* PROCEDURE
+	* FUNCTION
+	* DOT
+	* ERROR
+	* TYPE
+Previous tokens: [Token('NAME', 'UnterminatedBlockComment')]
+
+[OK] v11e :: comment cannot hide missing end: FAIL as expected: UnexpectedToken: Unexpected token Token('$END', '') at line 5, column 11.
+Expected one of: 
+	* IF
+	* OR
+	* CHECK
+	* CALL
+	* AND
+	* RETURN
+	* __ANON_3
+	* __ANON_5
+	* LESSTHAN
+	* MINUS
+	* WHILE
+	* __ANON_4
+	* MORETHAN
+	* PLUS
+	* END
+	* STAR
+	* LET
+	* EQUAL
+	* CASE
+	* SLASH
+	* NAME
+
+[OK] v11e :: comment cannot create executable semantics: PASS
+[OK] v11f :: string literal OK: PASS
+[OK] v11f :: string concat OK: PASS
+[OK] v11f :: string substr OK: PASS
+[OK] v11f :: string replace OK: PASS
+[OK] v11f :: string instr found OK: PASS
+[OK] v11f :: string instr not found OK: PASS
+[OK] v11f :: string type mismatch fail: FAIL as expected: TypeCheckError: line 5:5: cannot assign Integer to String
+[OK] v11f :: string concat type fail: FAIL as expected: TypeCheckError: line 6:38: String.concat argument 2 expected String, got Integer
+[OK] v11f :: string substr bounds fail: FAIL as expected: VerificationError: line 6:21: String.substr out of bounds
+[OK] v11f :: string arithmetic fail: FAIL as expected: TypeCheckError: line 5:21: arithmetic requires numeric operands
+[OK] v11f :: string in case OK: PASS
+[OK] v11h :: Std.IO.log string OK: PASS
+[OK] v11h :: Std.IO.log integer OK: PASS
+[OK] v11h :: Std.IO.logf integer OK: PASS
+[OK] v11h :: Std.IO.logf string OK: PASS
+[OK] v11h :: Std.IO.log record fails: FAIL as expected: TypeCheckError: line 10:21: Std.IO.log supports String, Integer, Boolean, Double
+[OK] v11h :: Std.IO.logf template must be string fails: FAIL as expected: TypeCheckError: line 7:22: Std.IO.logf argument 1 expected String, got Integer
+[OK] cfg_smt :: cfg if smoke: PASS
+[OK] cfg_smt :: cfg loop smoke: PASS
+[OK] cfg_smt :: symbolic/smt basic smoke: PASS
+[OK] cfg_smt :: symbolic/smt record smoke: PASS
+[OK] determinism :: repeat same program five times: PASS
+[OK] recovery :: bad program followed by good program: PASS
+[OK] runtime_vs_verifier :: positive consistency: PASS
+[OK] runtime_vs_verifier :: negative ensures consistency: PASS
+[OK] property :: property addition 0+0: PASS
+[OK] property :: property addition 1+2: PASS
+[OK] property :: property addition 5+7: PASS
+[OK] property :: property addition 10+-3: PASS
+[OK] property :: property addition -4+9: PASS
+[OK] property :: property addition 100+23: PASS
+[OK] property :: property addition -8+-9: PASS
+[OK] property :: property addition 42+58: PASS
+[OK] property :: property addition 999+1: PASS
+[OK] property :: property addition 17+25: PASS
+[OK] property :: property record update 1->2: PASS
+[OK] property :: property record update 0->5: PASS
+[OK] property :: property record update 10->10: PASS
+[OK] property :: property record update 99->100: PASS
+[OK] property :: property record update -3->4: PASS
+
+Feature registry:
+  core: AST=3 verifier_hooks=2 interpreter_hooks=1
+  control: AST=2 verifier_hooks=1 interpreter_hooks=1
+  arrays: AST=3 verifier_hooks=1 interpreter_hooks=1
+  result: AST=2 verifier_hooks=1 interpreter_hooks=1
+  records: AST=3 verifier_hooks=1 interpreter_hooks=1
+  cfg_smt: AST=2 verifier_hooks=1 interpreter_hooks=1
+
+Category summary:
+  array: 6/6
+  cfg_smt: 4/4
+  contract: 4/4
+  core: 10/10
+  determinism: 1/1
+  double: 5/5
+  grammar: 3/3
+  loop: 3/3
+  nested_record: 3/3
+  property: 15/15
+  record: 13/13
+  recovery: 1/1
+  result: 2/2
+  runtime_vs_verifier: 2/2
+  stress: 2/2
+  type_system: 4/4
+  update: 4/4
+  v11a: 5/5
+  v11b: 7/7
+  v11c: 8/8
+  v11d: 7/7
+  v11e: 8/8
+  v11f: 11/11
+  v11h: 6/6
+
+134/134 tests matched expectation

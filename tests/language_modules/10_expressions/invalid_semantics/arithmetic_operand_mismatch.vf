@@ -1,0 +1,9 @@
+module ArithmeticOperandMismatch
+
+procedure main()
+is
+    let amount: Integer = 1 + true
+    check true
+end main
+
+end ArithmeticOperandMismatch

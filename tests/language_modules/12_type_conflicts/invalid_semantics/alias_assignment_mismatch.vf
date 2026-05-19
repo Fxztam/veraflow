@@ -1,0 +1,10 @@
+module AliasAssignmentMismatch
+
+type Count is Integer range 0..100
+
+procedure main()
+is
+    let total: Count = true
+end main
+
+end AliasAssignmentMismatch

@@ -1,0 +1,10 @@
+module ResultPlainReturn
+
+error NotFound
+
+function load() returns Result<Integer, NotFound>
+is
+    return 1
+end load
+
+end ResultPlainReturn

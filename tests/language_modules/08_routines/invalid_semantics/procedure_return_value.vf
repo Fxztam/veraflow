@@ -1,0 +1,8 @@
+module ProcedureReturnValue
+
+procedure main()
+is
+    return 1
+end main
+
+end ProcedureReturnValue

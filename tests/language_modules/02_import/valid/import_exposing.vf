@@ -1,0 +1,10 @@
+module App.Main
+
+import Banking.Proofs exposing balance_never_negative
+
+procedure main()
+is
+    check true
+end main
+
+end App.Main

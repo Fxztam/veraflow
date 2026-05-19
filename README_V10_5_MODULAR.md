@@ -1,0 +1,223 @@
+# VeraFlow v11f Native Strings
+
+Goal: **formal verification system for AI**.
+
+v10.5 restructures the compiler so future language features can be added as controlled compiler add-ons.
+
+## Structure
+
+```text
+veraflow/
+  core/
+    ast.py
+    parser.py
+    verifier.py
+    interpreter.py
+    cfg.py
+    symbolic.py
+    registry.py
+    feature.py
+  grammar/
+    veraflow.ebnf
+    veraflow.lark
+  features/
+    core/
+    control/
+    arrays/
+    result/
+    records/
+    cfg_smt/
+  tests/
+    regression_cases.py
+    run_modular_tests.py
+```
+
+## Run
+
+```bash
+python run_modular_tests.py --log modular.log --json-summary modular_summary.json
+```
+
+## Current expected result
+
+```text
+82/82 tests matched expectation
+```
+
+## Security policy
+
+```text
+No preprocessor.
+No hidden compiler flags.
+No automatic semantic changes from comments.
+External grammar required.
+Features must ship tests.
+```
+
+
+## Generated EBNF
+
+v10.5 now includes a generator:
+
+```bash
+python tools/lark_to_ebnf.py
+python -m veraflow ebnf --dialects
+```
+
+It reads:
+
+```text
+veraflow/grammar/veraflow.lark
+```
+
+and writes:
+
+```text
+veraflow/grammar/veraflow.generated.ebnf
+```
+
+With `--dialects`, it also writes:
+
+```text
+veraflow/grammar/veraflow.generated.forge.ebnf
+veraflow/grammar/veraflow.generated.rr.ebnf
+veraflow/grammar/veraflow.generated.vscode.ebnf
+veraflow/grammar/veraflow.generated.pyebnf.ebnf
+veraflow/grammar/veraflow.generated.parseebnf.ebnf
+```
+
+Recommended policy:
+
+```text
+veraflow.lark            executable parser grammar / source of truth
+veraflow.generated.ebnf  generated review/documentation grammar
+veraflow.generated.forge.ebnf  generated EBNF Forge validator dialect
+veraflow.generated.rr.ebnf     generated railroad/W3C-style dialect
+veraflow.generated.vscode.ebnf generated VS Code EBNF plugin dialect
+veraflow.generated.pyebnf.ebnf generated pyebnf Python checker dialect
+veraflow.generated.parseebnf.ebnf generated parse-ebnf PyPI test dialect
+veraflow.ebnf            curated human language specification
+```
+
+Use `veraflow.generated.vscode.ebnf` for the VS Code EBNF plugin. The RR file is intended for railroad/W3C-style tools and may use syntax the VS Code plugin does not accept.
+Use `veraflow.generated.parseebnf.ebnf` for the `parse-ebnf` PyPI parser, which requires alphanumeric rule identifiers.
+Use `veraflow.generated.forge.ebnf` for the EBNF Forge `ebnff` validator. Use `veraflow.generated.pyebnf.ebnf` for the Python `pyebnf` checker.
+
+
+## v11a assignment rule
+
+```text
+let x: T = expr       Definition / binding
+x := expr             Mutation / state change
+record.field := expr  Field mutation / state change
+x = y                 Equality expression only
+```
+
+
+## v11b import rule
+
+```veraflow
+module App.Main
+
+import Banking.Proofs
+import Banking.Proofs exposing balance_never_negative
+import Banking.Types exposing Account, Customer
+```
+
+Current v11b scope:
+
+```text
+imports are parsed into AST
+duplicate imports are rejected
+self-import is rejected
+duplicate exposing symbols are rejected
+multi-file resolution is planned later
+qualified calls remain a design goal
+```
+
+
+## v11c qualified end rule
+
+```veraflow
+module App.Main
+procedure main()
+is
+    if true then
+        check true
+    end if
+end main
+end App.Main
+```
+
+Rules:
+
+```text
+module       -> end Module.Name
+function     -> end function_name
+procedure    -> end procedure_name
+record       -> end record
+if           -> end if
+while        -> end while
+naked end    -> syntax error
+wrong names  -> parser/verifier error
+```
+
+
+## v11d case rule
+
+```veraflow
+case expr is
+    when value =>
+        ...
+    default =>
+        ...
+end case
+```
+
+Rules: mandatory default, no fallthrough, type-compatible branch values, duplicate literal branches rejected.
+
+
+## v11e comments
+
+```veraflow
+-- line comment
+
+/*
+block comment
+*/
+
+/**
+@ai intent:
+Structured AI/documentation comment.
+*/
+```
+
+Policy:
+
+```text
+comments are ignored by parser/verifier/interpreter
+no preprocessor
+no hidden compiler flags
+no automatic semantic change from comments
+```
+
+
+## v11f native strings
+
+```veraflow
+let s: String = "hello"
+let t: String = String.concat(s, " world")
+let p: String = String.substr(t, 0, 5)
+let r: String = String.replace(t, "world", "VeraFlow")
+let i: Integer = String.instr(t, "Flow")
+```
+
+Rules:
+
+```text
+String is a native base type.
+String.* operations are explicit.
+String.substr is bounds checked.
+String.instr returns 0-based index or -1.
+String arithmetic is rejected.
+```

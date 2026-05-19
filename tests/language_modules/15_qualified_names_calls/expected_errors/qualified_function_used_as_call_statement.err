@@ -1,0 +1,9 @@
+VF-U006: call requires procedure
+Phase: semantic
+Location: line 10, column 5
+Found: function
+Expected: procedure
+Hint:
+The `call` statement can only invoke procedures.
+
+Use a function call expression when reading a function result.

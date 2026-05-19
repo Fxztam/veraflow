@@ -1,0 +1,9 @@
+VF-ER002: unknown returned error
+Phase: semantic
+Location: line 7, column 12
+Found: MissingError
+Expected: declared error
+Hint:
+A `return error` statement must return a declared error.
+
+Declare the error before returning it.

@@ -1,0 +1,16 @@
+module Control.WhileScope
+
+procedure main()
+is
+    let amount: Integer = 0
+    while amount < 1
+        invariant amount >= 0
+        variant 1 - amount
+    do
+        let loop_total: Integer = amount
+        amount := amount + 1
+    end while
+    check loop_total = 0
+end main
+
+end Control.WhileScope

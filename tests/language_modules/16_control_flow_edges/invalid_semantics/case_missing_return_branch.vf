@@ -1,0 +1,13 @@
+module Control.CaseMissingReturn
+
+function score(choice: Integer) returns Integer
+is
+    case choice is
+        when 1 =>
+            return 10
+        default =>
+            check choice != 1
+    end case
+end score
+
+end Control.CaseMissingReturn

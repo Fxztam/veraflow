@@ -1,0 +1,70 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "node": "StringExpr",
+              "value": "not -- a comment and not /* a block */"
+            },
+            "node": "ReturnPlain"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "text",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": {
+        "name": "String",
+        "node": "TypeName"
+      }
+    },
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [],
+            "name": "text",
+            "node": "CallExpr"
+          },
+          "name": "text_value",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "String",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "text_value",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "StringExpr",
+              "value": "not -- a comment and not /* a block */"
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "CommentMarkersInsideStrings",
+  "node": "Program"
+}

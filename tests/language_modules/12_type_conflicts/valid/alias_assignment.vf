@@ -1,0 +1,11 @@
+module AliasAssignment
+
+type Count is Integer range 0..100
+
+procedure main()
+is
+    let total: Count = 1
+    total := 2
+end main
+
+end AliasAssignment

@@ -1,0 +1,7 @@
+module KeywordRecordFieldName
+
+type Payload is record
+    module: Integer
+end record
+
+end KeywordRecordFieldName

@@ -1,0 +1,13 @@
+module CallStatement
+
+procedure accept(flag: Boolean)
+is
+    check flag
+end accept
+
+procedure main()
+is
+    call accept(true)
+end main
+
+end CallStatement

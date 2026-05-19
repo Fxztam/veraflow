@@ -1,0 +1,10 @@
+VF-M001: imported module not found
+Phase: resolution
+Location: line 3, column 1
+Found: Banking.Proofs
+Expected: existing module file
+Hint:
+The imported module must exist under the module search root.
+
+Example path:
+    Banking.Proofs -> Banking/Proofs.vf

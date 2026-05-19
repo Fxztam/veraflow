@@ -1,0 +1,11 @@
+module RequiresCannotUseSuccess
+
+error NotFound
+
+function load() returns Result<Integer, NotFound>
+requires success
+is
+    return ok 1
+end load
+
+end RequiresCannotUseSuccess

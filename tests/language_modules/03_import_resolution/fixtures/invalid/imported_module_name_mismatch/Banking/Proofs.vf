@@ -1,0 +1,8 @@
+module Banking.WrongProofs
+
+procedure helper()
+is
+    check true
+end helper
+
+end Banking.WrongProofs

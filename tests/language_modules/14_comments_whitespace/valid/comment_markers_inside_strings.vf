@@ -1,0 +1,14 @@
+module CommentMarkersInsideStrings
+
+function text() returns String
+is
+    return "not -- a comment and not /* a block */"
+end text
+
+procedure main()
+is
+    let text_value: String = text()
+    check text_value = "not -- a comment and not /* a block */"
+end main
+
+end CommentMarkersInsideStrings

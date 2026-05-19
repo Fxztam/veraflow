@@ -1,0 +1,8 @@
+module BooleanLogic
+
+procedure main()
+is
+    check true and not false or true
+end main
+
+end BooleanLogic

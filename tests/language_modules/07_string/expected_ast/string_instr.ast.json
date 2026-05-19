@@ -1,0 +1,41 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "args": [
+                {
+                  "node": "StringExpr",
+                  "value": "veraflow"
+                },
+                {
+                  "node": "StringExpr",
+                  "value": "flow"
+                }
+              ],
+              "name": "String.instr",
+              "node": "CallExpr"
+            },
+            "node": "ReturnPlain"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "position",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": {
+        "name": "Integer",
+        "node": "TypeName"
+      }
+    }
+  ],
+  "imports": [],
+  "module_name": "StringInstr",
+  "node": "Program"
+}

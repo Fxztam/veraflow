@@ -1,0 +1,8 @@
+module StringInstr
+
+function position() returns Integer
+is
+    return String.instr("veraflow", "flow")
+end position
+
+end StringInstr

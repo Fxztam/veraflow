@@ -1,0 +1,13 @@
+VF-S001: wrong String argument count
+Phase: semantic
+Location: line 5, column 12
+Found: argument list
+Expected: 3 argument(s) for String.replace
+Hint:
+A String built-in call must pass exactly the arguments required by that function.
+
+Examples:
+    String.concat(left, right)
+    String.substr(text, start, length)
+    String.replace(text, old, new)
+    String.instr(text, needle)

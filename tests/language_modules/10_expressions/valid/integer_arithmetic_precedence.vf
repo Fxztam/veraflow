@@ -1,0 +1,8 @@
+module IntegerArithmeticPrecedence
+
+procedure main()
+is
+    check 1 + 2 * 3 = 7
+end main
+
+end IntegerArithmeticPrecedence

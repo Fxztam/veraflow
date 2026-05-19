@@ -1,0 +1,14 @@
+module CaseBranchTypeMismatch
+
+procedure main()
+is
+    let choice: Integer = 1
+    case choice is
+        when true =>
+            check true
+        default =>
+            check true
+    end case
+end main
+
+end CaseBranchTypeMismatch

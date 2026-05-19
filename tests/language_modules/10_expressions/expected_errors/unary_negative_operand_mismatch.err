@@ -1,0 +1,10 @@
+VF-E007: unary negative requires numeric operand
+Phase: semantic
+Location: line 5, column 27
+Found: Boolean
+Expected: Integer or Double
+Hint:
+The unary `-` operator requires a numeric operand.
+
+Example:
+    -amount

@@ -1,0 +1,8 @@
+module UnknownRoutineCall
+
+procedure main()
+is
+    call missing()
+end main
+
+end UnknownRoutineCall

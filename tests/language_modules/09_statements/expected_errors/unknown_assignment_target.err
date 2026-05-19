@@ -1,0 +1,9 @@
+VF-ST001: unknown assignment target
+Phase: semantic
+Location: line 5, column 5
+Found: amount
+Expected: declared local variable
+Hint:
+Assignment requires an existing local variable.
+
+Declare the variable with `let` before assigning to it.

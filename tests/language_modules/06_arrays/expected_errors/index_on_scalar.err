@@ -1,0 +1,10 @@
+VF-A006: index access requires Array
+Phase: semantic
+Location: line 6, column 11
+Found: Integer
+Expected: Array
+Hint:
+Index access requires an Array value before the brackets.
+
+Example:
+    xs[0]

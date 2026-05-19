@@ -1,0 +1,9 @@
+VF-R008: unknown record variable
+Phase: semantic
+Location: line 5, column 5
+Found: account
+Expected: declared record variable
+Hint:
+A field path must start with a known local record variable.
+
+Declare the variable before reading or assigning its fields.

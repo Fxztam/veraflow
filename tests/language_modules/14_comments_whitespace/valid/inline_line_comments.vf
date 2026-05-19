@@ -1,0 +1,9 @@
+module InlineLineComments -- module header
+
+procedure main() -- routine header
+is
+    let amount: Integer = 1 -- local declaration
+    check amount = 1 -- assertion
+end main -- routine end
+
+end InlineLineComments -- module end

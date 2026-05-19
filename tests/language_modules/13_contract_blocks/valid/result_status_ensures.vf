@@ -1,0 +1,12 @@
+module ResultStatusEnsures
+
+error NotFound
+
+function load(found: Boolean) returns Result<Integer, NotFound>
+requires found = true
+ensures success or failure
+is
+    return ok 1
+end load
+
+end ResultStatusEnsures

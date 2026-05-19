@@ -1,0 +1,14 @@
+module Qualified.Calls
+
+function increment(amount: Integer) returns Integer
+is
+    return amount + 1
+end increment
+
+procedure main()
+is
+    let total: Integer = Qualified.Calls.increment(1)
+    check total = 2
+end main
+
+end Qualified.Calls

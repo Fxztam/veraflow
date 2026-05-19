@@ -1,0 +1,8 @@
+module ProcedureMinimal
+
+procedure main()
+is
+    check true
+end main
+
+end ProcedureMinimal

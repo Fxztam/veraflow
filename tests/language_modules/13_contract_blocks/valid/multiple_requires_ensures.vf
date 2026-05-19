@@ -1,0 +1,12 @@
+module MultipleRequiresEnsures
+
+function clamp(amount: Integer) returns Integer
+requires amount >= 0
+requires amount <= 10
+ensures result >= 0
+ensures result <= 10
+is
+    return amount
+end clamp
+
+end MultipleRequiresEnsures

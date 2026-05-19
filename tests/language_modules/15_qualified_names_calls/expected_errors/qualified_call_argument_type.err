@@ -1,0 +1,9 @@
+VF-U008: routine argument type mismatch
+Phase: semantic
+Location: line 10, column 59
+Found: Boolean
+Expected: argument 1 as Integer for increment
+Hint:
+Routine arguments must match the declared parameter types.
+
+Check the parameter declaration for the expected type.

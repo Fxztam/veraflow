@@ -1,0 +1,14 @@
+module Qualified.ProcedureAsExpression
+
+procedure touch()
+is
+    check true
+end touch
+
+procedure main()
+is
+    let total: Integer = Qualified.ProcedureAsExpression.touch()
+    check total = 1
+end main
+
+end Qualified.ProcedureAsExpression

@@ -1,0 +1,24 @@
+module Control.NestedEdges
+
+procedure main()
+is
+    let amount: Integer = 1
+    if amount = 1 then
+        case amount is
+            when 1 =>
+                check true
+            default =>
+                check false = false
+        end case
+    else
+        while amount > 0
+            invariant amount >= 0
+            variant amount
+        do
+            amount := amount - 1
+        end while
+    end if
+    check amount = 1
+end main
+
+end Control.NestedEdges

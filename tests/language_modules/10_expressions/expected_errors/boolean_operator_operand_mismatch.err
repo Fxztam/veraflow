@@ -1,0 +1,9 @@
+VF-E003: Boolean operator operand mismatch
+Phase: semantic
+Location: line 5, column 11
+Found: Boolean and Integer
+Expected: Boolean operands for and
+Hint:
+Boolean operators require Boolean operands on both sides.
+
+Use comparisons to produce Boolean values before combining them with `and` or `or`.

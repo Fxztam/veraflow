@@ -1,0 +1,12 @@
+VF-C004: expected module end declaration
+Phase: syntax
+Location: line 6, column 5
+Found: ''
+Expected: "end <Module.Name>"
+Hint:
+Every module must end with its qualified module name.
+
+Example:
+    module Demo
+    ...
+    end Demo

@@ -1,0 +1,8 @@
+module TypeRecordNameCollision
+
+type Account is Integer
+type Account is record
+    id: Integer
+end record
+
+end TypeRecordNameCollision

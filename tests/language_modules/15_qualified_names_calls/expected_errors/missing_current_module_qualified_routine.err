@@ -1,0 +1,9 @@
+VF-U005: unknown routine
+Phase: semantic
+Location: line 5, column 5
+Found: Qualified.MissingLocal.not_declared
+Expected: declared routine
+Hint:
+A call must name a declared routine.
+
+Declare the function or procedure before calling it.

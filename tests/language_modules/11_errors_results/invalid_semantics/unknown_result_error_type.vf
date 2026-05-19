@@ -1,0 +1,8 @@
+module UnknownResultErrorType
+
+function load() returns Result<Integer, MissingError>
+is
+    return ok 1
+end load
+
+end UnknownResultErrorType

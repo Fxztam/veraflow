@@ -1,0 +1,9 @@
+VF-R004: unknown record literal field
+Phase: semantic
+Location: line 9, column 45
+Found: active
+Expected: declared field in Account
+Hint:
+A record literal or field access may only use fields declared by the record type.
+
+Check the record type declaration for the available field names.

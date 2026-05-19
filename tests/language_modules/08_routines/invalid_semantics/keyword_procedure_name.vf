@@ -1,0 +1,8 @@
+module KeywordProcedureName
+
+procedure return()
+is
+    check true
+end return
+
+end KeywordProcedureName

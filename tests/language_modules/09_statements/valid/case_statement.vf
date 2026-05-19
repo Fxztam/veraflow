@@ -1,0 +1,16 @@
+module CaseStatement
+
+procedure main()
+is
+    let choice: Integer = 1
+    case choice is
+        when 1 =>
+            check true
+        when 2 =>
+            check true
+        default =>
+            check true
+    end case
+end main
+
+end CaseStatement

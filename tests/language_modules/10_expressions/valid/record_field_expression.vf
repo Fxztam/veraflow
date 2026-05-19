@@ -1,0 +1,14 @@
+module RecordFieldExpression
+
+type Account is record
+    id: Integer
+    active: Boolean
+end record
+
+procedure main()
+is
+    let account: Account = Account { id: 1, active: true }
+    check account.id = 1 and account.active
+end main
+
+end RecordFieldExpression

@@ -1,0 +1,8 @@
+module UnknownAssignmentTarget
+
+procedure main()
+is
+    amount := 1
+end main
+
+end UnknownAssignmentTarget

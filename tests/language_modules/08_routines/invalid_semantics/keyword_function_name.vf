@@ -1,0 +1,8 @@
+module KeywordFunctionName
+
+function value() returns Integer
+is
+    return 1
+end value
+
+end KeywordFunctionName

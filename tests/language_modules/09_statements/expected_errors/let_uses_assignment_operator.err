@@ -1,0 +1,13 @@
+VF-ST007: let declaration uses assignment operator
+Phase: syntax
+Location: line 5, column 16
+Found: ":="
+Expected: "=" in let declaration
+Hint:
+A `let` statement declares a new local variable and uses `=`.
+
+Use `:=` only when assigning to an existing variable.
+
+Examples:
+    let amount: Integer = 1
+    amount := 2

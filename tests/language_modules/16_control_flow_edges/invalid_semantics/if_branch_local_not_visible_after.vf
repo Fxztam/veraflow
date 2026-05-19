@@ -1,0 +1,12 @@
+module Control.IfScope
+
+procedure main()
+is
+    if true then
+        let branch_total: Integer = 1
+        check branch_total = 1
+    end if
+    check branch_total = 1
+end main
+
+end Control.IfScope

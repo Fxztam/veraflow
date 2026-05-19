@@ -1,0 +1,111 @@
+{
+  "passed": 134,
+  "enabled_features": [
+    "core",
+    "control",
+    "arrays",
+    "result",
+    "records",
+    "cfg_smt"
+  ],
+  "total": 134,
+  "categories": {
+    "array": {
+      "passed": 6,
+      "total": 6
+    },
+    "cfg_smt": {
+      "passed": 4,
+      "total": 4
+    },
+    "contract": {
+      "passed": 4,
+      "total": 4
+    },
+    "core": {
+      "passed": 10,
+      "total": 10
+    },
+    "determinism": {
+      "passed": 1,
+      "total": 1
+    },
+    "double": {
+      "passed": 5,
+      "total": 5
+    },
+    "grammar": {
+      "passed": 3,
+      "total": 3
+    },
+    "loop": {
+      "passed": 3,
+      "total": 3
+    },
+    "nested_record": {
+      "passed": 3,
+      "total": 3
+    },
+    "property": {
+      "passed": 15,
+      "total": 15
+    },
+    "record": {
+      "passed": 13,
+      "total": 13
+    },
+    "recovery": {
+      "passed": 1,
+      "total": 1
+    },
+    "result": {
+      "passed": 2,
+      "total": 2
+    },
+    "runtime_vs_verifier": {
+      "passed": 2,
+      "total": 2
+    },
+    "stress": {
+      "passed": 2,
+      "total": 2
+    },
+    "type_system": {
+      "passed": 4,
+      "total": 4
+    },
+    "update": {
+      "passed": 4,
+      "total": 4
+    },
+    "v11a": {
+      "passed": 5,
+      "total": 5
+    },
+    "v11b": {
+      "passed": 7,
+      "total": 7
+    },
+    "v11c": {
+      "passed": 8,
+      "total": 8
+    },
+    "v11d": {
+      "passed": 7,
+      "total": 7
+    },
+    "v11e": {
+      "passed": 8,
+      "total": 8
+    },
+    "v11f": {
+      "passed": 11,
+      "total": 11
+    },
+    "v11h": {
+      "passed": 6,
+      "total": 6
+    }
+  },
+  "failures": []
+}

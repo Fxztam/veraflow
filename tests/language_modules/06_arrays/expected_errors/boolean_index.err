@@ -1,0 +1,10 @@
+VF-A007: array index must be Integer
+Phase: semantic
+Location: line 6, column 18
+Found: Boolean
+Expected: Integer
+Hint:
+Array indexes must be Integer expressions.
+
+Example:
+    xs[0]

@@ -1,0 +1,13 @@
+module DuplicateRoutineName
+
+procedure main()
+is
+    check true
+end main
+
+function main() returns Integer
+is
+    return 1
+end main
+
+end DuplicateRoutineName

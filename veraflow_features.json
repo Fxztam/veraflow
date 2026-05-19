@@ -1,0 +1,54 @@
+{
+  "enabled_features": [
+    "core",
+    "control",
+    "arrays",
+    "result",
+    "records",
+    "cfg_smt"
+  ],
+  "policy": {
+    "formal_verification_system_for_ai": true,
+    "no_preprocessor": true,
+    "no_hidden_compiler_flags": true,
+    "no_automatic_semantics_from_comments": true,
+    "external_grammar_required": true,
+    "feature_must_ship_tests": true,
+    "assignment_operator_for_mutation": ":=",
+    "definition_operator_for_let": "=",
+    "equality_operator": "=",
+    "qualified_module_names": true,
+    "imports_structurally_verified": true,
+    "qualified_end_required": true,
+    "case_requires_default": true,
+    "case_no_fallthrough": true,
+    "line_comments": "--",
+    "block_comments": "/* */",
+    "ai_doc_comments": "/** */",
+    "comments_have_no_semantic_effect": true,
+    "native_string_type": true,
+    "string_operations": [
+      "String.concat",
+      "String.substr",
+      "String.replace",
+      "String.instr"
+    ],
+    "string_indices_are_zero_based": true,
+    "standard_library_foundation": true,
+    "std_io_bindings": [
+      "Std.IO.log",
+      "Std.IO.logf"
+    ],
+    "std_io_is_syntax": false
+  },
+  "version": "v11h_std_io",
+  "implemented_migrations": [
+    "assignment_colon_equal",
+    "imports_exposing",
+    "qualified_end",
+    "case_stmt",
+    "comments",
+    "strings",
+    "std_io"
+  ]
+}

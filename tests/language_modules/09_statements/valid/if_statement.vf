@@ -1,0 +1,13 @@
+module IfStatement
+
+procedure main()
+is
+    let amount: Integer = 1
+    if amount = 1 then
+        check true
+    else
+        check false = true
+    end if
+end main
+
+end IfStatement

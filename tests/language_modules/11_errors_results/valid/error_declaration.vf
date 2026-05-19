@@ -1,0 +1,10 @@
+module ErrorDeclaration
+
+error NotFound
+
+procedure main()
+is
+    check true
+end main
+
+end ErrorDeclaration

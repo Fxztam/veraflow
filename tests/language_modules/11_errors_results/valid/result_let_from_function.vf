@@ -1,0 +1,16 @@
+module ResultLetFromFunction
+
+error NotFound
+
+function load() returns Result<Integer, NotFound>
+is
+    return ok 1
+end load
+
+procedure main()
+is
+    let outcome: Result<Integer, NotFound> = load()
+    check true
+end main
+
+end ResultLetFromFunction

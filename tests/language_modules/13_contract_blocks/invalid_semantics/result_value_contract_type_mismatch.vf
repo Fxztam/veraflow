@@ -1,0 +1,11 @@
+module ResultValueContractTypeMismatch
+
+error NotFound
+
+function load() returns Result<Integer, NotFound>
+ensures value = true
+is
+    return ok 1
+end load
+
+end ResultValueContractTypeMismatch

@@ -1,0 +1,8 @@
+module UnknownArrayVariable
+
+procedure main()
+is
+    check values[0] = 1
+end main
+
+end UnknownArrayVariable

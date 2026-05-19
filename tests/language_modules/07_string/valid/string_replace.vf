@@ -1,0 +1,8 @@
+module StringReplace
+
+function label() returns String
+is
+    return String.replace("vera-flow", "-", "")
+end label
+
+end StringReplace

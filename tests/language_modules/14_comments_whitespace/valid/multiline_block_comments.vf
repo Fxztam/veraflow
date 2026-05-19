@@ -1,0 +1,12 @@
+module MultilineBlockComments
+
+/*
+    A block comment may span multiple lines.
+    It is ignored as lexical trivia.
+*/
+procedure main()
+is
+    check true
+end main
+
+end MultilineBlockComments

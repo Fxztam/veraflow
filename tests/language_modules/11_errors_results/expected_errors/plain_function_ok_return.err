@@ -1,0 +1,9 @@
+VF-ER005: plain function cannot return ok or error
+Phase: semantic
+Location: line 5, column 12
+Found: ok/error return
+Expected: plain expression return
+Hint:
+A non-Result function must return a plain expression.
+
+Use `returns Result<T, E>` when the function should return `ok` or `error`.

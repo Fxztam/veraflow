@@ -1,0 +1,80 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "node": "NumberExpr",
+            "value": 1
+          },
+          "name": "choice",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Integer",
+            "node": "TypeName"
+          }
+        },
+        {
+          "branches": [
+            {
+              "body": [
+                {
+                  "expr": {
+                    "node": "BoolExpr",
+                    "value": true
+                  },
+                  "node": "CheckStmt"
+                }
+              ],
+              "node": "CaseBranch",
+              "value": {
+                "node": "NumberExpr",
+                "value": 1
+              }
+            },
+            {
+              "body": [
+                {
+                  "expr": {
+                    "node": "BoolExpr",
+                    "value": true
+                  },
+                  "node": "CheckStmt"
+                }
+              ],
+              "node": "CaseBranch",
+              "value": {
+                "node": "NumberExpr",
+                "value": 2
+              }
+            }
+          ],
+          "default_body": [
+            {
+              "expr": {
+                "node": "BoolExpr",
+                "value": true
+              },
+              "node": "CheckStmt"
+            }
+          ],
+          "expr": {
+            "name": "choice",
+            "node": "VarExpr"
+          },
+          "node": "CaseStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "CaseStatement",
+  "node": "Program"
+}

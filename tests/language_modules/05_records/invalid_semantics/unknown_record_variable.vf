@@ -1,0 +1,9 @@
+module UnknownRecordVariable
+
+procedure main()
+is
+    account.id := 1
+    check true
+end main
+
+end UnknownRecordVariable

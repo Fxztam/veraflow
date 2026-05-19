@@ -1,0 +1,9 @@
+module NestedBlockComment
+
+/* outer /* inner */ outer */
+procedure main()
+is
+    check true
+end main
+
+end NestedBlockComment

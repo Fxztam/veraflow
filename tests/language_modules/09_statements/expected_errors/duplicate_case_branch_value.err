@@ -1,0 +1,9 @@
+VF-ST006: duplicate case branch value
+Phase: semantic
+Location: line 9, column 9
+Found: duplicate branch value
+Expected: unique case branch value
+Hint:
+Each literal case branch value may appear only once.
+
+Remove the duplicate branch or merge its body into the first branch.

@@ -1,0 +1,68 @@
+{
+  "declarations": [
+    {
+      "name": "NotFound",
+      "node": "ErrorDecl"
+    },
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "node": "NumberExpr",
+              "value": 1
+            },
+            "node": "ReturnOk"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "load",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": {
+        "error_type": "NotFound",
+        "node": "ResultTypeName",
+        "ok_type": "Integer"
+      }
+    },
+    {
+      "body": [
+        {
+          "expr": {
+            "args": [],
+            "name": "load",
+            "node": "CallExpr"
+          },
+          "name": "outcome",
+          "node": "LetStmt",
+          "type_ref": {
+            "error_type": "NotFound",
+            "node": "ResultTypeName",
+            "ok_type": "Integer"
+          }
+        },
+        {
+          "expr": {
+            "node": "BoolExpr",
+            "value": true
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "ResultLetFromFunction",
+  "node": "Program"
+}

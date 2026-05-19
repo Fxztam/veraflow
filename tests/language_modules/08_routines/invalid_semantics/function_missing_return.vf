@@ -1,0 +1,8 @@
+module FunctionMissingReturn
+
+function read() returns Integer
+is
+    check true
+end read
+
+end FunctionMissingReturn

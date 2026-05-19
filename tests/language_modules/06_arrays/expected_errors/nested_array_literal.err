@@ -1,0 +1,9 @@
+VF-A001: array literal elements must be scalar
+Phase: semantic
+Location: line 5, column 37
+Found: nested array literal
+Expected: scalar element
+Hint:
+Array literals may contain scalar values only.
+
+Nested array literals are not supported by the current Array type.

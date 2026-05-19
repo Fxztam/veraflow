@@ -1,0 +1,9 @@
+module ArrayIndex
+
+procedure main()
+is
+    let values: Array<Integer, 3> = [1, 2, 3]
+    check values[1] = 2
+end main
+
+end ArrayIndex

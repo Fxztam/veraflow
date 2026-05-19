@@ -1,0 +1,66 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "node": "NumberExpr",
+              "value": 1
+            },
+            "node": "ReturnPlain"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "one",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": {
+        "name": "Integer",
+        "node": "TypeName"
+      }
+    },
+    {
+      "body": [
+        {
+          "expr": {
+            "left": {
+              "left": {
+                "args": [],
+                "name": "one",
+                "node": "CallExpr"
+              },
+              "node": "BinaryExpr",
+              "op": "+",
+              "right": {
+                "node": "NumberExpr",
+                "value": 1
+              }
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 2
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "FunctionCallExpressionValue",
+  "node": "Program"
+}

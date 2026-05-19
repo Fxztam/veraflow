@@ -1,0 +1,11 @@
+module WrongResultErrorReturn
+
+error NotFound
+error PermissionDenied
+
+function load() returns Result<Integer, NotFound>
+is
+    return error PermissionDenied
+end load
+
+end WrongResultErrorReturn

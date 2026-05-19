@@ -1,0 +1,10 @@
+module ResultOkTypeMismatch
+
+error NotFound
+
+function load() returns Result<Integer, NotFound>
+is
+    return ok true
+end load
+
+end ResultOkTypeMismatch

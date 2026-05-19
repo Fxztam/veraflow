@@ -1,0 +1,88 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "node": "BoolExpr",
+            "value": true
+          },
+          "name": "active",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Boolean",
+            "node": "TypeName"
+          }
+        },
+        {
+          "branches": [
+            {
+              "body": [
+                {
+                  "expr": {
+                    "name": "active",
+                    "node": "VarExpr"
+                  },
+                  "node": "CheckStmt"
+                }
+              ],
+              "node": "CaseBranch",
+              "value": {
+                "node": "BoolExpr",
+                "value": true
+              }
+            },
+            {
+              "body": [
+                {
+                  "expr": {
+                    "left": {
+                      "name": "active",
+                      "node": "VarExpr"
+                    },
+                    "node": "BinaryExpr",
+                    "op": "=",
+                    "right": {
+                      "node": "BoolExpr",
+                      "value": false
+                    }
+                  },
+                  "node": "CheckStmt"
+                }
+              ],
+              "node": "CaseBranch",
+              "value": {
+                "node": "BoolExpr",
+                "value": false
+              }
+            }
+          ],
+          "default_body": [
+            {
+              "expr": {
+                "node": "BoolExpr",
+                "value": true
+              },
+              "node": "CheckStmt"
+            }
+          ],
+          "expr": {
+            "name": "active",
+            "node": "VarExpr"
+          },
+          "node": "CaseStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "Control.BooleanCase",
+  "node": "Program"
+}

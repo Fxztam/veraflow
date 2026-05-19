@@ -1,0 +1,9 @@
+VF-U010: function call requires function
+Phase: semantic
+Location: line 10, column 26
+Found: procedure
+Expected: function
+Hint:
+A routine used in an expression must be a function.
+
+Use a `call` statement for procedures, or change the routine to return a value.

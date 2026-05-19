@@ -1,0 +1,8 @@
+module StringIntegerComparison
+
+procedure main()
+is
+    check "ready" = 1
+end main
+
+end StringIntegerComparison

@@ -1,0 +1,14 @@
+module DuplicateRecordLiteralField
+
+type Account is record
+    id: Integer
+    active: Boolean
+end record
+
+procedure main()
+is
+    let account: Account = Account { id: 1, id: 2, active: true }
+    check account.active
+end main
+
+end DuplicateRecordLiteralField

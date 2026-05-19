@@ -1,0 +1,9 @@
+module UnaryNegativeOperandMismatch
+
+procedure main()
+is
+    let amount: Integer = -true
+    check true
+end main
+
+end UnaryNegativeOperandMismatch

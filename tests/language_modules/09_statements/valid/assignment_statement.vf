@@ -1,0 +1,10 @@
+module AssignmentStatement
+
+procedure main()
+is
+    let amount: Integer = 1
+    amount := 2
+    check amount = 2
+end main
+
+end AssignmentStatement

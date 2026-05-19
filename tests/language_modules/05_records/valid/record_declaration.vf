@@ -1,0 +1,8 @@
+module RecordDeclaration
+
+type Account is record
+    id: Integer
+    active: Boolean
+end record
+
+end RecordDeclaration

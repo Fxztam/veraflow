@@ -1,0 +1,69 @@
+{
+  "declarations": [
+    {
+      "name": "NotFound",
+      "node": "ErrorDecl"
+    },
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "node": "NumberExpr",
+              "value": 1
+            },
+            "node": "ReturnOk"
+          }
+        }
+      ],
+      "ensures": [
+        {
+          "left": {
+            "name": "value",
+            "node": "SpecialResultExpr"
+          },
+          "node": "BinaryExpr",
+          "op": ">=",
+          "right": {
+            "node": "NumberExpr",
+            "value": 0
+          }
+        },
+        {
+          "left": {
+            "left": {
+              "name": "error",
+              "node": "SpecialResultExpr"
+            },
+            "node": "BinaryExpr",
+            "op": "=",
+            "right": {
+              "name": "NotFound",
+              "node": "VarExpr"
+            }
+          },
+          "node": "BinaryExpr",
+          "op": "or",
+          "right": {
+            "name": "success",
+            "node": "SpecialResultExpr"
+          }
+        }
+      ],
+      "kind": "function",
+      "name": "load",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": {
+        "error_type": "NotFound",
+        "node": "ResultTypeName",
+        "ok_type": "Integer"
+      }
+    }
+  ],
+  "imports": [],
+  "module_name": "ResultValueEnsures",
+  "node": "Program"
+}

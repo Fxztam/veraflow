@@ -1,0 +1,7 @@
+module KeywordRecordName
+
+type record is record
+    id: Integer
+end record
+
+end KeywordRecordName

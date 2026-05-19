@@ -1,0 +1,31 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "node": "DoubleExpr",
+              "value": 1.5
+            },
+            "node": "ReturnPlain"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "ratio",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": {
+        "name": "Double",
+        "node": "TypeName"
+      }
+    }
+  ],
+  "imports": [],
+  "module_name": "FunctionReturnsDouble",
+  "node": "Program"
+}

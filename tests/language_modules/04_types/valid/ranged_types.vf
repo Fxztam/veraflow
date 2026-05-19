@@ -1,0 +1,11 @@
+module RangedTypes
+
+type Percent is Integer range 0..100
+type Temperature is Double range -273.15..10000.0
+
+function zero_percent() returns Percent
+is
+    return 0
+end zero_percent
+
+end RangedTypes

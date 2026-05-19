@@ -1,0 +1,8 @@
+module OrderingComparisonOperandMismatch
+
+procedure main()
+is
+    check "a" < "b"
+end main
+
+end OrderingComparisonOperandMismatch

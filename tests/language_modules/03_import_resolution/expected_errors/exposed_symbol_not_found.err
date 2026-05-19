@@ -1,0 +1,10 @@
+VF-M004: exposed symbol not found
+Phase: resolution
+Location: line 3, column 1
+Found: missing_symbol
+Expected: declared symbol in Banking.Proofs
+Hint:
+Every symbol listed in an exposing clause must be declared by the imported module.
+
+Example:
+    import Banking.Proofs exposing balance_never_negative

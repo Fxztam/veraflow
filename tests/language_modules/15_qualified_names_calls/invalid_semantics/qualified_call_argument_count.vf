@@ -1,0 +1,14 @@
+module Qualified.ArgumentCount
+
+function sum(left: Integer, right: Integer) returns Integer
+is
+    return left + right
+end sum
+
+procedure main()
+is
+    let total: Integer = Qualified.ArgumentCount.sum(1)
+    check total = 1
+end main
+
+end Qualified.ArgumentCount

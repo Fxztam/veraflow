@@ -1,0 +1,17 @@
+module Control.IfElseReturn
+
+function classify(amount: Integer) returns Integer
+is
+    if amount > 0 then
+        return 1
+    else
+        return 0
+    end if
+end classify
+
+procedure main()
+is
+    check classify(1) = 1
+end main
+
+end Control.IfElseReturn

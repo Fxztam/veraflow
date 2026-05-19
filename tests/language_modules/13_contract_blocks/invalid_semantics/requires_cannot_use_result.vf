@@ -1,0 +1,9 @@
+module RequiresCannotUseResult
+
+function current() returns Integer
+requires result = 1
+is
+    return 1
+end current
+
+end RequiresCannotUseResult

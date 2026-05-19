@@ -1,0 +1,10 @@
+VF-C003: expected module name after 'module'
+Phase: syntax
+Location: line 1, column 7
+Found: EOF
+Expected: module name
+Hint:
+Write a qualified module name after the module keyword.
+
+Example:
+    module MyApp.Main

@@ -1,0 +1,9 @@
+module NonResultEnsuresCannotUseSuccess
+
+function current() returns Integer
+ensures success
+is
+    return 1
+end current
+
+end NonResultEnsuresCannotUseSuccess

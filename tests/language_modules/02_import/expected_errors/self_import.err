@@ -1,0 +1,12 @@
+VF-I001: module cannot import itself
+Phase: semantic
+Location: line 3, column 1
+Found: App.Main
+Expected: different module name
+Hint:
+A module cannot import itself.
+
+Example:
+    module App.Main
+    import Banking.Proofs
+    end App.Main

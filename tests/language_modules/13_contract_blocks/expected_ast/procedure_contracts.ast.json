@@ -1,0 +1,57 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "left": {
+              "name": "amount",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": ">=",
+            "right": {
+              "node": "NumberExpr",
+              "value": 0
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [
+        {
+          "node": "BoolExpr",
+          "value": true
+        }
+      ],
+      "kind": "procedure",
+      "name": "accept",
+      "node": "RoutineDecl",
+      "params": [
+        {
+          "name": "amount",
+          "node": "Param",
+          "type_name": "Integer"
+        }
+      ],
+      "requires": [
+        {
+          "left": {
+            "name": "amount",
+            "node": "VarExpr"
+          },
+          "node": "BinaryExpr",
+          "op": ">=",
+          "right": {
+            "node": "NumberExpr",
+            "value": 0
+          }
+        }
+      ],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "ProcedureContracts",
+  "node": "Program"
+}

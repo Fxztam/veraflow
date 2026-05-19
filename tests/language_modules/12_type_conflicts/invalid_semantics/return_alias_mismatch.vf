@@ -1,0 +1,10 @@
+module ReturnAliasMismatch
+
+type Count is Integer range 0..100
+
+function count() returns Count
+is
+    return true
+end count
+
+end ReturnAliasMismatch

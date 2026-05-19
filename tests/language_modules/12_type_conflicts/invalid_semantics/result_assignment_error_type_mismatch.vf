@@ -1,0 +1,16 @@
+module ResultAssignmentErrorTypeMismatch
+
+error NotFound
+error PermissionDenied
+
+function load() returns Result<Integer, NotFound>
+is
+    return ok 1
+end load
+
+procedure main()
+is
+    let outcome: Result<Integer, PermissionDenied> = load()
+end main
+
+end ResultAssignmentErrorTypeMismatch

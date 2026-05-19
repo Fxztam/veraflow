@@ -1,0 +1,14 @@
+module CommentsInsideExpression
+
+function add(left: Integer, right: Integer) returns Integer
+is
+    return left /* operator left */ + /* operator right */ right
+end add
+
+procedure main()
+is
+    let total: Integer = add(1, /* argument separator */ 2)
+    check total = 3
+end main
+
+end CommentsInsideExpression

@@ -1,0 +1,10 @@
+module EnsuresBeforeRequires
+
+function current() returns Integer
+ensures result = 1
+requires true
+is
+    return 1
+end current
+
+end EnsuresBeforeRequires

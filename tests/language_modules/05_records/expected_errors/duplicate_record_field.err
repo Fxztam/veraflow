@@ -1,0 +1,13 @@
+VF-R001: duplicate record field
+Phase: semantic
+Location: line 5, column 5
+Found: id
+Expected: unique field name
+Hint:
+A record type may declare each field name only once.
+
+Example:
+    type Account is record
+        id: Integer
+        active: Boolean
+    end record

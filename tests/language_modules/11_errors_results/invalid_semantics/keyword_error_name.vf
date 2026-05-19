@@ -1,0 +1,5 @@
+module KeywordErrorName
+
+error value
+
+end KeywordErrorName

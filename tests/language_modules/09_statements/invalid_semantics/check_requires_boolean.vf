@@ -1,0 +1,8 @@
+module CheckRequiresBoolean
+
+procedure main()
+is
+    check 1
+end main
+
+end CheckRequiresBoolean

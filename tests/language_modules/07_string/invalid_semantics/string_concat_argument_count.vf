@@ -1,0 +1,8 @@
+module StringConcatArgumentCount
+
+function label() returns String
+is
+    return String.concat("vera")
+end label
+
+end StringConcatArgumentCount

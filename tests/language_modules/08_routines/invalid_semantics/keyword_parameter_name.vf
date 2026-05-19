@@ -1,0 +1,8 @@
+module KeywordParameterName
+
+function read(value: Integer) returns Integer
+is
+    return value
+end read
+
+end KeywordParameterName

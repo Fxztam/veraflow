@@ -1,0 +1,10 @@
+VF-I003: duplicate exposing symbol
+Phase: semantic
+Location: line 3, column 1
+Found: balance_never_negative
+Expected: unique symbol in import Banking.Proofs
+Hint:
+Each exposed symbol may appear only once in an import exposing list.
+
+Example:
+    import Banking.Proofs exposing balance_never_negative, transfer_preserves_total

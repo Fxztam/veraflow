@@ -1,0 +1,11 @@
+module Control.ReturnAfterIf
+
+function normalize(amount: Integer) returns Integer
+is
+    if amount < 0 then
+        check amount < 0
+    end if
+    return amount
+end normalize
+
+end Control.ReturnAfterIf

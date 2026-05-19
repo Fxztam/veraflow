@@ -1,0 +1,45 @@
+{
+  "declarations": [
+    {
+      "base": "Integer",
+      "max_value": 100,
+      "min_value": 0,
+      "name": "Percent",
+      "node": "TypeDecl"
+    },
+    {
+      "base": "Double",
+      "max_value": 10000.0,
+      "min_value": -273.15,
+      "name": "Temperature",
+      "node": "TypeDecl"
+    },
+    {
+      "body": [
+        {
+          "node": "ReturnStmt",
+          "value": {
+            "expr": {
+              "node": "NumberExpr",
+              "value": 0
+            },
+            "node": "ReturnPlain"
+          }
+        }
+      ],
+      "ensures": [],
+      "kind": "function",
+      "name": "zero_percent",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": {
+        "name": "Percent",
+        "node": "TypeName"
+      }
+    }
+  ],
+  "imports": [],
+  "module_name": "RangedTypes",
+  "node": "Program"
+}

@@ -1,0 +1,10 @@
+module App.Main
+
+import Banking.Missing
+
+procedure main()
+is
+    check true
+end main
+
+end App.Main

@@ -1,0 +1,13 @@
+module UnknownRecordLiteralField
+
+type Account is record
+    id: Integer
+end record
+
+procedure main()
+is
+    let account: Account = Account { id: 1, active: true }
+    check true
+end main
+
+end UnknownRecordLiteralField

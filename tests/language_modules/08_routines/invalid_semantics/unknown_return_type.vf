@@ -1,0 +1,8 @@
+module UnknownReturnType
+
+function read() returns MissingType
+is
+    return 1
+end read
+
+end UnknownReturnType

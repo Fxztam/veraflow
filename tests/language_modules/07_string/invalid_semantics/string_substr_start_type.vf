@@ -1,0 +1,8 @@
+module StringSubstrStartType
+
+function label() returns String
+is
+    return String.substr("veraflow", true, 4)
+end label
+
+end StringSubstrStartType

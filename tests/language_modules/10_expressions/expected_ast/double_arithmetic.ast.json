@@ -1,0 +1,53 @@
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "expr": {
+            "left": {
+              "node": "DoubleExpr",
+              "value": 1.5
+            },
+            "node": "BinaryExpr",
+            "op": "+",
+            "right": {
+              "node": "DoubleExpr",
+              "value": 2.5
+            }
+          },
+          "name": "total",
+          "node": "LetStmt",
+          "type_ref": {
+            "name": "Double",
+            "node": "TypeName"
+          }
+        },
+        {
+          "expr": {
+            "left": {
+              "name": "total",
+              "node": "VarExpr"
+            },
+            "node": "BinaryExpr",
+            "op": ">",
+            "right": {
+              "node": "DoubleExpr",
+              "value": 3.0
+            }
+          },
+          "node": "CheckStmt"
+        }
+      ],
+      "ensures": [],
+      "kind": "procedure",
+      "name": "main",
+      "node": "RoutineDecl",
+      "params": [],
+      "requires": [],
+      "return_type": null
+    }
+  ],
+  "imports": [],
+  "module_name": "DoubleArithmetic",
+  "node": "Program"
+}
